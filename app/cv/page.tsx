@@ -16,7 +16,7 @@ export default function CVPage() {
     <div className="space-y-8">
       <SectionHeading
         title="CV"
-        subtitle="A fast, scannable overview. You can replace/expand details anytime."
+        subtitle="A concise overview focused on practical skills and real-world experience."
       />
 
       <section className="card p-6 sm:p-8 space-y-4">

@@ -68,8 +68,8 @@ export default function ContactPage() {
               Envoyer
             </button>
 
-            <p className="text-base text-zinc-500">
-              Ce formulaire utilise Formspree (pas de backend). Vous recevrez les messages à{" "}
+            <p className="text-xs text-zinc-500">
+              Les messages sont envoyés directement à{" "}
               <a className="link" href="mailto:dorian.thome@proton.me">
                 dorian.thome@proton.me
               </a>.
