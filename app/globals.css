@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  @apply bg-zinc-950 text-zinc-100 antialiased;
+}
+
+/* Nice selection */
+::selection {
+  @apply bg-zinc-200 text-zinc-900;
+}
+
+/* Subtle grid background helper */
+.bg-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Utilities */
+.container-padded {
+  @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+}
+
+.card {
+  @apply rounded-2xl border border-zinc-800 bg-zinc-950/60 backdrop-blur
+         shadow-[0_0_0_1px_rgba(255,255,255,0.04)] transition;
+}
+
+.card-hover {
+  @apply hover:border-zinc-700 hover:bg-zinc-950/80;
+}
+
+.badge {
+  @apply inline-flex items-center gap-2 rounded-full border border-zinc-800
+         bg-zinc-900/40 px-3 py-1 text-xs text-zinc-200;
+}
+
+.link {
+  @apply text-zinc-100 underline decoration-zinc-700 underline-offset-4 hover:decoration-zinc-300;
+}
+
+.muted {
+  @apply text-zinc-300;
+}
