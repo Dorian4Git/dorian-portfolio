@@ -8,7 +8,7 @@ export default function SiteFooter() {
           <div className="space-y-2">
             <div className="text-base text-zinc-200">
               <span className="font-medium text-zinc-50">Dorian Thomé</span>{" "}
-              <span className="text-zinc-400">— Data analyst & Web Developer</span>
+              <span className="text-zinc-400">— Web & Data</span>
             </div>
             <div className="text-base text-zinc-400">
               Building clean, modern websites for small businesses and individuals.
