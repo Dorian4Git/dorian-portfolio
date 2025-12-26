@@ -60,29 +60,29 @@ export default function ServicesPage() {
         {services.map((s) => (
           <article key={s.title} className="card card-hover p-6">
             <h2 className="text-base font-semibold text-zinc-50">{s.title}</h2>
-            <p className="mt-2 text-sm text-zinc-300">{s.who}</p>
+            <p className="mt-2 text-base text-zinc-300">{s.who}</p>
 
-            <ul className="mt-4 space-y-2 text-sm text-zinc-300">
+            <ul className="mt-4 space-y-2 text-base text-zinc-300">
               {s.bullets.map((b) => (
                 <li key={b}>• {b}</li>
               ))}
             </ul>
 
-            <p className="mt-4 text-xs text-zinc-400">{s.note}</p>
+            <p className="mt-4 text-base text-zinc-400">{s.note}</p>
           </article>
         ))}
       </div>
 
       <div className="card p-6 sm:p-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <div className="text-sm font-medium text-zinc-50">Vous voulez un devis ?</div>
-          <div className="text-sm text-zinc-300">
+          <div className="text-base font-medium text-zinc-50">Vous voulez un devis ?</div>
+          <div className="text-base text-zinc-300">
             Envoyez votre objectif, délai et 1–2 exemples que vous aimez.
           </div>
         </div>
         <Link
           href="/contact"
-          className="rounded-xl bg-zinc-50 px-4 py-2.5 text-sm font-medium text-zinc-950 hover:bg-zinc-200 transition w-fit"
+          className="rounded-xl bg-zinc-50 px-4 py-2.5 text-base font-medium text-zinc-950 hover:bg-zinc-200 transition w-fit"
         >
           Me contacter
         </Link>

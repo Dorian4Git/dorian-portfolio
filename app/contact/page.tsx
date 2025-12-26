@@ -11,7 +11,7 @@ export default function ContactPage() {
       <div className="grid gap-6 lg:grid-cols-2">
         <section className="card p-6 sm:p-8">
           <h2 className="text-lg font-semibold text-zinc-50">Message</h2>
-          <p className="mt-2 text-sm text-zinc-300">
+          <p className="mt-2 text-base text-zinc-300">
             Include your goal, timeline, and any links/examples. I’ll reply with a clear plan.
           </p>
 
@@ -21,7 +21,7 @@ export default function ContactPage() {
             method="POST"
           >
             <div className="space-y-2">
-              <label className="text-sm text-zinc-200" htmlFor="name">
+              <label className="text-base text-zinc-200" htmlFor="name">
                 Name
               </label>
               <input
@@ -34,7 +34,7 @@ export default function ContactPage() {
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm text-zinc-200" htmlFor="email">
+              <label className="text-base text-zinc-200" htmlFor="email">
                 Email
               </label>
               <input
@@ -48,7 +48,7 @@ export default function ContactPage() {
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm text-zinc-200" htmlFor="message">
+              <label className="text-base text-zinc-200" htmlFor="message">
                 Message
               </label>
               <textarea
@@ -56,19 +56,19 @@ export default function ContactPage() {
                 name="message"
                 required
                 rows={6}
-                className="w-full resize-none rounded-xl border border-zinc-800 bg-zinc-950/50 px-3 py-2 text-sm text-zinc-100 outline-none focus:border-zinc-600"
+                className="w-full resize-none rounded-xl border border-zinc-800 bg-zinc-950/50 px-3 py-2 text-base text-zinc-100 outline-none focus:border-zinc-600"
                 placeholder="What do you want to build? Any constraints? Timeline?"
               />
             </div>
 
             <button
               type="submit"
-              className="rounded-xl bg-zinc-50 px-4 py-2.5 text-sm font-medium text-zinc-950 hover:bg-zinc-200 transition"
+              className="rounded-xl bg-zinc-50 px-4 py-2.5 text-base font-medium text-zinc-950 hover:bg-zinc-200 transition"
             >
               Send
             </button>
 
-            <p className="text-xs text-zinc-500">
+            <p className="text-base text-zinc-500">
               This form uses Formspree (no backend). You’ll receive messages at{" "}
               <a className="link" href="mailto:dorian.thome@proton.me">
                 dorian.thome@proton.me
@@ -79,7 +79,7 @@ export default function ContactPage() {
 
         <section className="card p-6 sm:p-8">
           <h2 className="text-lg font-semibold text-zinc-50">Direct</h2>
-          <div className="mt-4 space-y-3 text-sm text-zinc-300">
+          <div className="mt-4 space-y-3 text-base text-zinc-300">
             <div>
               <div className="text-xs text-zinc-500">Email</div>
               <a className="link" href="mailto:dorian.thome@proton.me">
@@ -112,8 +112,8 @@ export default function ContactPage() {
             </div>
 
             <div className="mt-6 card p-4">
-              <div className="text-sm font-medium text-zinc-50">Fast brief template</div>
-              <div className="mt-2 text-sm text-zinc-300">
+              <div className="text-base font-medium text-zinc-50">Fast brief template</div>
+              <div className="mt-2 text-base text-zinc-300">
                 <div>• Goal:</div>
                 <div>• Deadline:</div>
                 <div>• Examples you like:</div>

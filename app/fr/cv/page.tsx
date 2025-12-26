@@ -21,7 +21,7 @@ export default function CVPage() {
 
       <section className="card p-6 sm:p-8 space-y-4">
         <h2 className="text-lg font-semibold text-zinc-50">Profil</h2>
-        <p className="text-sm text-zinc-300 max-w-3xl">
+        <p className="text-base text-zinc-300 max-w-3xl">
           Ingénieur IA appliquée, focalisé sur des systèmes ML pragmatiques : affinage LLM efficace,
           pipelines de vision par ordinateur et livraison orientée produit. Expérience aussi en
           création et déploiement de sites web modernes pour des clients réels.
@@ -40,7 +40,7 @@ export default function CVPage() {
       <section className="grid gap-6 sm:grid-cols-2">
         <div className="card p-6 sm:p-8">
           <h2 className="text-lg font-semibold text-zinc-50">Travaux sélectionnés</h2>
-          <ul className="mt-4 space-y-3 text-sm text-zinc-300">
+          <ul className="mt-4 space-y-3 text-base text-zinc-300">
             <li>• Affinage de LLM avec méthodes qLoRA/PEFT.</li>
             <li>• Classification d’images drone pour détecter l’ambroisie (ResNet).</li>
             <li>• Concept d’app avec cartes + parcours paiement (MISY).</li>
@@ -50,7 +50,7 @@ export default function CVPage() {
 
         <div className="card p-6 sm:p-8">
           <h2 className="text-lg font-semibold text-zinc-50">Liens</h2>
-          <div className="mt-4 space-y-2 text-sm">
+          <div className="mt-4 space-y-2 text-base">
             <a
               className="link"
               href="https://www.linkedin.com/in/dorian-t-0b1168150/"
@@ -72,11 +72,6 @@ export default function CVPage() {
             <a className="link" href="mailto:dorian.thome@proton.me">
               dorian.thome@proton.me
             </a>
-
-            <div className="mt-4 text-xs text-zinc-500">
-              Astuce : vous pouvez ajouter plus tard un PDF téléchargeable (ex. `/cv.pdf`) en le plaçant dans
-              `public/`.
-            </div>
           </div>
         </div>
       </section>

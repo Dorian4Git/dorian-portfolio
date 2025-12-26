@@ -52,14 +52,6 @@ export default function ProjectsPage() {
           </article>
         ))}
       </div>
-
-      <div className="card p-6 sm:p-8">
-        <h3 className="text-base font-semibold text-zinc-50">Next upgrade</h3>
-        <p className="mt-2 text-sm text-zinc-300">
-          Add 1–2 screenshots per project and short “Problem → Approach → Result” sections.
-          That’s what makes recruiters and clients stop scrolling.
-        </p>
-      </div>
     </div>
   );
 }

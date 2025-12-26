@@ -48,17 +48,9 @@ export default function ProjectsPage() {
               ))}
             </div>
 
-            <p className="mt-4 text-sm text-zinc-300">{p.description}</p>
+            <p className="mt-4 text-base text-zinc-300">{p.description}</p>
           </article>
         ))}
-      </div>
-
-      <div className="card p-6 sm:p-8">
-        <h3 className="text-base font-semibold text-zinc-50">Prochaine amélioration</h3>
-        <p className="mt-2 text-sm text-zinc-300">
-          Ajouter 1–2 captures par projet et des sections courtes « Problème → Approche → Résultat ».
-          C’est ce qui fait s’arrêter les recruteurs et les clients.
-        </p>
       </div>
     </div>
   );

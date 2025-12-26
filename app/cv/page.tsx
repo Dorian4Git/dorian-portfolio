@@ -21,7 +21,7 @@ export default function CVPage() {
 
       <section className="card p-6 sm:p-8 space-y-4">
         <h2 className="text-lg font-semibold text-zinc-50">Profile</h2>
-        <p className="text-sm text-zinc-300 max-w-3xl">
+        <p className="text-base text-zinc-300 max-w-3xl">
           Applied AI Engineer focused on practical ML systems: efficient LLM fine-tuning,
           computer vision pipelines, and product-oriented delivery. Also experienced in
           building and deploying modern websites for real clients.
@@ -40,7 +40,7 @@ export default function CVPage() {
       <section className="grid gap-6 sm:grid-cols-2">
         <div className="card p-6 sm:p-8">
           <h2 className="text-lg font-semibold text-zinc-50">Selected Work</h2>
-          <ul className="mt-4 space-y-3 text-sm text-zinc-300">
+          <ul className="mt-4 space-y-3 text-base text-zinc-300">
             <li>• LLM fine-tuning using qLoRA/PEFT methods.</li>
             <li>• Drone imagery classification for ambrosia detection (ResNet).</li>
             <li>• App concept with maps + payment flow (MISY).</li>
@@ -50,7 +50,7 @@ export default function CVPage() {
 
         <div className="card p-6 sm:p-8">
           <h2 className="text-lg font-semibold text-zinc-50">Links</h2>
-          <div className="mt-4 space-y-2 text-sm">
+          <div className="mt-4 space-y-2 text-base">
             <a
               className="link"
               href="https://www.linkedin.com/in/dorian-t-0b1168150/"
@@ -72,11 +72,6 @@ export default function CVPage() {
             <a className="link" href="mailto:dorian.thome@proton.me">
               dorian.thome@proton.me
             </a>
-
-            <div className="mt-4 text-xs text-zinc-500">
-              Tip: later you can add a downloadable PDF (e.g. `/cv.pdf`) by placing it in
-              `public/`.
-            </div>
           </div>
         </div>
       </section>

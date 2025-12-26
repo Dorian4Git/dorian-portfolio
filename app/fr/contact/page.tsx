@@ -11,7 +11,7 @@ export default function ContactPage() {
       <div className="grid gap-6 lg:grid-cols-2">
         <section className="card p-6 sm:p-8">
           <h2 className="text-lg font-semibold text-zinc-50">Message</h2>
-          <p className="mt-2 text-sm text-zinc-300">
+          <p className="mt-2 text-base text-zinc-300">
             Indiquez votre objectif, votre calendrier, et tout lien/exemple utile. Je répondrai avec un plan clair.
           </p>
 
@@ -21,7 +21,7 @@ export default function ContactPage() {
             method="POST"
           >
             <div className="space-y-2">
-              <label className="text-sm text-zinc-200" htmlFor="name">
+              <label className="text-base text-zinc-200" htmlFor="name">
                 Nom
               </label>
               <input
@@ -34,7 +34,7 @@ export default function ContactPage() {
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm text-zinc-200" htmlFor="email">
+              <label className="text-base text-zinc-200" htmlFor="email">
                 Email
               </label>
               <input
@@ -42,13 +42,13 @@ export default function ContactPage() {
                 type="email"
                 name="email"
                 required
-                className="w-full rounded-xl border border-zinc-800 bg-zinc-950/50 px-3 py-2 text-sm text-zinc-100 outline-none focus:border-zinc-600"
+                className="w-full rounded-xl border border-zinc-800 bg-zinc-950/50 px-3 py-2 text-base text-zinc-100 outline-none focus:border-zinc-600"
                 placeholder="vous@example.com"
               />
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm text-zinc-200" htmlFor="message">
+              <label className="text-base text-zinc-200" htmlFor="message">
                 Message
               </label>
               <textarea
@@ -56,19 +56,19 @@ export default function ContactPage() {
                 name="message"
                 required
                 rows={6}
-                className="w-full resize-none rounded-xl border border-zinc-800 bg-zinc-950/50 px-3 py-2 text-sm text-zinc-100 outline-none focus:border-zinc-600"
+                className="w-full resize-none rounded-xl border border-zinc-800 bg-zinc-950/50 px-3 py-2 text-base text-zinc-100 outline-none focus:border-zinc-600"
                 placeholder="Que voulez-vous construire ? Contraintes ? Délai ?"
               />
             </div>
 
             <button
               type="submit"
-              className="rounded-xl bg-zinc-50 px-4 py-2.5 text-sm font-medium text-zinc-950 hover:bg-zinc-200 transition"
+              className="rounded-xl bg-zinc-50 px-4 py-2.5 text-base font-medium text-zinc-950 hover:bg-zinc-200 transition"
             >
               Envoyer
             </button>
 
-            <p className="text-xs text-zinc-500">
+            <p className="text-base text-zinc-500">
               Ce formulaire utilise Formspree (pas de backend). Vous recevrez les messages à{" "}
               <a className="link" href="mailto:dorian.thome@proton.me">
                 dorian.thome@proton.me
@@ -79,7 +79,7 @@ export default function ContactPage() {
 
         <section className="card p-6 sm:p-8">
           <h2 className="text-lg font-semibold text-zinc-50">Direct</h2>
-          <div className="mt-4 space-y-3 text-sm text-zinc-300">
+          <div className="mt-4 space-y-3 text-base text-zinc-300">
             <div>
               <div className="text-xs text-zinc-500">Email</div>
               <a className="link" href="mailto:dorian.thome@proton.me">
@@ -88,7 +88,7 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <div className="text-xs text-zinc-500">LinkedIn</div>
+              <div className="text-base text-zinc-500">LinkedIn</div>
               <a
                 className="link"
                 href="https://www.linkedin.com/in/dorian-t-0b1168150/"
@@ -100,7 +100,7 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <div className="text-xs text-zinc-500">GitHub</div>
+              <div className="text-base text-zinc-500">GitHub</div>
               <a
                 className="link"
                 href="https://github.com/Dorian4Git"
@@ -112,8 +112,8 @@ export default function ContactPage() {
             </div>
 
             <div className="mt-6 card p-4">
-              <div className="text-sm font-medium text-zinc-50">Modèle de brief rapide</div>
-              <div className="mt-2 text-sm text-zinc-300">
+              <div className="text-base font-medium text-zinc-50">Modèle de brief rapide</div>
+              <div className="mt-2 text-base text-zinc-300">
                 <div>• Objectif :</div>
                 <div>• Deadline :</div>
                 <div>• Exemples que vous aimez :</div>
