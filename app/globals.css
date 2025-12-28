@@ -1,52 +1,107 @@
 @import "tailwindcss";
 
+/* Light, modern default with a real contrast hierarchy */
 :root {
-  color-scheme: dark;
+  color-scheme: light;
+
+  /* Accent color (blue-700 by default) */
+  --accent: 29 78 216;
+
+  /* Accent tint used for backgrounds (very subtle) */
+  --accent-soft: 239 246 255; /* blue-50 */
 }
 
 html,
 body {
   height: 100%;
+  color: rgb(24 24 27); /* zinc-900 */
 }
 
+/* Override leftover dark-theme utilities */
+.text-zinc-50,
+.text-zinc-100,
+.text-zinc-200,
+.text-zinc-300,
+.text-zinc-400 {
+  color: rgb(24 24 27); /* zinc-900 */
+}
+
+/* Base */
 body {
-  @apply bg-zinc-950 text-zinc-100 antialiased;
+  @apply bg-zinc-50 text-zinc-900 antialiased;
 }
 
-/* Nice selection */
+/* Headings should be clearly dark */
+h1, h2, h3 {
+  @apply text-zinc-950;
+}
+
+/* Paragraphs and lists should not be too faint */
+p, li {
+  @apply text-zinc-800;
+}
+
+/* Selection */
 ::selection {
-  @apply bg-zinc-200 text-zinc-900;
+  @apply bg-zinc-900 text-white;
 }
 
-/* Subtle grid background helper */
+/* Subtle grid background helper (light mode) */
 .bg-grid {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px);
   background-size: 22px 22px;
 }
 
-/* Utilities */
+/* Layout helper */
 .container-padded {
   @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
 }
 
+/* Card system */
 .card {
-  @apply rounded-2xl border border-zinc-800 bg-zinc-950/60 backdrop-blur
-         shadow-[0_0_0_1px_rgba(255,255,255,0.04)] transition;
+  @apply rounded-2xl border border-zinc-200 bg-white shadow-sm transition;
 }
 
 .card-hover {
-  @apply hover:border-zinc-700 hover:bg-zinc-950/80;
+  @apply hover:border-zinc-300 hover:shadow-md;
 }
 
+/* Accent card: use when you want a highlighted box */
+.card-accent {
+  background: rgb(var(--accent-soft));
+  @apply border border-zinc-200 shadow-sm;
+}
+
+/* Badges */
 .badge {
-  @apply inline-flex items-center gap-2 rounded-full border border-zinc-800
-         bg-zinc-900/40 px-3 py-1 text-sm text-zinc-200;
+  @apply inline-flex items-center gap-2 rounded-full border border-zinc-200
+         bg-white px-3 py-1 text-sm text-zinc-700;
 }
 
+/* Links */
 .link {
-  @apply text-zinc-100 underline decoration-zinc-700 underline-offset-4 hover:decoration-zinc-300;
+  @apply underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-500;
+  color: rgb(var(--accent));
+  font-weight: 600;
 }
 
+/* Muted text should still be readable */
 .muted {
-  @apply text-zinc-300;
+  @apply text-zinc-700;
+}
+
+/* Buttons helper (optional) */
+.btn-primary {
+  background: rgb(var(--accent));
+  @apply text-white rounded-xl px-4 py-2.5 text-sm font-medium shadow-sm hover:opacity-90 transition;
+}
+
+.btn-secondary {
+  @apply rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm font-medium text-zinc-900 hover:bg-zinc-50 transition;
+}
+
+/* Optional: nicer focus rings */
+:focus-visible {
+  outline: 2px solid rgba(var(--accent), 0.45);
+  outline-offset: 2px;
 }

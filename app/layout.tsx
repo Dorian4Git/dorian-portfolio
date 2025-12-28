@@ -14,6 +14,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+      <meta name="google-site-verification" content="JQXPxbO7JAHn7kqImOG22cVorkOjfwJ3sQZV1GjiJeY" />
       <body>
         <div className="min-h-screen bg-grid">
           <SiteHeader />

@@ -18,7 +18,7 @@ function NavLink({
     <Link
       href={href}
       onClick={onClick}
-      className="rounded-lg px-3 py-2 text-sm text-zinc-200 hover:bg-zinc-900/60 hover:text-zinc-50 transition"
+        className="rounded-lg px-3 py-2 text-sm text-zinc-700 hover:bg-zinc-100 hover:text-zinc-900 transition"
     >
       {children}
     </Link>
@@ -84,15 +84,16 @@ export default function SiteHeader() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-900 bg-zinc-950">
+    <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white shadow-sm">
       <div className="container-padded flex items-center justify-between py-3">
         <Link href={homeHref} className="group flex items-baseline gap-3">
-          <span className="text-base font-semibold tracking-tight text-zinc-50">
+          <span className="text-xl font-semibold tracking-tight text-zinc-900">
             Dorian Thomé
           </span>
-          <span className="hidden sm:inline text-xs text-zinc-400 group-hover:text-zinc-300 transition">
-            Website Developer & Data analyst
+          <span className="block text-[11px] leading-4 text-zinc-600 group-hover:text-zinc-900 transition sm:inline sm:ml-3 sm:text-xs">
+            Website Developer & Data Analyst
           </span>
+
         </Link>
 
         {/* Desktop nav */}
@@ -105,7 +106,7 @@ export default function SiteHeader() {
 
           <Link
             href={targetPath}
-            className="ml-2 rounded-lg border border-zinc-800 bg-zinc-950/40 px-3 py-2 text-sm text-zinc-200 hover:bg-zinc-900/60 hover:text-zinc-50 transition"
+            className="ml-2 rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-800 hover:bg-zinc-50 transition"
             aria-label={`Switch language to ${targetLang.toUpperCase()}`}
             title={`Switch to ${targetLang.toUpperCase()}`}
           >
@@ -116,7 +117,7 @@ export default function SiteHeader() {
         {/* Mobile menu button */}
         <button
           type="button"
-          className="sm:hidden inline-flex items-center justify-center rounded-xl border border-zinc-800 bg-zinc-950/40 px-3 py-2 text-sm text-zinc-200 hover:bg-zinc-900/60 transition"
+          className="sm:hidden inline-flex items-center justify-center rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 hover:bg-zinc-50 transition"
           aria-label="Open menu"
           aria-expanded={open}
           onClick={() => setOpen(true)}
@@ -130,18 +131,18 @@ export default function SiteHeader() {
         <div className="sm:hidden">
           {/* Overlay */}
           <div
-            className="fixed inset-0 z-50 bg-black/60"
+            className="fixed inset-0 z-50 bg-black/75"
             onClick={() => setOpen(false)}
             aria-hidden="true"
           />
 
           {/* Panel */}
-          <div className="fixed right-0 top-0 z-50 h-full w-[85%] max-w-sm border-l border-zinc-800 bg-zinc-950 p-5 shadow-2xl">
+          <div className="fixed right-0 top-0 z-50 h-full w-[85%] max-w-sm border-l border-zinc-200 bg-white p-5 shadow-2xl">
             <div className="flex items-center justify-between">
-              <div className="text-sm font-semibold text-zinc-50">Menu</div>
+            <div className="text-sm font-semibold text-zinc-900">Menu</div>
               <button
                 type="button"
-                className="rounded-lg border border-zinc-800 bg-zinc-950/40 px-3 py-2 text-sm text-zinc-200 hover:bg-zinc-900/60 transition"
+                className="rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 hover:bg-zinc-50 transition"
                 aria-label="Close menu"
                 onClick={() => setOpen(false)}
               >
@@ -155,7 +156,7 @@ export default function SiteHeader() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-xl border border-zinc-800 bg-zinc-950/40 px-4 py-3 text-base text-zinc-100 hover:bg-zinc-900/60 transition"
+                  className="rounded-xl border border-zinc-200 bg-white px-4 py-3 text-base text-zinc-900 hover:bg-zinc-50 transition"
                 >
                   {item.label}
                 </Link>
@@ -169,7 +170,7 @@ export default function SiteHeader() {
                 Switch to {targetLang.toUpperCase()}
               </Link>
 
-              <div className="mt-4 text-xs text-zinc-400">
+              <div className="mt-4 text-xs text-zinc-600">
                 Tip: press <span className="kbd">Esc</span> to close.
               </div>
             </div>

@@ -10,8 +10,8 @@ export default function ContactPage() {
 
       <div className="grid gap-6 lg:grid-cols-2">
         <section className="card p-6 sm:p-8">
-          <h2 className="text-lg font-semibold text-zinc-50">Message</h2>
-          <p className="mt-2 text-base text-zinc-300">
+          <h2 className="text-lg font-semibold text-zinc-900">Message</h2>
+          <p className="mt-2 text-base text-zinc-700">
             Include your goal, timeline, and any links/examples. I’ll reply with a clear plan.
           </p>
 
@@ -21,20 +21,20 @@ export default function ContactPage() {
             method="POST"
           >
             <div className="space-y-2">
-              <label className="text-base text-zinc-200" htmlFor="name">
+              <label className="text-base text-zinc-800" htmlFor="name">
                 Name
               </label>
               <input
                 id="name"
                 name="name"
                 required
-                className="w-full rounded-xl border border-zinc-800 bg-zinc-950/50 px-3 py-2 text-sm text-zinc-100 outline-none focus:border-zinc-600"
+                className="w-full rounded-xl border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 placeholder:text-zinc-400 outline-none focus:border-zinc-500 focus:ring-2 focus:ring-zinc-200"
                 placeholder="Your name"
               />
             </div>
 
             <div className="space-y-2">
-              <label className="text-base text-zinc-200" htmlFor="email">
+              <label className="text-base text-zinc-800" htmlFor="email">
                 Email
               </label>
               <input
@@ -42,7 +42,7 @@ export default function ContactPage() {
                 type="email"
                 name="email"
                 required
-                className="w-full rounded-xl border border-zinc-800 bg-zinc-950/50 px-3 py-2 text-sm text-zinc-100 outline-none focus:border-zinc-600"
+                className="w-full rounded-xl border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 placeholder:text-zinc-400 outline-none focus:border-zinc-500 focus:ring-2 focus:ring-zinc-200"
                 placeholder="you@example.com"
               />
             </div>
@@ -56,7 +56,7 @@ export default function ContactPage() {
                 name="message"
                 required
                 rows={6}
-                className="w-full resize-none rounded-xl border border-zinc-800 bg-zinc-950/50 px-3 py-2 text-base text-zinc-100 outline-none focus:border-zinc-600"
+                className="w-full resize-none rounded-xl border border-zinc-300 bg-white px-3 py-2 text-base text-zinc-900 placeholder:text-zinc-400 outline-none focus:border-zinc-500 focus:ring-2 focus:ring-zinc-200"
                 placeholder="What do you want to build? Any constraints? Timeline?"
               />
             </div>

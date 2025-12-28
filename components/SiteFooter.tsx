@@ -2,20 +2,20 @@ import Link from "next/link";
 
 export default function SiteFooter() {
   return (
-    <footer className="border-t border-zinc-900/80">
+    <footer className="border-t border-zinc-200 bg-white">
       <div className="container-padded py-10">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="space-y-2">
-            <div className="text-base text-zinc-200">
-              <span className="font-medium text-zinc-50">Dorian Thomé</span>{" "}
-              <span className="text-zinc-400">— Web & Data</span>
+            <div className="text-base text-zinc-700">
+              <span className="font-medium text-zinc-900">Dorian Thomé</span>{" "}
+              <span className="text-zinc-500">— Web & Data</span>
             </div>
-            <div className="text-base text-zinc-400">
+            <div className="text-base text-zinc-600">
               Building clean, modern websites for small businesses and individuals.
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3 text-base sm:gap-4">
+          <div className="flex flex-wrap items-center gap-3 text-sm sm:gap-4">
             <Link
               className="link"
               href="https://www.linkedin.com/in/dorian-t-0b1168150/"
