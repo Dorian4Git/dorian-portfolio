@@ -28,7 +28,7 @@ export default function ContactPage() {
                 id="name"
                 name="name"
                 required
-                className="w-full rounded-xl border border-zinc-800 bg-zinc-950/50 px-3 py-2 text-sm text-zinc-100 outline-none focus:border-zinc-600"
+                className="w-full rounded-xl border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 placeholder:text-zinc-400 outline-none focus:border-zinc-500 focus:ring-2 focus:ring-zinc-200"
                 placeholder="Votre nom"
               />
             </div>
@@ -42,7 +42,7 @@ export default function ContactPage() {
                 type="email"
                 name="email"
                 required
-                className="w-full rounded-xl border border-zinc-800 bg-zinc-950/50 px-3 py-2 text-base text-zinc-100 outline-none focus:border-zinc-600"
+                className="w-full rounded-xl border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 placeholder:text-zinc-400 outline-none focus:border-zinc-500 focus:ring-2 focus:ring-zinc-200"
                 placeholder="vous@example.com"
               />
             </div>
@@ -56,7 +56,7 @@ export default function ContactPage() {
                 name="message"
                 required
                 rows={6}
-                className="w-full resize-none rounded-xl border border-zinc-800 bg-zinc-950/50 px-3 py-2 text-base text-zinc-100 outline-none focus:border-zinc-600"
+                className="w-full resize-none rounded-xl border border-zinc-300 bg-white px-3 py-2 text-base text-zinc-900 placeholder:text-zinc-400 outline-none focus:border-zinc-500 focus:ring-2 focus:ring-zinc-200"
                 placeholder="Que voulez-vous construire ? Contraintes ? Délai ?"
               />
             </div>
