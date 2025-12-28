@@ -22,9 +22,7 @@ export default function CVPage() {
       <section className="card p-6 sm:p-8 space-y-4">
         <h2 className="text-lg font-semibold text-zinc-50">Profil</h2>
         <p className="text-base text-zinc-300 max-w-3xl">
-          Ingénieur IA appliquée, focalisé sur des systèmes ML pragmatiques : affinage LLM efficace,
-          pipelines de vision par ordinateur et livraison orientée produit. Expérience aussi en
-          création et déploiement de sites web modernes pour des clients réels.
+          Avec un diplôme de d'informaticien de gestion et une passion pour l'IA appliquée, je m'intéresse au Web, à la science des données et à l'apprentissage automatique. Je me concentre sur des systèmes Machine learning pragmatiques : affinage efficace de LLM, pipelines de vision par ordinateur et livraison orientée produit. J'ai également de l'expérience dans la création et le déploiement de sites web.
         </p>
       </section>
 
@@ -41,10 +39,10 @@ export default function CVPage() {
         <div className="card p-6 sm:p-8">
           <h2 className="text-lg font-semibold text-zinc-50">Travaux sélectionnés</h2>
           <ul className="mt-4 space-y-3 text-base text-zinc-300">
+            <li>• Application mobile avec cartes + paiement intégrée (MISY).</li>
+            <li>• Livraison de site WordPress client (salon de massage).</li>
             <li>• Affinage de LLM avec méthodes qLoRA/PEFT.</li>
             <li>• Classification d’images drone pour détecter l’ambroisie (ResNet).</li>
-            <li>• Concept d’app avec cartes + parcours paiement (MISY).</li>
-            <li>• Livraison de site WordPress client (salon de massage).</li>
           </ul>
         </div>
 

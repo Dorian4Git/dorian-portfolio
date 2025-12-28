@@ -22,9 +22,7 @@ export default function CVPage() {
       <section className="card p-6 sm:p-8 space-y-4">
         <h2 className="text-lg font-semibold text-zinc-50">Profile</h2>
         <p className="text-base text-zinc-300 max-w-3xl">
-          Applied AI Engineer focused on practical ML systems: efficient LLM fine-tuning,
-          computer vision pipelines, and product-oriented delivery. Also experienced in
-          building and deploying modern websites for real clients.
+          With a management information systems specialist degree and a passion for applied AI, I have an interest in Web, data science, and machine learning. I focus on pragmatic Machine learning systems: efficient LLM fine-tuning, computer vision pipelines, and product-oriented delivery. I also have experience in creating and deploying websites.
         </p>
       </section>
 
@@ -41,10 +39,10 @@ export default function CVPage() {
         <div className="card p-6 sm:p-8">
           <h2 className="text-lg font-semibold text-zinc-50">Selected Work</h2>
           <ul className="mt-4 space-y-3 text-base text-zinc-300">
+            <li>• App concept with maps + in-app payment flow (MISY).</li>
+            <li>• Client WordPress site delivery (massage salon).</li>
             <li>• LLM fine-tuning using qLoRA/PEFT methods.</li>
             <li>• Drone imagery classification for ambrosia detection (ResNet).</li>
-            <li>• App concept with maps + payment flow (MISY).</li>
-            <li>• Client WordPress site delivery (massage salon).</li>
           </ul>
         </div>
 
