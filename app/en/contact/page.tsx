@@ -1,5 +1,5 @@
 import Link from "next/link";
-import SectionHeading from "../../components/SectionHeading";
+import SectionHeading from "../../../components/SectionHeading";
 
 export default function ContactPage() {
   return (
