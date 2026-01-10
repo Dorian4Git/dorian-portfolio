@@ -104,13 +104,10 @@ export function HeroModern() {
           {/* Image card */}
           <div className="relative rounded-[1.6rem] p-3">
             <div className="relative aspect-[4/3] overflow-hidden rounded-[1.2rem]">
-              <Image
+              <img
                 src="/media/illustration_start.png"
                 alt="Illustration moderne de site web"
-                fill
-                className="object-cover"
-                priority
-                unoptimized
+                className="h-full w-full object-cover"
               />
               
               {/* small overlay shapes */}

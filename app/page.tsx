@@ -146,7 +146,7 @@ export default function HomePage() {
             {services.map((s) => (
               <Card key={s.title} gradient className="relative overflow-hidden p-7 card-hover">
                 <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-56 opacity-20 blur-[1px]">
-                  <Image src={s.image} alt="" fill className="object-cover" unoptimized />
+                  <img src={s.image} alt="" className="h-full w-full object-cover" />
                 </div>
                 
 
