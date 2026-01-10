@@ -110,6 +110,7 @@ export function HeroModern() {
                 fill
                 className="object-cover"
                 priority
+                unoptimized
               />
               
               {/* small overlay shapes */}
