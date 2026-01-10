@@ -5,6 +5,8 @@ import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import type { ReactNode } from "react";
 
+import LogoDT from "@/components/LogoDT";
+
 function NavA({
   href,
   children,
@@ -99,13 +101,18 @@ export default function SiteHeader() {
       <div className="container-fluid">
         <div className="flex items-center justify-between py-3">
           <Link href={isEN ? "/en" : "/"} className="group flex items-center gap-3">
-            <span className="text-base sm:text-lg font-semibold tracking-tight text-white">
-              Dorian Thomé
-            </span>
-            <span className="hidden sm:block text-xs text-zinc-300 group-hover:text-white transition">
-              Développeur web • IA/ML • Genève
-            </span>
+            <LogoDT className="h-8 w-auto text-white/90 group-hover:text-white transition" />
+
+            <div className="flex flex-col leading-tight">
+              <span className="text-base sm:text-lg font-semibold tracking-tight text-white">
+                Dorian Thomé
+              </span>
+              <span className="hidden sm:block text-xs text-zinc-300 group-hover:text-white transition">
+                Développeur web • IA/ML • Genève
+              </span>
+            </div>
           </Link>
+
 
           {/* Desktop */}
           <nav className="hidden sm:flex items-center gap-1">

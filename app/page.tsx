@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Pill from "@/components/Pill";
 import { HeroModern } from "@/components/Hero";
 
@@ -15,6 +16,7 @@ const skills = [
 const services = [
   {
     title: "Site WordPress pour entreprise",
+    image: "/media/wp.png",
     who: "Pour les petites entreprises qui veulent éditer facilement (texte / photos) après livraison.",
     bullets: [
       "4–7 pages (ou plus si besoin)",
@@ -26,6 +28,7 @@ const services = [
   },
   {
     title: "Site moderne sur mesure (Next.js)",
+    image: "/media/next.png",
     who: "Pour un rendu premium : rapide, sécurisé, excellent SEO/perf.",
     bullets: [
       "UI moderne + design personnalisé",
@@ -37,6 +40,7 @@ const services = [
   },
   {
     title: "Landing page de conversion",
+    image: "/media/landing.png",
     who: "Une seule page, un message, un CTA : idéal pour générer des demandes.",
     bullets: [
       "Structure claire (problème → preuve → offre → CTA)",
@@ -48,6 +52,7 @@ const services = [
   },
   {
     title: "Prototype IA / consultation",
+    image: "/media/ai.png",
     who: "POC cadré : faisabilité, direction technique, livrables clairs.",
     bullets: [
       "Conseil fine-tuning LLM & setup",
@@ -139,9 +144,13 @@ export default function HomePage() {
 
           <div className="mt-7 grid gap-5 sm:grid-cols-2">
             {services.map((s) => (
-              <Card key={s.title} gradient className="p-7 card-hover">
-                <h3 className="text-xl font-semibold text-white">{s.title}</h3>
+              <Card key={s.title} gradient className="relative overflow-hidden p-7 card-hover">
+                <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-56 opacity-20 blur-[1px]">
+                  <Image src={s.image} alt="" fill className="object-cover" />
+                </div>
+                
 
+                <h3 className="text-xl font-semibold text-white">{s.title}</h3>
                 <p className="mt-2 text-base text-zinc-300">{s.who}</p>
 
                 <ul className="mt-5 space-y-2 text-base text-zinc-200">
@@ -393,7 +402,7 @@ export default function HomePage() {
               <div className="space-y-4 text-base text-zinc-200">
                 <div>
                   <div className="text-sm text-zinc-400">Localisation</div>
-                  Genève
+                  Genève, Suisse, Suisse romande
                 </div>
                 <div>
                   <div className="text-sm text-zinc-400">Email</div>

@@ -105,12 +105,13 @@ export function HeroModern() {
           <div className="relative rounded-[1.6rem] p-3">
             <div className="relative aspect-[4/3] overflow-hidden rounded-[1.2rem]">
               <Image
-                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80"
-                alt="Placeholder"
+                src="/media/illustration_start.png"
+                alt="Illustration moderne de site web"
                 fill
                 className="object-cover"
                 priority
               />
+              
               {/* small overlay shapes */}
               <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-3xl border border-white/10 bg-white/10 backdrop-blur-xl" />
               <div className="pointer-events-none absolute -left-10 -bottom-10 h-28 w-40 rounded-3xl border border-white/10 bg-white/10 backdrop-blur-xl" />
