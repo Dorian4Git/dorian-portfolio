@@ -1,0 +1,18 @@
+<svg
+  width="96"
+  height="64"
+  viewBox="0 0 96 64"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <!-- D -->
+  <path
+    d="M8 8 H28 C44 8 56 20 56 32 C56 44 44 56 28 56 H8 Z
+       M16 16 V48 H28 C38 48 48 40 48 32 C48 24 38 16 28 16 Z"
+    fill="currentColor"
+  />
+
+  <!-- T -->
+  <rect x="64" y="8" width="24" height="8" fill="currentColor" />
+  <rect x="72" y="16" width="8" height="40" fill="currentColor" />
+</svg>
