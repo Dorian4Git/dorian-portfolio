@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Pill from "@/components/Pill";
 import { HeroModern } from "@/components/Hero";
+import { asset } from "@/lib/asset";
 
 const skills = [
   "Affinage LLM (qLoRA/PEFT)",
@@ -146,7 +147,7 @@ export default function HomePage() {
             {services.map((s) => (
               <Card key={s.title} gradient className="relative overflow-hidden p-7 card-hover">
                 <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-56 opacity-20 blur-[1px]">
-                  <img src={s.image} alt="" className="h-full w-full object-cover" />
+                  <img src={asset(s.image)} alt="" className="h-full w-full object-cover" />
                 </div>
                 
 

@@ -1,3 +1,4 @@
+import { asset } from "@/lib/asset";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -105,7 +106,7 @@ export function HeroModern() {
           <div className="relative rounded-[1.6rem] p-3">
             <div className="relative aspect-[4/3] overflow-hidden rounded-[1.2rem]">
               <img
-                src="/media/illustration_start.png"
+                src={asset("/media/illustration_start.png")}
                 alt="Illustration moderne de site web"
                 className="h-full w-full object-cover"
               />
