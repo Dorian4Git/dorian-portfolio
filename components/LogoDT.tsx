@@ -6,7 +6,7 @@ type LogoDTProps = SVGProps<SVGSVGElement> & {
 };
 
 export default function LogoDT({ variant = "mono", ...props }: LogoDTProps) {
-  const gid = useId(); // évite les collisions d'ID si le logo apparaît plusieurs fois
+  const gid = useId();
   const fillValue = variant === "gradient" ? `url(#dtGradient-${gid})` : "currentColor";
 
   return (
@@ -24,25 +24,39 @@ export default function LogoDT({ variant = "mono", ...props }: LogoDTProps) {
             x1="0"
             y1="0"
             x2="96"
-            y2="0"
+            y2="64" /* Changed to diagonal gradient for more dynamism */
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0" stopColor="#67E8F9" />   {/* cyan-300 */}
-            <stop offset="0.5" stopColor="#F0ABFC" /> {/* fuchsia-300 */}
-            <stop offset="1" stopColor="#FDE68A" />   {/* amber-200 */}
+            <stop offset="0" stopColor="#06b6d4" />   {/* cyan-500: Electric Blue */}
+            <stop offset="0.5" stopColor="#d946ef" /> {/* fuchsia-500: Neon Purple */}
+            <stop offset="1" stopColor="#f59e0b" />   {/* amber-500: Sharp Gold */}
           </linearGradient>
         </defs>
       )}
 
-      {/* D */}
+      {/* AGGRESSIVE D 
+          - Replaced Curves (C) with Lines (L) 
+          - Creates an octagonal/chamfered aesthetic
+      */}
       <path
-        d="M8 8 H28 C44 8 56 20 56 32 C56 44 44 56 28 56 H8 Z
-           M16 16 V48 H28 C38 48 48 40 48 32 C48 24 38 16 28 16 Z"
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M8 8H32L56 32V32L32 56H8V8ZM16 16V48H28L44 32L28 16H16Z"
         fill={fillValue}
       />
-      {/* T */}
-      <rect x="64" y="8" width="24" height="8" fill={fillValue} />
-      <rect x="72" y="16" width="8" height="40" fill={fillValue} />
+
+      {/* AGGRESSIVE T 
+          - Sliced top-right corner
+          - Sliced bottom-left of the stem
+      */}
+      <path
+        d="M64 8H80L88 16H64V8Z" /* Top Bar with cut corner */
+        fill={fillValue}
+      />
+      <path
+        d="M72 16H80V48L72 56V16Z" /* Stem with cut bottom */
+        fill={fillValue}
+      />
     </svg>
   );
 }

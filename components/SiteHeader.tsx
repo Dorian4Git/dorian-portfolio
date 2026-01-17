@@ -97,9 +97,12 @@ export default function SiteHeader() {
   const anchors = isEN ? navAnchorsEN : navAnchorsFR;
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-zinc-950/70 backdrop-blur-xl">
-      <div className="container-fluid">
-        <div className="flex items-center justify-between py-3">
+    <> {/* 1. Open a Fragment here */}
+      
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-zinc-950/70 backdrop-blur-xl">
+        <div className="container-fluid">
+          <div className="flex items-center justify-between py-3">
+            {/* ... (Keep your existing Logo and Nav links) ... */}
           <Link href={isEN ? "/en" : "/"} className="group flex items-center gap-3">
             <LogoDT className="h-8 w-auto text-white/90 group-hover:text-white transition" />
 
@@ -145,26 +148,34 @@ export default function SiteHeader() {
 
           {/* Mobile */}
           <button
-            type="button"
-            className="sm:hidden inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-3 py-2 text-sm text-zinc-100 hover:bg-white/10 transition"
-            aria-label="Open menu"
-            aria-expanded={open}
-            onClick={() => setOpen(true)}
-          >
-            ☰
-          </button>
+              type="button"
+              className="sm:hidden inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-3 py-2 text-sm text-zinc-100 hover:bg-white/10 transition"
+              aria-label="Open menu"
+              aria-expanded={open}
+              onClick={() => setOpen(true)}
+            >
+              ☰
+            </button>
+          </div>
         </div>
-      </div>
+      </header> {/* 2. Close the header tag HERE */}
 
+      {/* 3. Move the Mobile Menu block OUTSIDE the header */}
       {open && (
-        <div className="sm:hidden">
+        <div className="sm:hidden relative z-[100]"> {/* Added high z-index */}
+          
+          {/* Backdrop Overlay */}
           <div
-            className="fixed inset-0 z-50 bg-black/70"
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm" /* Darker overlay + blur */
             onClick={() => setOpen(false)}
             aria-hidden="true"
           />
-          <div className="fixed right-0 top-0 z-50 h-full w-[85%] max-w-sm border-l border-white/10 bg-zinc-950 p-5 shadow-2xl">
-            <div className="flex items-center justify-between">
+          
+          {/* Menu Drawer */}
+          <div className="fixed right-0 top-0 h-full w-[85%] max-w-sm border-l border-white/10 bg-zinc-900 p-6 shadow-2xl overflow-y-auto">
+             {/* Note: I changed bg-zinc-950 to bg-zinc-900 for better contrast against the deep black page */}
+            
+            <div className="flex items-center justify-between mb-8">
               <div className="text-sm font-semibold text-white">Menu</div>
               <button
                 type="button"
@@ -176,7 +187,8 @@ export default function SiteHeader() {
               </button>
             </div>
 
-            <div className="mt-5 grid gap-2">
+            <div className="grid gap-2">
+              {/* ... (Keep your existing menu links map logic) ... */}
               {onHome ? (
                 anchors.map((item) => (
                   <a
@@ -189,6 +201,7 @@ export default function SiteHeader() {
                   </a>
                 ))
               ) : (
+                // ... (Keep existing Link logic) ...
                 <>
                   <Link
                     href={isEN ? "/en" : "/"}
@@ -222,6 +235,7 @@ export default function SiteHeader() {
           </div>
         </div>
       )}
-    </header>
+      
+    </> /* 4. Close the Fragment */
   );
 }

@@ -22,11 +22,6 @@ export function HeroModern() {
         <div className="text-4xl font-semibold bg-gradient-to-r from-cyan-300 via-fuchsia-300 to-amber-200 bg-clip-text text-transparent">
             Dorian Thomé
         </div>
-        <div className="hidden sm:flex items-center gap-2 text-xs text-zinc-300">
-          <a className="rounded-xl px-3 py-2 hover:bg-white/10 hover:text-white transition no-underline" href="#services">Services</a>
-          <a className="rounded-xl px-3 py-2 hover:bg-white/10 hover:text-white transition no-underline" href="#realisations">Réalisations</a>
-          <a className="rounded-xl px-3 py-2 hover:bg-white/10 hover:text-white transition no-underline" href="#contact">Contact</a>
-        </div>
         <Link
           href="/contact"
           className="rounded-3xl border border-white/15 bg-white/5 px-4 py-2.5 text-xl font-semibold text-white hover:bg-white/10 transition no-underline"
@@ -45,18 +40,18 @@ export function HeroModern() {
           </div>
 
           <h1 className="mt-5 text-4xl sm:text-6xl font-semibold tracking-tight text-white">
-            Je crée votre site web
+            Votre vision, en ligne.
             <span className="block">
               <span className="bg-gradient-to-r from-cyan-300 via-fuchsia-300 to-amber-200 bg-clip-text text-transparent">
-                moderne & rapide
+                Rapide, propre, efficace.
               </span>
-              , sans blabla.
             </span>
           </h1>
 
           <p className="mt-5 max-w-xl text-base sm:text-lg text-zinc-200">
-            Pour particuliers et petites entreprises : landing page, site vitrine, ou site WordPress administrable.
-            Si besoin, je peux aussi intégrer des briques IA/automatisation.
+            Développeur Fullstack & Ingénieur ML à Genève. 
+            Je transforme vos idées en sites performants ou en outils IA concrets. 
+            Pas d'agence, pas de délais flous : juste du code qui marche.
           </p>
 
           <div className="mt-7 flex flex-wrap gap-3">
@@ -103,11 +98,11 @@ export function HeroModern() {
           <div className="absolute -inset-4 sm:-inset-6 rounded-[2rem] bg-gradient-to-br from-cyan-400/60 via-fuchsia-500/30 to-amber-300/30 blur-[1px]" />
 
           {/* Image card */}
-          <div className="relative rounded-[1.6rem] p-3">
+          <div className="relative rounded-[1.6rem] p-3 animate-float">
             <div className="relative aspect-[4/3] overflow-hidden rounded-[1.2rem]">
               <img
                 src={asset("/media/illustration_start.png")}
-                alt="Illustration moderne de site web"
+                alt="Création de site web moderne et performant à Genève"
                 className="h-full w-full object-cover"
               />
               

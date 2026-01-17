@@ -109,6 +109,13 @@ a {
   @apply transition hover:bg-white/[0.06] hover:border-white/20;
 }
 
+/* Find this section and update it */
+.card-hover {
+  @apply transition-all duration-300 ease-out; /* Smoother timing */
+  @apply hover:bg-white/[0.06] hover:border-white/20;
+  @apply hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/10; /* The "Lift" effect */
+}
+
 /* Pills / badges */
 .pill {
   @apply inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-zinc-200;
@@ -197,4 +204,14 @@ a {
 .gborder > * {
   position: relative;
   z-index: 1;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }
