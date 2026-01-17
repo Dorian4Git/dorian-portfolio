@@ -179,7 +179,7 @@ export default function HomePage() {
                 <ul className="mt-5 space-y-2 text-base text-zinc-200">
                   {s.bullets.map((b) => (
                     <li key={b} className="flex gap-3">
-                      {/* REPLACE the <span> dot with the Icon */}
+                      {/* REPLACE the <span> dot with the Icon ss */}
                       <CheckIcon colorClass="text-cyan-300" />
                       <span>{b}</span>
                     </li>
