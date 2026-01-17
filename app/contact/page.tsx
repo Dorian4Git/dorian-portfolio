@@ -1,11 +1,39 @@
+"use client"; // <--- Important: This enables the interactivity
+
 import Link from "next/link";
-import SectionHeading from "@/components/SectionHeading"; // Check path if needed
+import SectionHeading from "@/components/SectionHeading";
+import { useState } from "react";
 
 export default function ContactPage() {
+  // We keep the state to construct the email body dynamically
+  const [formData, setFormData] = useState({
+    name: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // 1. Construct the email body
+    const subject = encodeURIComponent(`Nouveau contact : ${formData.subject || "Projet"}`);
+    const body = encodeURIComponent(
+      `Nom: ${formData.name}\n\nMessage:\n${formData.message}`
+    );
+
+    // 2. Trigger the mailto link
+    // This opens the user's default email app instantly
+    window.location.href = `mailto:dorian.thome@proton.me?subject=${subject}&body=${body}`;
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   return (
     <div className="relative min-h-screen overflow-hidden pt-24 pb-20">
       
-      {/* 1. Background Ambiance (Matches Hero) */}
+      {/* Background Ambiance */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute top-0 right-1/4 h-[500px] w-[500px] rounded-full bg-cyan-500/10 blur-[100px]" />
         <div className="absolute bottom-0 left-1/4 h-[500px] w-[500px] rounded-full bg-fuchsia-500/10 blur-[100px]" />
@@ -19,62 +47,56 @@ export default function ContactPage() {
 
         <div className="mt-10 grid gap-8 lg:grid-cols-2">
           
-          {/* LEFT: The Form */}
+          {/* LEFT: The Form (Now powered by Client-Side JS) */}
           <div className="gborder">
             <section className="card h-full p-6 sm:p-10">
-              <h2 className="text-xl font-semibold text-white">Envoyer un message</h2>
+              <h2 className="text-xl font-semibold text-white">Préparer votre email</h2>
               <p className="mt-2 text-sm text-zinc-400">
-                Parlez-moi de votre projet, de vos délais et de vos attentes.
+                Remplissez ce formulaire pour générer automatiquement l'email dans votre application favorite.
               </p>
 
-              <form
-                className="mt-8 space-y-5"
-                /* SOLUTION: Uses FormSubmit.co - No API key needed, just your email */
-                action="https://formsubmit.co/dorian.thome@proton.me"
-                method="POST"
-              >
-                {/* HoneyPot & Config (Hide Captcha to make it smoother) */}
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_subject" value="Nouveau contact via Portfolio" />
-                <input type="text" name="_honey" style={{ display: "none" }} />
+              <form className="mt-8 space-y-5" onSubmit={handleSubmit}>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-zinc-300" htmlFor="name">
+                    Nom
+                  </label>
+                  <input
+                    id="name"
+                    name="name"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:border-cyan-300/50 focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-cyan-300/50 transition"
+                    placeholder="Jean Dupont"
+                  />
+                </div>
 
-                <div className="grid gap-5 sm:grid-cols-2">
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-zinc-300" htmlFor="name">
-                      Nom
-                    </label>
-                    <input
-                      id="name"
-                      name="name"
-                      required
-                      className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:border-cyan-300/50 focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-cyan-300/50 transition"
-                      placeholder="Jean Dupont"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-zinc-300" htmlFor="email">
-                      Email
-                    </label>
-                    <input
-                      id="email"
-                      type="email"
-                      name="email"
-                      required
-                      className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:border-cyan-300/50 focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-cyan-300/50 transition"
-                      placeholder="jean@entreprise.com"
-                    />
-                  </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-zinc-300" htmlFor="subject">
+                    Sujet
+                  </label>
+                  <input
+                    id="subject"
+                    name="subject"
+                    required
+                    value={formData.subject}
+                    onChange={handleChange}
+                    className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:border-cyan-300/50 focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-cyan-300/50 transition"
+                    placeholder="Site Vitrine, Application Next.js..."
+                  />
                 </div>
 
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-zinc-300" htmlFor="message">
-                    Votre message
+                    Message
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     required
                     rows={6}
+                    value={formData.message}
+                    onChange={handleChange}
                     className="w-full resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:border-cyan-300/50 focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-cyan-300/50 transition"
                     placeholder="Bonjour, je souhaite créer un site vitrine pour mon agence..."
                   />
@@ -82,11 +104,8 @@ export default function ContactPage() {
 
                 <div className="flex items-center gap-4 pt-2">
                   <button type="submit" className="btn-primary w-full sm:w-auto">
-                    Envoyer le message
+                    Ouvrir mon application mail
                   </button>
-                  <p className="text-xs text-zinc-500 hidden sm:block">
-                    100% direct & sécurisé.
-                  </p>
                 </div>
               </form>
             </section>
@@ -145,9 +164,6 @@ export default function ContactPage() {
                 <p>• Budget estimé : ...</p>
                 <p>• Exemples de design aimés : ...</p>
               </div>
-              <p className="mt-3 text-xs text-zinc-500">
-                Copiez ces points dans le formulaire pour gagner du temps.
-              </p>
             </div>
 
           </div>
