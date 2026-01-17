@@ -1,61 +1,73 @@
 import Link from "next/link";
+import Image from "next/image";
 import Pill from "@/components/Pill";
 import { HeroModern } from "@/components/Hero";
+import { asset } from "@/lib/asset";
 
 const skills = [
-  "Affinage LLM (qLoRA/PEFT)",
-  "Approche prompting & évaluation",
-  "Vision par ordinateur (ResNet, etc.)",
-  "Curation / augmentation de datasets",
-  "Workflows Python / PyTorch",
-  "Livraison web (WordPress + sites statiques modernes)",
-  "Cadrage produit & communication",
+  "Expertise Next.js / React",  // Stronger than "Livraison web"
+  "Architecture WordPress",
+  "LLM Fine-tuning & RAG",      // More buzzword-friendly but accurate
+  "Computer Vision (PyTorch)",
+  "Déploiement Cloud & CI/CD",
+  "Optimisation SEO Technique", // Businesses love SEO
+  "Approche pragmatique",
 ];
 
 const services = [
   {
-    title: "Site WordPress pour entreprise",
-    who: "Pour les petites entreprises qui veulent éditer facilement (texte / photos) après livraison.",
+    // Was: "Site WordPress pour entreprise"
+    title: "Site Vitrine & Autonomie", 
+    image: "/media/wp.png",
+    // Focus on the benefit: THEY control it.
+    who: "Pour les pros qui veulent la main sur leur contenu sans toucher au code.",
     bullets: [
-      "4–7 pages (ou plus si besoin)",
-      "Mobile-first, design moderne",
-      "Formulaire + SEO de base",
-      "Formation prise en main incluse",
+      "Design sur-mesure (pas de template générique)",
+      "Interface d'admin simplifiée",
+      "Optimisé pour le référencement local",
+      "Formation vidéo incluse",
     ],
-    note: "Maintenance mensuelle optionnelle : mises à jour, sauvegardes, petites modifications.",
+    note: "Idéal pour : PME, artisans, professions libérales.",
   },
   {
-    title: "Site moderne sur mesure (Next.js)",
-    who: "Pour un rendu premium : rapide, sécurisé, excellent SEO/perf.",
+    // Was: "Site moderne sur mesure (Next.js)"
+    title: "Expérience Web Premium",
+    image: "/media/next.png",
+    // Focus on the result: Speed and branding.
+    who: "Pour se démarquer avec une fluidité parfaite et un design unique.",
     bullets: [
-      "UI moderne + design personnalisé",
-      "Excellents scores Lighthouse",
-      "Déploiement Vercel / GitHub Pages",
-      "Formulaire + analytics en option",
+      "Architecture Next.js (la tech d'Airbnb/Netflix)",
+      "Score Google Lighthouse 100%",
+      "Animations fluides & interactives",
+      "Sécurité maximale (site statique)",
     ],
-    note: "Les mises à jour de contenu demandent du code (sauf CMS).",
+    note: "Idéal pour : Startups, SaaS, portfolios créatifs.",
   },
   {
-    title: "Landing page de conversion",
-    who: "Une seule page, un message, un CTA : idéal pour générer des demandes.",
+    title: "Landing Page de Conversion",
+    image: "/media/landing.png",
+    who: "Un seul but : transformer vos visiteurs en clients.",
     bullets: [
-      "Structure claire (problème → preuve → offre → CTA)",
-      "Optimisée mobile + lisibilité",
-      "Formulaire + suivi optionnel",
-      "Livraison rapide",
+      "Copywriting orienté vente",
+      "Chargement instantané (< 1s)",
+      "Intégration CRM / Emailing",
+      "A/B Testing possible",
     ],
-    note: "Parfait pour indépendants, campagnes, prestataires locaux.",
+    note: "Idéal pour : Lancement de produit, campagnes pubs.",
   },
   {
-    title: "Prototype IA / consultation",
-    who: "POC cadré : faisabilité, direction technique, livrables clairs.",
+    // Was: "Prototype IA / consultation"
+    title: "Intelligence Artificielle Appliquée",
+    image: "/media/ai.png",
+    // Highlight your expertise
+    who: "Analysez vos données ou automatisez vos tâches avec le Machine Learning.",
     bullets: [
-      "Conseil fine-tuning LLM & setup",
-      "Stratégie d’évaluation (quoi mesurer, comment)",
-      "Conseils pipeline CV (données → modèle → inférence)",
-      "Documentation et plan d’implémentation",
+      "Audit de faisabilité IA (honnête)",
+      "Affinage de LLM (vos données privées)",
+      "Vision par ordinateur (drone/industrie)",
+      "Déploiement sur serveur sécurisé",
     ],
-    note: "Pas de flou artistique : périmètre défini avant de commencer.",
+    note: "Pas de hype : on résout de vrais problèmes business.",
   },
 ];
 
@@ -85,6 +97,22 @@ const projects = [
       "Préparation dataset, augmentation, entraînement et workflow d’inférence pour détecter l’ambroisie sur images drone.",
   },
 ];
+
+function CheckIcon({ colorClass }: { colorClass: string }) {
+  return (
+    <svg 
+      className={`mt-1 h-5 w-5 shrink-0 ${colorClass}`} 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      strokeWidth="2.5" 
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+    >
+      <polyline points="20 6 9 17 4 12" />
+    </svg>
+  );
+}
 
 function Card({
   children,
@@ -139,15 +167,20 @@ export default function HomePage() {
 
           <div className="mt-7 grid gap-5 sm:grid-cols-2">
             {services.map((s) => (
-              <Card key={s.title} gradient className="p-7 card-hover">
-                <h3 className="text-xl font-semibold text-white">{s.title}</h3>
+              <Card key={s.title} gradient className="relative overflow-hidden p-7 card-hover">
+                <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-56 opacity-20 blur-[1px]">
+                  <img src={asset(s.image)} alt={`Illustration service : ${s.title}`} className="h-full w-full object-cover" />
+                </div>
+                
 
+                <h3 className="text-xl font-semibold text-white">{s.title}</h3>
                 <p className="mt-2 text-base text-zinc-300">{s.who}</p>
 
                 <ul className="mt-5 space-y-2 text-base text-zinc-200">
                   {s.bullets.map((b) => (
                     <li key={b} className="flex gap-3">
-                      <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-cyan-300/80 shrink-0" />
+                      {/* REPLACE the <span> dot with the Icon */}
+                      <CheckIcon colorClass="text-cyan-300" />
                       <span>{b}</span>
                     </li>
                   ))}
@@ -233,9 +266,9 @@ export default function HomePage() {
           <div className="mt-7 grid gap-5 sm:grid-cols-3">
             <Card gradient className="p-7 card-hover">
               <div className="text-sm font-semibold text-zinc-300">Étape 1</div>
-              <div className="mt-2 text-xl font-semibold text-white">Brief rapide</div>
+              <div className="mt-2 text-xl font-semibold text-white">Cadrage Clair</div>
               <p className="mt-3 text-base text-zinc-300">
-                Objectif, pages, contenu disponible, deadline. 1–2 exemples de sites que tu aimes.
+                On définit le périmètre exact. Prix fixe, deadline fixe. Pas de surprise.
               </p>
               <ul className="mt-4 space-y-2 text-base text-zinc-200">
                 <li className="flex gap-3">
@@ -251,9 +284,9 @@ export default function HomePage() {
 
             <Card gradient className="p-7 card-hover">
               <div className="text-sm font-semibold text-zinc-300">Étape 2</div>
-              <div className="mt-2 text-xl font-semibold text-white">Build & retours</div>
+              <div className="mt-2 text-xl font-semibold text-white">Développement Agile</div>
               <p className="mt-3 text-base text-zinc-300">
-                Je livre une V1 rapidement. Tu me dis ce qui change. On affine jusqu’à ce que ça claque.
+                Je construis, vous validez. On itère rapidement via un lien de prévisualisation live.
               </p>
               <ul className="mt-4 space-y-2 text-base text-zinc-200">
                 <li className="flex gap-3">
@@ -269,9 +302,9 @@ export default function HomePage() {
 
             <Card gradient className="p-7 card-hover">
               <div className="text-sm font-semibold text-zinc-300">Étape 3</div>
-              <div className="mt-2 text-xl font-semibold text-white">Mise en ligne</div>
+              <div className="mt-2 text-xl font-semibold text-white">Livraison Clés en main</div>
               <p className="mt-3 text-base text-zinc-300">
-                Déploiement, réglages, passation propre. Support optionnel si tu veux être tranquille.
+                Déploiement, configuration du domaine, HTTPS. Je ne pars pas tant que tout n'est pas vert.
               </p>
               <ul className="mt-4 space-y-2 text-base text-zinc-200">
                 <li className="flex gap-3">
@@ -393,7 +426,7 @@ export default function HomePage() {
               <div className="space-y-4 text-base text-zinc-200">
                 <div>
                   <div className="text-sm text-zinc-400">Localisation</div>
-                  Genève
+                  Genève, Suisse, Suisse romande
                 </div>
                 <div>
                   <div className="text-sm text-zinc-400">Email</div>

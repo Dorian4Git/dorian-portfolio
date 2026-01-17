@@ -1,171 +1,155 @@
 import Link from "next/link";
-import SectionHeading from "../../components/SectionHeading";
+import SectionHeading from "@/components/SectionHeading"; // Check path if needed
 
 export default function ContactPage() {
   return (
-    <div className="container-fluid">
-      <div className="space-y-10">
+    <div className="relative min-h-screen overflow-hidden pt-24 pb-20">
+      
+      {/* 1. Background Ambiance (Matches Hero) */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute top-0 right-1/4 h-[500px] w-[500px] rounded-full bg-cyan-500/10 blur-[100px]" />
+        <div className="absolute bottom-0 left-1/4 h-[500px] w-[500px] rounded-full bg-fuchsia-500/10 blur-[100px]" />
+      </div>
+
+      <div className="container-padded">
         <SectionHeading
           title="Contact"
-          subtitle="Formulaire rapide ou contact direct. Je réponds avec un plan clair et une estimation."
+          subtitle="Un projet ? Une question ? Je réponds généralement sous 24h."
         />
 
-        <div className="grid gap-6 lg:grid-cols-2">
-          {/* FORM */}
+        <div className="mt-10 grid gap-8 lg:grid-cols-2">
+          
+          {/* LEFT: The Form */}
           <div className="gborder">
-            <section className="card p-7 sm:p-9">
-              <h2 className="text-2xl font-semibold text-white">Message</h2>
-              <p className="mt-3 text-base sm:text-lg text-zinc-300">
-                Indique ton objectif, ta deadline, et tout lien/exemple utile. Je te réponds avec une proposition simple
-                (et les prochaines étapes).
+            <section className="card h-full p-6 sm:p-10">
+              <h2 className="text-xl font-semibold text-white">Envoyer un message</h2>
+              <p className="mt-2 text-sm text-zinc-400">
+                Parlez-moi de votre projet, de vos délais et de vos attentes.
               </p>
 
               <form
-                className="mt-7 space-y-5"
-                action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+                className="mt-8 space-y-5"
+                /* SOLUTION: Uses FormSubmit.co - No API key needed, just your email */
+                action="https://formsubmit.co/dorian.thome@proton.me"
                 method="POST"
               >
-                <div className="space-y-2">
-                  <label className="text-base text-zinc-200" htmlFor="name">
-                    Nom
-                  </label>
-                  <input
-                    id="name"
-                    name="name"
-                    required
-                    className={[
-                      "w-full rounded-2xl border border-white/12 bg-white/[0.03] px-4 py-3",
-                      "text-base text-zinc-100 placeholder:text-zinc-500 outline-none",
-                      "focus:border-white/25 focus:ring-2 focus:ring-cyan-200/25",
-                    ].join(" ")}
-                    placeholder="Votre nom"
-                    autoComplete="name"
-                  />
+                {/* HoneyPot & Config (Hide Captcha to make it smoother) */}
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_subject" value="Nouveau contact via Portfolio" />
+                <input type="text" name="_honey" style={{ display: "none" }} />
+
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-zinc-300" htmlFor="name">
+                      Nom
+                    </label>
+                    <input
+                      id="name"
+                      name="name"
+                      required
+                      className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:border-cyan-300/50 focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-cyan-300/50 transition"
+                      placeholder="Jean Dupont"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-zinc-300" htmlFor="email">
+                      Email
+                    </label>
+                    <input
+                      id="email"
+                      type="email"
+                      name="email"
+                      required
+                      className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:border-cyan-300/50 focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-cyan-300/50 transition"
+                      placeholder="jean@entreprise.com"
+                    />
+                  </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-base text-zinc-200" htmlFor="email">
-                    Email
-                  </label>
-                  <input
-                    id="email"
-                    type="email"
-                    name="email"
-                    required
-                    className={[
-                      "w-full rounded-2xl border border-white/12 bg-white/[0.03] px-4 py-3",
-                      "text-base text-zinc-100 placeholder:text-zinc-500 outline-none",
-                      "focus:border-white/25 focus:ring-2 focus:ring-cyan-200/25",
-                    ].join(" ")}
-                    placeholder="vous@example.com"
-                    autoComplete="email"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-base text-zinc-200" htmlFor="message">
-                    Message
+                  <label className="text-sm font-medium text-zinc-300" htmlFor="message">
+                    Votre message
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     required
-                    rows={7}
-                    className={[
-                      "w-full resize-none rounded-2xl border border-white/12 bg-white/[0.03] px-4 py-3",
-                      "text-base text-zinc-100 placeholder:text-zinc-500 outline-none",
-                      "focus:border-white/25 focus:ring-2 focus:ring-cyan-200/25",
-                    ].join(" ")}
-                    placeholder="Que voulez-vous construire ? Contraintes ? Délai ? Exemples de sites que vous aimez ?"
+                    rows={6}
+                    className="w-full resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:border-cyan-300/50 focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-cyan-300/50 transition"
+                    placeholder="Bonjour, je souhaite créer un site vitrine pour mon agence..."
                   />
                 </div>
 
-                <div className="flex flex-wrap items-center gap-3 pt-1">
-                  <button type="submit" className="btn-primary no-underline">
-                    Envoyer
+                <div className="flex items-center gap-4 pt-2">
+                  <button type="submit" className="btn-primary w-full sm:w-auto">
+                    Envoyer le message
                   </button>
-
-                  <Link href="/" className="btn-secondary no-underline">
-                    Retour à l’accueil
-                  </Link>
+                  <p className="text-xs text-zinc-500 hidden sm:block">
+                    100% direct & sécurisé.
+                  </p>
                 </div>
-
-                <p className="mt-3 text-sm text-zinc-400">
-                  Les messages sont envoyés directement à{" "}
-                  <a className="link" href="mailto:dorian.thome@proton.me">
-                    dorian.thome@proton.me
-                  </a>
-                  .
-                </p>
               </form>
             </section>
           </div>
 
-          {/* DIRECT */}
-          <div className="gborder">
-            <section className="card p-7 sm:p-9">
-              <h2 className="text-2xl font-semibold text-white">Direct</h2>
-              <p className="mt-3 text-base sm:text-lg text-zinc-300">
-                Si tu préfères, contacte-moi directement. Je suis basé à Genève.
-              </p>
-
-              <div className="mt-7 space-y-5 text-base text-zinc-200">
-                <div className="card p-5">
-                  <div className="text-sm text-zinc-400">Email</div>
-                  <a className="link text-base" href="mailto:dorian.thome@proton.me">
-                    dorian.thome@proton.me
-                  </a>
-                </div>
-
-                <div className="card p-5">
-                  <div className="text-sm text-zinc-400">LinkedIn</div>
-                  <a
-                    className="link text-base"
-                    href="https://www.linkedin.com/in/dorian-t-0b1168150/"
-                    target="_blank"
-                    rel="noreferrer"
+          {/* RIGHT: Info & Copy-Paste */}
+          <div className="space-y-6">
+            
+            {/* Quick Links Card */}
+            <div className="gborder">
+              <section className="card p-6 sm:p-8">
+                <h3 className="text-lg font-semibold text-white">Coordonnées directes</h3>
+                <div className="mt-6 space-y-4">
+                  <a 
+                    href="mailto:dorian.thome@proton.me" 
+                    className="flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-4 transition hover:bg-white/[0.05]"
                   >
-                    dorian-t-0b1168150
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cyan-500/20 text-cyan-300">
+                      @
+                    </div>
+                    <div>
+                      <div className="text-xs text-zinc-400">Email</div>
+                      <div className="font-medium text-white">dorian.thome@proton.me</div>
+                    </div>
                   </a>
-                </div>
 
-                <div className="card p-5">
-                  <div className="text-sm text-zinc-400">GitHub</div>
-                  <a
-                    className="link text-base"
-                    href="https://github.com/Dorian4Git"
-                    target="_blank"
+                  <a 
+                    href="https://www.linkedin.com/in/dorian-t-0b1168150/" 
+                    target="_blank" 
                     rel="noreferrer"
+                    className="flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-4 transition hover:bg-white/[0.05]"
                   >
-                    Dorian4Git
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-500/20 text-blue-300">
+                      in
+                    </div>
+                    <div>
+                      <div className="text-xs text-zinc-400">LinkedIn</div>
+                      <div className="font-medium text-white">Dorian Thomé</div>
+                    </div>
                   </a>
                 </div>
+              </section>
+            </div>
 
-                {/* Brief template */}
-                <div className="gborder">
-                  <div className="card p-6">
-                    <div className="text-lg font-semibold text-white">Brief rapide (copier-coller)</div>
-                    <div className="proseish mt-3 text-base text-zinc-300">
-                      <p className="m-0">• Objectif :</p>
-                      <p className="m-0">• Deadline :</p>
-                      <p className="m-0">• Exemples que vous aimez :</p>
-                      <p className="m-0">• Indispensables :</p>
-                      <p className="m-0">• Budget (optionnel) :</p>
-                    </div>
-
-                    <div className="mt-5">
-                      <a href="#top" className="link text-sm text-zinc-200">
-                        ↑ Retour en haut
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="text-sm text-zinc-500">
-                  Temps de réponse typique : 24–48h (hors week-end).
-                </div>
+            {/* Helper: Brief Template */}
+            <div className="card p-6 sm:p-8 border-dashed border-zinc-700/50">
+              <div className="flex items-center justify-between">
+                <h3 className="text-sm font-semibold text-white">Modèle de brief</h3>
+                <span className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] text-zinc-300">
+                  À copier
+                </span>
               </div>
-            </section>
+              <div className="mt-4 rounded-xl bg-black/40 p-4 text-sm leading-relaxed text-zinc-400 font-mono select-all">
+                <p>• Objectif du site : ...</p>
+                <p>• Deadline souhaitée : ...</p>
+                <p>• Budget estimé : ...</p>
+                <p>• Exemples de design aimés : ...</p>
+              </div>
+              <p className="mt-3 text-xs text-zinc-500">
+                Copiez ces points dans le formulaire pour gagner du temps.
+              </p>
+            </div>
+
           </div>
         </div>
       </div>
