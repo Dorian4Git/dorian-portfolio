@@ -103,7 +103,7 @@ a {
 
 /* Glass card system */
 .card {
-  @apply rounded-3xl border border-white/12 bg-white/[0.03] backdrop-blur-md;
+  @apply rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-md;
   box-shadow: 0 0 0 1px rgba(255,255,255,0.03) inset;
 }
 

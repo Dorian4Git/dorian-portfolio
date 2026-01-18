@@ -1,10 +1,11 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: "export", // Required for static deployment
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  output: "export",
   images: {
     unoptimized: true,
   },
-  // ⚠️ FORCE SUCCESS: Ignore all style/code checks during deployment
+  // These lines force Vercel to ignore any other minor code warnings
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -13,4 +14,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;
