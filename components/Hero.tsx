@@ -147,22 +147,41 @@ export function HeroModern({ lang = "fr" }: { lang?: "fr" | "en" }) {
           <div className="absolute -inset-4 sm:-inset-6 rounded-[2rem] bg-gradient-to-br from-cyan-400/60 via-fuchsia-500/30 to-amber-300/30 blur-[1px]" />
 
           <div className="relative rounded-[1.6rem] p-3 animate-float">
+            {/* The Image Container */}
             <div className="relative aspect-[4/3] overflow-hidden rounded-[1.2rem]">
-              <img
+              <Image
                 src={asset("/media/illustration_start.png")}
                 alt={t.card.alt}
-                className="h-full w-full object-cover"
+                fill // Use 'fill' boolean instead of layout="fill" for newer Next.js
+                className="object-cover" // Class-based object-fit is cleaner
               />
-              
-              <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-3xl border border-white/10 bg-white/10 backdrop-blur-xl" />
-              <div className="pointer-events-none absolute -left-10 -bottom-10 h-28 w-40 rounded-3xl border border-white/10 bg-white/10 backdrop-blur-xl" />
             </div>
 
+            {/* NEW: Floating Tech Badge (Compact Version) */}
+            <div className="absolute -bottom-2 -right-0 z-10 hidden sm:flex items-center gap-2 rounded-2xl border border-white/10 bg-zinc-950/80 backdrop-blur-md p-3 shadow-2xl transition hover:scale-105">
+              {/* Icon Wrapper - Smaller now (h-8 w-8) */}
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                </svg>
+              </div>
+              
+              {/* Text Info - Tighter leading */}
+              <div className="flex flex-col">
+                <span className="text-[9px] uppercase tracking-wider text-zinc-400 leading-none mb-0.5">
+                  Performance
+                </span>
+                <span className="text-xs font-bold text-white leading-none">
+                  100% Score
+                </span>
+              </div>
+            </div>
             <div className="mt-4 flex items-center justify-between gap-3">
               <div className="text-sm text-zinc-200">
-                <span className="font-semibold text-white">{t.card.main}</span> {t.card.sub}
+                <span className="font-semibold text-white">{t.card.main}</span> {t.card.sub}<br />
+                <div className="text-xs text-zinc-400">Next.js / WP</div>
               </div>
-              <div className="text-xs text-zinc-400">Next.js / WP</div>
+              
             </div>
           </div>
         </div>
