@@ -28,7 +28,7 @@ export default function SiteFooter() {
             <Link href="#realisations" className="hover:text-white transition">
               Réalisations
             </Link>
-            <Link href="#contact" className="hover:text-white transition">
+            <Link href="/contact" className="hover:text-white transition">
               Contact
             </Link>
           </div>

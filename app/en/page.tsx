@@ -5,96 +5,96 @@ import { HeroModern } from "@/components/Hero";
 import { asset } from "@/lib/asset";
 
 const skills = [
-  "Expertise Next.js / React",  // Stronger than "Livraison web"
-  "Architecture WordPress",
+  "Expertise Next.js / React",  // Stronger than "Web Delivery"
+  "WordPress Architecture",
   "LLM Fine-tuning & RAG",      // More buzzword-friendly but accurate
   "Computer Vision (PyTorch)",
-  "Déploiement Cloud & CI/CD",
-  "Optimisation SEO Technique", // Businesses love SEO
-  "Approche pragmatique",
+  "Cloud Deployment & CI/CD",
+  "Technical SEO Optimization", // Businesses love SEO
+  "Pragmatic Approach",
 ];
 
 const services = [
   {
-    // Was: "Site WordPress pour entreprise"
-    title: "Site Vitrine & Autonomie", 
+    // Was: "WordPress Site for Business"
+    title: "Showcase Site & Full Control", 
     image: "/media/wp.png",
     // Focus on the benefit: THEY control it.
-    who: "Pour les pros qui veulent la main sur leur contenu sans toucher au code.",
+    who: "For professionals who want control over their content without touching code.",
     bullets: [
-      "Design sur-mesure (pas de template générique)",
-      "Interface d'admin simplifiée",
-      "Optimisé pour le référencement local",
-      "Formation vidéo incluse",
+      "Custom design (no generic templates)",
+      "Simplified admin interface",
+      "Optimized for local SEO",
+      "Video training included",
     ],
-    note: "Idéal pour : PME, artisans, professions libérales.",
+    note: "Ideal for: SMBs, artisans, freelancers.",
   },
   {
-    // Was: "Site moderne sur mesure (Next.js)"
-    title: "Expérience Web Premium",
+    // Was: "Modern custom site (Next.js)"
+    title: "Premium Web Experience",
     image: "/media/next.png",
     // Focus on the result: Speed and branding.
-    who: "Pour se démarquer avec une fluidité parfaite et un design unique.",
+    who: "Stand out with perfect fluidity and unique design.",
     bullets: [
-      "Architecture Next.js (la tech d'Airbnb/Netflix)",
-      "Score Google Lighthouse 100%",
-      "Animations fluides & interactives",
-      "Sécurité maximale (site statique)",
+      "Next.js architecture (Airbnb/Netflix tech)",
+      "100% Google Lighthouse score",
+      "Smooth & interactive animations",
+      "Maximum security (static site)",
     ],
-    note: "Idéal pour : Startups, SaaS, portfolios créatifs.",
+    note: "Ideal for: Startups, SaaS, creative portfolios.",
   },
   {
-    title: "Landing Page de Conversion",
+    title: "Conversion Landing Page",
     image: "/media/landing.png",
-    who: "Un seul but : transformer vos visiteurs en clients.",
+    who: "One goal: turn your visitors into customers.",
     bullets: [
-      "Copywriting orienté vente",
-      "Chargement instantané (< 1s)",
-      "Intégration CRM / Emailing",
-      "A/B Testing possible",
+      "Sales-driven copywriting",
+      "Instant loading (< 1s)",
+      "CRM / Email integration",
+      "A/B Testing ready",
     ],
-    note: "Idéal pour : Lancement de produit, campagnes pubs.",
+    note: "Ideal for: Product launches, ad campaigns.",
   },
   {
-    // Was: "Prototype IA / consultation"
-    title: "Intelligence Artificielle Appliquée",
+    // Was: "AI Prototype / consultation"
+    title: "Applied Artificial Intelligence",
     image: "/media/ai.png",
     // Highlight your expertise
-    who: "Analysez vos données ou automatisez vos tâches avec le Machine Learning.",
+    who: "Analyze your data or automate tasks with Machine Learning.",
     bullets: [
-      "Audit de faisabilité IA (honnête)",
-      "Affinage de LLM (vos données privées)",
-      "Vision par ordinateur (drone/industrie)",
-      "Déploiement sur serveur sécurisé",
+      "Honest AI feasibility audit",
+      "LLM fine-tuning (your private data)",
+      "Computer vision (drone/industry)",
+      "Secure server deployment",
     ],
-    note: "Pas de hype : on résout de vrais problèmes business.",
+    note: "No hype: we solve real business problems.",
   },
 ];
 
 const projects = [
   {
-    title: "Site WordPress — Salon de massage",
-    tags: ["Livraison client", "WordPress", "UX"],
+    title: "WordPress Site — Massage Salon",
+    tags: ["Client Delivery", "WordPress", "UX"],
     description:
-      "Site facile à gérer, design épuré, pages services, parcours de contact simple. Pensé pour des updates par des profils non techniques.",
+      "Easy-to-manage site, clean design, service pages, simple contact flow. Built for non-technical team updates.",
   },
   {
-    title: "MISY — Livraison de colis via covoiturage",
-    tags: ["Produit", "Cartes", "Paiements", "UX mobile"],
+    title: "MISY — Package Delivery via Carpooling",
+    tags: ["Product", "Maps", "Payments", "Mobile UX"],
     description:
-      "Concept d’app end-to-end : matching via carte, parcours paiement, UX logistique in-app.",
+      "End-to-end app concept: map matching, payment flow, in-app logistics UX.",
   },
   {
-    title: "Affinage LLM avec qLoRA",
-    tags: ["LLMs", "qLoRA", "PEFT", "Efficacité"],
+    title: "LLM Fine-tuning with qLoRA",
+    tags: ["LLMs", "qLoRA", "PEFT", "Efficiency"],
     description:
-      "Pipeline d’affinage efficace : config d’entraînement, hyperparamètres, démarche d’évaluation pragmatique.",
+      "Efficient fine-tuning pipeline: training config, hyperparameters, pragmatic evaluation approach.",
   },
   {
-    title: "Détection d’ambroisie sur imagerie drone",
-    tags: ["Vision", "ResNet", "Imagerie aérienne"],
+    title: "Ragweed Detection on Drone Imagery",
+    tags: ["Vision", "ResNet", "Aerial Imaging"],
     description:
-      "Préparation dataset, augmentation, entraînement et workflow d’inférence pour détecter l’ambroisie sur images drone.",
+      "Dataset preparation, augmentation, training and inference workflow to detect ragweed in drone images.",
   },
 ];
 
@@ -144,7 +144,7 @@ export default function HomePage() {
 
       <div className="container-fluid py-10 sm:py-14">
         {/* HERO */}
-        <HeroModern />
+        <HeroModern lang="en" />
 
         {/* SERVICES */}
         <section id="services" className="section">
@@ -156,12 +156,12 @@ export default function HomePage() {
                 </span>
               </h2>
               <p className="section-subtitle">
-                WordPress si tu veux gérer facilement, Next.js si tu veux un rendu premium et ultra-performant.
+                WordPress for full autonomy, Next.js for uncompromised performance and custom design.
               </p>
             </div>
 
             <Link href="/contact" className="btn-secondary no-underline">
-              Contact direct
+              Direct Contact
             </Link>
           </div>
 
@@ -169,7 +169,13 @@ export default function HomePage() {
             {services.map((s) => (
               <Card key={s.title} gradient className="relative overflow-hidden p-7 card-hover">
                 <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-56 opacity-20 blur-[1px]">
-                  <img src={asset(s.image)} alt={`Illustration service : ${s.title}`} className="h-full w-full object-cover" />
+                  <Image 
+                    src={asset(s.image)} 
+                    alt={`Illustration service : ${s.title}`} 
+                    width={500} 
+                    height={300} 
+                    className="h-full w-full object-cover" 
+                  />
                 </div>
                 
 
@@ -179,7 +185,7 @@ export default function HomePage() {
                 <ul className="mt-5 space-y-2 text-base text-zinc-200">
                   {s.bullets.map((b) => (
                     <li key={b} className="flex gap-3">
-                      {/* REPLACE the <span> dot with the Icon */}
+                      {/* REPLACE the <span> dot with the Icon ss */}
                       <CheckIcon colorClass="text-cyan-300" />
                       <span>{b}</span>
                     </li>
@@ -198,16 +204,16 @@ export default function HomePage() {
             <div>
               <h2 className="section-title">
                 <span className="bg-gradient-to-r from-cyan-300 via-fuchsia-300 to-amber-200 bg-clip-text text-transparent">
-                  Réalisations
+                  Projects
                 </span>
               </h2>
               <p className="section-subtitle">
-                Un mix “livraison web” + IA/ML : ça montre la capacité à produire, cadrer et livrer.
+                Real projects deployed in production, from optimized showcase sites to complex AI solutions.
               </p>
             </div>
 
             <a href="#contact" className="btn-secondary no-underline">
-              Discuter d’un projet
+              Discuss a Project
             </a>
           </div>
 
@@ -217,7 +223,7 @@ export default function HomePage() {
                 <div className="flex items-start justify-between gap-4">
                   <h3 className="text-xl font-semibold text-white">{p.title}</h3>
                   <span className="hidden sm:inline-flex rounded-full border border-white/12 bg-white/[0.03] px-3 py-1 text-sm text-zinc-200">
-                    Projet
+                    Project
                   </span>
                 </div>
 
@@ -236,7 +242,7 @@ export default function HomePage() {
 
                 <div className="mt-6">
                   <a href="#contact" className="link text-sm text-zinc-200">
-                    → Demander un devis sur un projet similaire
+                    → Request a quote for a similar project
                   </a>
                 </div>
               </Card>
@@ -254,66 +260,66 @@ export default function HomePage() {
                 </span>
               </h2>
               <p className="section-subtitle">
-                Méthode simple : on réduit le flou, on sort une V1 vite, et on itère proprement.
+                Simple method: reduce confusion, ship V1 fast, iterate cleanly.
               </p>
             </div>
 
             <a href="#services" className="btn-secondary no-underline">
-              Voir les offres
+              View Offers
             </a>
           </div>
 
           <div className="mt-7 grid gap-5 sm:grid-cols-3">
             <Card gradient className="p-7 card-hover">
-              <div className="text-sm font-semibold text-zinc-300">Étape 1</div>
-              <div className="mt-2 text-xl font-semibold text-white">Cadrage Clair</div>
+              <div className="text-sm font-semibold text-zinc-300">Step 1</div>
+              <div className="mt-2 text-xl font-semibold text-white">Clear Scope</div>
               <p className="mt-3 text-base text-zinc-300">
-                On définit le périmètre exact. Prix fixe, deadline fixe. Pas de surprise.
+                We define exact scope. Fixed price, fixed deadline. No surprises.
               </p>
               <ul className="mt-4 space-y-2 text-base text-zinc-200">
                 <li className="flex gap-3">
                   <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-fuchsia-300/80 shrink-0" />
-                  <span>Périmètre clair</span>
+                  <span>Clear scope</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-fuchsia-300/80 shrink-0" />
-                  <span>Plan de pages</span>
+                  <span>Page sitemap</span>
                 </li>
               </ul>
             </Card>
 
             <Card gradient className="p-7 card-hover">
-              <div className="text-sm font-semibold text-zinc-300">Étape 2</div>
-              <div className="mt-2 text-xl font-semibold text-white">Développement Agile</div>
+              <div className="text-sm font-semibold text-zinc-300">Step 2</div>
+              <div className="mt-2 text-xl font-semibold text-white">Agile Development</div>
               <p className="mt-3 text-base text-zinc-300">
-                Je construis, vous validez. On itère rapidement via un lien de prévisualisation live.
+                I build, you validate. We iterate fast via a live preview link.
               </p>
               <ul className="mt-4 space-y-2 text-base text-zinc-200">
                 <li className="flex gap-3">
                   <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-cyan-300/80 shrink-0" />
-                  <span>Itérations courtes</span>
+                  <span>Short iterations</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-cyan-300/80 shrink-0" />
-                  <span>Design + contenu</span>
+                  <span>Design + content</span>
                 </li>
               </ul>
             </Card>
 
             <Card gradient className="p-7 card-hover">
-              <div className="text-sm font-semibold text-zinc-300">Étape 3</div>
-              <div className="mt-2 text-xl font-semibold text-white">Livraison Clés en main</div>
+              <div className="text-sm font-semibold text-zinc-300">Step 3</div>
+              <div className="mt-2 text-xl font-semibold text-white">Turnkey Delivery</div>
               <p className="mt-3 text-base text-zinc-300">
-                Déploiement, configuration du domaine, HTTPS. Je ne pars pas tant que tout n'est pas vert.
+                Deployment, domain setup, HTTPS. I don't leave until everything is green.
               </p>
               <ul className="mt-4 space-y-2 text-base text-zinc-200">
                 <li className="flex gap-3">
                   <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-amber-200/80 shrink-0" />
-                  <span>SEO & perf de base</span>
+                  <span>Basic SEO & performance</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-amber-200/80 shrink-0" />
-                  <span>Maintenance optionnelle</span>
+                  <span>Optional maintenance</span>
                 </li>
               </ul>
             </Card>
@@ -326,27 +332,27 @@ export default function HomePage() {
             <div>
               <h2 className="section-title">
                 <span className="bg-gradient-to-r from-cyan-300 via-fuchsia-300 to-amber-200 bg-clip-text text-transparent">
-                  CV
+                  Resume
                 </span>
-                <span className="text-white"> — résumé</span>
+                <span className="text-white"> — Summary</span>
               </h2>
               <p className="section-subtitle">
-                Compétences orientées livraison : web moderne + IA/ML appliquée.
+                Delivery-focused skills: modern web + applied AI/ML.
               </p>
             </div>
 
             <Link href="/cv" className="btn-secondary no-underline">
-              CV complet
+              Full Resume
             </Link>
           </div>
 
           <div className="mt-7 grid gap-5 sm:grid-cols-2">
             <Card gradient className="p-7 card-hover">
-              <h3 className="text-xl font-semibold text-white">Profil</h3>
+              <h3 className="text-xl font-semibold text-white">Profile</h3>
 
               <div className="proseish mt-4">
                 <p className="text-base text-zinc-300">
-                  Informatique de gestion, master ML, et une approche pragmatique : cadrer → produire → mesurer → livrer.
+                  Business IT degree, ML master's, and pragmatic approach: scope → build → measure → ship.
                 </p>
               </div>
 
@@ -358,7 +364,7 @@ export default function HomePage() {
             </Card>
 
             <Card gradient className="p-7 card-hover">
-              <h3 className="text-xl font-semibold text-white">Liens</h3>
+              <h3 className="text-xl font-semibold text-white">Links</h3>
 
               <div className="mt-4 space-y-3 text-base text-zinc-200">
                 <a className="link" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/dorian-t-0b1168150/">
@@ -376,10 +382,10 @@ export default function HomePage() {
 
               <div className="mt-7 flex flex-wrap gap-3">
                 <Link href="/cv" className="btn-secondary no-underline">
-                  Voir le CV complet
+                  View Full Resume
                 </Link>
                 <a href="#contact" className="btn-primary no-underline">
-                  Me contacter
+                  Contact Me
                 </a>
               </div>
             </Card>
@@ -396,37 +402,37 @@ export default function HomePage() {
                 </span>
               </h2>
               <p className="section-subtitle">
-                Dis-moi ton objectif, ta deadline, et 1–2 exemples de sites. Je réponds avec un plan clair (et une estimation).
+                Tell me about your goal, deadlines and show me what you like. I'll respond with a clear plan.
               </p>
             </div>
 
             <a href="mailto:dorian.thome@proton.me" className="btn-secondary no-underline">
-              Email direct
+              Direct Email
             </a>
           </div>
 
           <Card gradient className="mt-7 p-7 sm:p-8 card-hover">
             <div className="grid gap-8 sm:grid-cols-3">
               <div className="sm:col-span-2">
-                <div className="text-xl font-semibold text-white">Message rapide</div>
+                <div className="text-xl font-semibold text-white">Quick Message</div>
                 <p className="mt-3 text-base text-zinc-300">
-                  Objectif • pages • contenu dispo • deadline • budget (optionnel) • exemples
+                  Goal • pages • content available • deadline • budget (optional) • examples
                 </p>
 
                 <div className="mt-6 flex flex-wrap gap-3">
                   <Link href="/contact" className="btn-primary no-underline">
-                    Ouvrir le formulaire
+                    Open Form
                   </Link>
                   <a href="mailto:dorian.thome@proton.me" className="btn-secondary no-underline">
-                    Email direct
+                    Direct Email
                   </a>
                 </div>
               </div>
 
               <div className="space-y-4 text-base text-zinc-200">
                 <div>
-                  <div className="text-sm text-zinc-400">Localisation</div>
-                  Genève, Suisse, Suisse romande
+                  <div className="text-sm text-zinc-400">Location</div>
+                  Geneva, Switzerland, French-speaking Switzerland
                 </div>
                 <div>
                   <div className="text-sm text-zinc-400">Email</div>
