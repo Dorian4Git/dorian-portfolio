@@ -6,18 +6,18 @@ import Link from "next/link";
 const translations = {
   fr: {
     quoteBtn: "Devis",
-    // CHANGE 1: Explicitly mention availability
-    tagline: "Expert Web & IA • Basé à Genève, disponible partout", 
+    // CHANGE: Removed "Expert" and "IA" from the hook. Focused on the role + location.
+    tagline: "Développeur Web Freelance • Genève / Remote", 
     h1Main: "Votre vision, en ligne.",
     h1Gradient: "Rapide, propre, efficace.",
-    description: "Développeur Fullstack & Ingénieur ML. Je transforme vos idées en sites performants ou en outils IA concrets. Une qualité suisse, peu importe où vous êtes.",
+    // CHANGE: Softened the intro. "Expertise IA" is mentioned as a secondary asset.
+    description: "Spécialisé en sites Next.js et WordPress. Je transforme vos idées en produits performants. Une rigueur technique suisse, enrichie par des compétences en IA.",
     btnContact: "Me contacter",
     btnOffers: "Voir les offres",
     btnPortfolio: "Voir le portfolio",
     credibility: {
       delivery: { title: "Livraison", value: "V1 rapide" },
       stack: { title: "Stack", value: "WP / Next.js" },
-      // CHANGE 2: Show you are remote-ready
       local: { title: "Mode", value: "Remote / Genève" }, 
     },
     card: {
@@ -28,18 +28,17 @@ const translations = {
   },
   en: {
     quoteBtn: "Get a Quote",
-    // CHANGE 1: EN version
-    tagline: "Web & AI Expert • Based in Geneva, available worldwide",
+    // CHANGE: Clear, direct role.
+    tagline: "Freelance Web Developer • Geneva / Remote",
     h1Main: "Your vision, online.",
     h1Gradient: "Fast, clean, efficient.",
-    description: "Fullstack Developer & ML Engineer. I turn your ideas into high-performance websites or concrete AI tools. Swiss quality code, delivered wherever you are.",
+    description: "Specialized in Next.js and WordPress sites. I turn your ideas into high-performance products. Swiss technical precision, boosted by AI skills.",
     btnContact: "Contact Me",
     btnOffers: "See Services",
     btnPortfolio: "View Portfolio",
     credibility: {
       delivery: { title: "Delivery", value: "Fast V1" },
       stack: { title: "Stack", value: "WP / Next.js" },
-      // CHANGE 2: EN version
       local: { title: "Mode", value: "Remote / Global" },
     },
     card: {
