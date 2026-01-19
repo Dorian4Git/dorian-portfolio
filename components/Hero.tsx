@@ -6,40 +6,44 @@ import Link from "next/link";
 const translations = {
   fr: {
     quoteBtn: "Devis",
-    tagline: "Sites WordPress / Next.js • Genève",
+    // CHANGE 1: Explicitly mention availability
+    tagline: "Expert Web & IA • Basé à Genève, disponible partout", 
     h1Main: "Votre vision, en ligne.",
     h1Gradient: "Rapide, propre, efficace.",
-    description: "Développeur Fullstack & Ingénieur ML à Genève. Je transforme vos idées en sites performants ou en outils IA concrets. Pas d'agence, pas de délais flous : juste du code qui marche.",
+    description: "Développeur Fullstack & Ingénieur ML. Je transforme vos idées en sites performants ou en outils IA concrets. Une qualité suisse, peu importe où vous êtes.",
     btnContact: "Me contacter",
     btnOffers: "Voir les offres",
     btnPortfolio: "Voir le portfolio",
     credibility: {
       delivery: { title: "Livraison", value: "V1 rapide" },
       stack: { title: "Stack", value: "WP / Next.js" },
-      local: { title: "Local", value: "Genève" },
+      // CHANGE 2: Show you are remote-ready
+      local: { title: "Mode", value: "Remote / Genève" }, 
     },
     card: {
-      alt: "Création de site web moderne et performant à Genève",
+      alt: "Création de site web moderne et performant",
       main: "Design moderne",
       sub: "• performant • SEO"
     }
   },
   en: {
     quoteBtn: "Get a Quote",
-    tagline: "WordPress / Next.js Sites • Geneva",
+    // CHANGE 1: EN version
+    tagline: "Web & AI Expert • Based in Geneva, available worldwide",
     h1Main: "Your vision, online.",
     h1Gradient: "Fast, clean, efficient.",
-    description: "Fullstack Developer & ML Engineer in Geneva. I turn your ideas into high-performance websites or concrete AI tools. No agency fluff, no vague deadlines: just code that works.",
+    description: "Fullstack Developer & ML Engineer. I turn your ideas into high-performance websites or concrete AI tools. Swiss quality code, delivered wherever you are.",
     btnContact: "Contact Me",
     btnOffers: "See Services",
     btnPortfolio: "View Portfolio",
     credibility: {
       delivery: { title: "Delivery", value: "Fast V1" },
       stack: { title: "Stack", value: "WP / Next.js" },
-      local: { title: "Location", value: "Geneva" },
+      // CHANGE 2: EN version
+      local: { title: "Mode", value: "Remote / Global" },
     },
     card: {
-      alt: "Modern and high-performance website creation in Geneva",
+      alt: "Modern and high-performance website creation",
       main: "Modern Design",
       sub: "• fast • SEO"
     }
