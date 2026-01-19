@@ -18,5 +18,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     // Add other pages like /cv if they exist
+    {
+        url: `${baseUrl}/en`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 1,
+    },
+    {
+        url: `${baseUrl}/en/contact`,
+        lastModified: new Date(),
+        changeFrequency: 'yearly',
+        priority: 0.8,
+    }
   ]
 }

@@ -30,10 +30,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <head>
-        <meta
-          name="google-site-verification"
-          content="JQXPxbO7JAHn7kqImOG22cVorkOjfwJ3sQZV1GjiJeY"
-        />
+        <meta name="google-site-verification" content="p6Z4rq9FXYo1jsBIebQ_S8qEG4arNxTDi_tu5bPGMek" />
       </head>
       <body className="min-h-screen bg-grid">
         <SiteHeader />
