@@ -156,7 +156,7 @@ export default function HomePage() {
                 </span>
               </h2>
               <p className="section-subtitle">
-                WordPress si tu veux gérer facilement, Next.js si tu veux un rendu premium et ultra-performant.
+                WordPress pour une autonomie totale, Next.js pour une performance sans compromis et un design sur-mesure.
               </p>
             </div>
 
@@ -208,7 +208,7 @@ export default function HomePage() {
                 </span>
               </h2>
               <p className="section-subtitle">
-                Un mix “livraison web” + IA/ML : ça montre la capacité à produire, cadrer et livrer.
+                Des projets concrets déployés en production, allant du site vitrine optimisé aux solutions d'IA complexes.
               </p>
             </div>
 
@@ -402,7 +402,7 @@ export default function HomePage() {
                 </span>
               </h2>
               <p className="section-subtitle">
-                Dis-moi ton objectif, ta deadline, et 1–2 exemples de sites. Je réponds avec un plan clair (et une estimation).
+                Parlez-moi de votre objectif, vos délais et montrez-moi ce que vous aimez. Je réponds avec un plan clair.
               </p>
             </div>
 
