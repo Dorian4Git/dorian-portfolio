@@ -100,15 +100,14 @@ export function HeroModern() {
           {/* Image card */}
           <div className="relative rounded-[1.6rem] p-3 animate-float">
             <div className="relative aspect-[4/3] overflow-hidden rounded-[1.2rem]">
-              <img
-                src={asset("/media/illustration_start.png")}
-                alt="Création de site web moderne et performant à Genève"
-                className="h-full w-full object-cover"
+              <Image
+              src={asset("/media/illustration_start.png")}
+              alt="Création de site web moderne et performant à Genève"
+              layout="fill"
+              objectFit="cover"
+              className="h-full w-full"
               />
               
-              {/* small overlay shapes */}
-              <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-3xl border border-white/10 bg-white/10 backdrop-blur-xl" />
-              <div className="pointer-events-none absolute -left-10 -bottom-10 h-28 w-40 rounded-3xl border border-white/10 bg-white/10 backdrop-blur-xl" />
             </div>
 
             <div className="mt-4 flex items-center justify-between gap-3">
