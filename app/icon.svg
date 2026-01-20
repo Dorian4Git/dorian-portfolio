@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-16 -32 128 128">
+  <defs>
+    <linearGradient
+      id="dtGradient"
+      x1="0"
+      y1="0"
+      x2="96"
+      y2="64"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop offset="0" stop-color="#06b6d4" />
+      <stop offset="0.5" stop-color="#d946ef" />
+      <stop offset="1" stop-color="#f59e0b" />
+    </linearGradient>
+  </defs>
+
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M8 8H32L56 32V32L32 56H8V8ZM16 16V48H28L44 32L28 16H16Z"
+    fill="url(#dtGradient)"
+  />
+
+  <path d="M64 8H80L88 16H64V8Z" fill="url(#dtGradient)" />
+  <path d="M72 16H80V48L72 56V16Z" fill="url(#dtGradient)" />
+</svg>
