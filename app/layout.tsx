@@ -60,7 +60,7 @@ export const metadata: Metadata = {
 
   // 4. CLEANER VERIFICATION (Move it here instead of <head>)
   verification: {
-    google: "p6Z4rq9FXYo1jsBIebQ_S8qEG4arNxTDi_tu5bPGMek",
+    google: "qG-0GTBgXcKH5WpT3wvtvXup06m0DpElbRLB7PPow2Q",
   },
 
   // Icons are handled automatically by file presence, 
