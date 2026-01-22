@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
+import LanguageWrapper from "@/components/LanguageWrapper";
 
 // 1. Define the Base URL
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL 
@@ -74,12 +75,13 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
+    // Note: We keep lang="fr" here as a default. 
+    // Changing the <html> tag dynamically is harder, but Google tolerates this mix.
     <html lang="fr" className="scroll-smooth">
-      {/* 5. Cleaned up body/head (verification moved up) */}
       <body className="min-h-screen bg-grid">
-        <SiteHeader />
-        <main>{children}</main>
-        <SiteFooter />
+        <LanguageWrapper>
+            {children}
+        </LanguageWrapper>
       </body>
     </html>
   );

@@ -29,10 +29,10 @@ function NavA({
   );
 }
 
-export default function SiteHeader() {
+export default function SiteHeader({ lang = "fr" }: { lang?: "fr" | "en" }) {
   const pathname = usePathname();
-  // 2. Simplified Check: We only need to know if we are in English for the labels
-  const isEN = pathname?.startsWith("/en") ?? false;
+  // Use the passed lang prop instead of determining it from pathname
+  const isEN = lang === "en";
 
   const [open, setOpen] = useState(false);
 
