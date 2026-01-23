@@ -16,7 +16,7 @@ export default function LegalPage() {
           <p>
             <strong>Responsable :</strong> Dorian Thomé<br />
             <strong>Adresse :</strong> Chemin Du-Villard 6, Genève, Suisse<br />
-            <strong>Contact :</strong> dorian.thome@proton.me<br />
+            <strong>Contact :</strong> contact@dorianthome.ch<br />
             <strong>Hébergement :</strong> Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA.
           </p>
         </section>

@@ -23,7 +23,7 @@ export default function ContactPage() {
 
     // 2. Trigger the mailto link
     // This opens the user's default email app instantly
-    window.location.href = `mailto:dorian.thome@proton.me?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:contact@dorianthome.ch?subject=${subject}&body=${body}`;
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -120,7 +120,7 @@ export default function ContactPage() {
                 <h3 className="text-lg font-semibold text-white">Coordonnées directes</h3>
                 <div className="mt-6 space-y-4">
                   <a 
-                    href="mailto:dorian.thome@proton.me" 
+                    href="mailto:contact@dorianthome.ch" 
                     className="flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-4 transition hover:bg-white/[0.05]"
                   >
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cyan-500/20 text-cyan-300">
@@ -128,7 +128,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <div className="text-xs text-zinc-400">Email</div>
-                      <div className="font-medium text-white">dorian.thome@proton.me</div>
+                      <div className="font-medium text-white">contact@dorianthome.ch</div>
                     </div>
                   </a>
 

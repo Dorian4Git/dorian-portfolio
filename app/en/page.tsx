@@ -375,8 +375,8 @@ export default function HomePage() {
                   GitHub
                 </a>
                 <div />
-                <a className="link" href="mailto:dorian.thome@proton.me">
-                  dorian.thome@proton.me
+                <a className="link" href="mailto:contact@dorianthome.ch">
+                  contact@dorianthome.ch
                 </a>
               </div>
 
@@ -406,7 +406,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            <a href="mailto:dorian.thome@proton.me" className="btn-secondary no-underline">
+            <a href="mailto:contact@dorianthome.ch" className="btn-secondary no-underline">
               Direct Email
             </a>
           </div>
@@ -423,7 +423,7 @@ export default function HomePage() {
                   <Link href="/contact" className="btn-primary no-underline">
                     Open Form
                   </Link>
-                  <a href="mailto:dorian.thome@proton.me" className="btn-secondary no-underline">
+                  <a href="mailto:contact@dorianthome.ch" className="btn-secondary no-underline">
                     Direct Email
                   </a>
                 </div>
@@ -436,8 +436,8 @@ export default function HomePage() {
                 </div>
                 <div>
                   <div className="text-sm text-zinc-400">Email</div>
-                  <a className="link" href="mailto:dorian.thome@proton.me">
-                    dorian.thome@proton.me
+                  <a className="link" href="mailto:contact@dorianthome.ch">
+                    contact@dorianthome.ch
                   </a>
                 </div>
                 <div>

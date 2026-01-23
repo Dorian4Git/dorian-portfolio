@@ -73,7 +73,7 @@ export default function CVWaitingPage() {
             </div>
 
             <p className="mt-8 text-xs text-zinc-500">
-              En attendant, on peut discuter par <a href="mailto:dorian.thome@proton.me" className="link text-zinc-400">email</a>.
+              En attendant, on peut discuter par <a href="mailto:contact@dorianthome.ch" className="link text-zinc-400">email</a>.
             </p>
 
           </div>

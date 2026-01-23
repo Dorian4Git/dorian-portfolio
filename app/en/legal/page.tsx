@@ -18,7 +18,7 @@ export default function LegalPageEn() {
           <p>
             <strong>Owner:</strong> Dorian Thomé<br />
             <strong>Address:</strong> [Your Full Address Here], Geneva, Switzerland<br />
-            <strong>Contact:</strong> dorian.thome@proton.me<br />
+            <strong>Contact:</strong> contact@dorianthome.ch<br />
             <strong>Hosting:</strong> Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA.
           </p>
         </section>
