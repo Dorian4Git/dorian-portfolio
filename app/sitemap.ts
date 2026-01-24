@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
  
 export default function sitemap(): MetadataRoute.Sitemap {
   // Replace with your REAL domain
-  const baseUrl = 'https://dorian-portfolio-zeta.vercel.app/' 
+  const baseUrl = 'https://dorianthome.ch';
 
   return [
     {
@@ -17,7 +17,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.8,
     },
-    // Add other pages like /cv if they exist
+    {
+        url: `${baseUrl}/cv`,
+        lastModified: new Date(),
+        changeFrequency: 'yearly',
+        priority: 0.8,
+    },
     {
         url: `${baseUrl}/en`,
         lastModified: new Date(),
@@ -29,6 +34,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: new Date(),
         changeFrequency: 'yearly',
         priority: 0.8,
-    }
+    },
+    {
+        url: `${baseUrl}/en/cv`,
+        lastModified: new Date(),
+        changeFrequency: 'yearly',
+        priority: 0.8,
+    },
   ]
 }

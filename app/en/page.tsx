@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 import Link from "next/link";
 import Image from "next/image";
 import Pill from "@/components/Pill";
@@ -54,6 +58,19 @@ const services = [
       "A/B Testing ready",
     ],
     note: "Ideal for: Product launches, ad campaigns.",
+  },
+  {
+    title: "Configuration & Technical Rescue",
+      // Make sure to add an image named 'rescue.png' or similar to your public/media folder
+      image: "/media/rescue.png", 
+      who: "For those who have the pieces of the puzzle but can't put them together.",
+      bullets: [
+        "Domain & DNS connection (Infomaniak, OVH)",
+        "Hosting & Email configuration",
+        "Abandoned WordPress site recovery",
+        "Express deployment (< 24h)",
+      ],
+      note: "Ideal for: Blocked freelancers, orphaned domains.",
   },
   {
     // Was: "AI Prototype / consultation"
@@ -133,6 +150,17 @@ function Card({
 }
 
 export default function HomePage() {
+  // CONFIG: How many cards to show initially? 
+    // Recommended: 4 (keeps the 2-column grid symmetrical)
+    const INITIAL_LIMIT = 4;
+    
+    const [showAllServices, setShowAllServices] = useState(false);
+  
+    // Decide which services to display
+    const displayedServices = showAllServices 
+      ? services 
+      : services.slice(0, INITIAL_LIMIT);
+
   return (
     <div className="bg-zinc-950 text-white bg-noise">
       {/* Background vibes */}
@@ -166,7 +194,8 @@ export default function HomePage() {
           </div>
 
           <div className="mt-7 grid gap-5 sm:grid-cols-2">
-            {services.map((s) => (
+            {/* CHANGED: We map over 'displayedServices' instead of 'services' */}
+            {displayedServices.map((s) => (
               <Card key={s.title} gradient className="relative overflow-hidden p-7 card-hover">
                 <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-56 opacity-20 blur-[1px]">
                   <Image 
@@ -177,7 +206,6 @@ export default function HomePage() {
                     className="h-full w-full object-cover" 
                   />
                 </div>
-                
 
                 <h3 className="text-xl font-semibold text-white">{s.title}</h3>
                 <p className="mt-2 text-base text-zinc-300">{s.who}</p>
@@ -185,7 +213,6 @@ export default function HomePage() {
                 <ul className="mt-5 space-y-2 text-base text-zinc-200">
                   {s.bullets.map((b) => (
                     <li key={b} className="flex gap-3">
-                      {/* REPLACE the <span> dot with the Icon ss */}
                       <CheckIcon colorClass="text-cyan-300" />
                       <span>{b}</span>
                     </li>
@@ -196,6 +223,29 @@ export default function HomePage() {
               </Card>
             ))}
           </div>
+
+          {/* NEW: EXPAND BUTTON */}
+          {services.length > INITIAL_LIMIT && (
+            <div className="mt-8 flex justify-center">
+              <button
+                onClick={() => setShowAllServices(!showAllServices)}
+                className="group flex items-center gap-2 rounded-full border border-zinc-700 bg-zinc-900/50 px-6 py-3 text-sm font-medium text-zinc-200 transition hover:bg-zinc-800 hover:text-white"
+              >
+                {showAllServices ? "Voir moins" : "Voir les autres services"}
+                <svg
+                  className={`h-4 w-4 transition-transform duration-300 ${
+                    showAllServices ? "rotate-180" : ""
+                  }`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+            </div>
+          )}
         </section>
 
         {/* WORK */}

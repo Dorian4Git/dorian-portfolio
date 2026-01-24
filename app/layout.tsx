@@ -74,11 +74,46 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  // JSON-LD for Google
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService", // or "LocalBusiness"
+    "name": "Dorian Thomé | Développeur Web",
+    "image": "https://dorianthome.ch/og-image.png",
+    "url": "https://dorianthome.ch",
+    "telephone": "", // Add if you have a pro number
+    "email": "contact@dorianthome.ch",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "addressCountry": "CH"
+    },
+    "priceRange": "$$$",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/in/dorian-t-0b1168150/",
+      "https://github.com/Dorian4Git"
+    ]
+  };
+
   return (
-    // Note: We keep lang="fr" here as a default. 
-    // Changing the <html> tag dynamically is harder, but Google tolerates this mix.
     <html lang="fr" className="scroll-smooth">
       <body className="min-h-screen bg-grid">
+        {/* ADD THIS SCRIPT SECTION */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        {/* END SCRIPT SECTION */}
+        
         <LanguageWrapper>
             {children}
         </LanguageWrapper>
