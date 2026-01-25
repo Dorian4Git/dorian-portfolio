@@ -304,9 +304,9 @@ export default function HomePage() {
           <div className="section-head">
             <div>
               <h2 className="section-title">
-                <span className="bg-gradient-to-r from-cyan-300 via-fuchsia-300 to-amber-200 bg-clip-text text-transparent">
-                  Process
-                </span>
+          <span className="bg-gradient-to-r from-cyan-300 via-fuchsia-300 to-amber-200 bg-clip-text text-transparent">
+            Process
+          </span>
               </h2>
               <p className="section-subtitle">
                 Méthode simple : on réduit le flou, on sort une V1 vite, et on itère proprement.
@@ -320,56 +320,69 @@ export default function HomePage() {
 
           <div className="mt-7 grid gap-5 sm:grid-cols-3">
             <Card gradient className="p-7 card-hover">
-              <div className="text-sm font-semibold text-zinc-300">Étape 1</div>
-              <div className="mt-2 text-xl font-semibold text-white">Cadrage Clair</div>
+              <div className="inline-flex items-center">
+              <div className="inline-flex items-center justify-center h-10 w-10 rounded-lg bg-gradient-to-br from-fuchsia-400 to-fuchsia-600 text-white font-bold text-lg shadow-lg shadow-fuchsia-500/50">
+                1
+              </div>
+              <div className="mt-4 text-xl font-semibold text-white ml-3 flex items-center">Cadrage Clair</div>
+              </div>
               <p className="mt-3 text-base text-zinc-300">
-                On définit le périmètre exact. Prix fixe, deadline fixe. Pas de surprise.
+              On définit le périmètre exact. Prix fixe, deadline fixe. Pas de surprise.
               </p>
               <ul className="mt-4 space-y-2 text-base text-zinc-200">
-                <li className="flex gap-3">
-                  <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-fuchsia-300/80 shrink-0" />
-                  <span>Périmètre clair</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-fuchsia-300/80 shrink-0" />
-                  <span>Plan de pages</span>
-                </li>
+              <li className="flex gap-3">
+                <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-fuchsia-300/80 shrink-0" />
+                <span>Périmètre clair</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-fuchsia-300/80 shrink-0" />
+                <span>Plan de pages</span>
+              </li>
               </ul>
             </Card>
 
             <Card gradient className="p-7 card-hover">
-              <div className="text-sm font-semibold text-zinc-300">Étape 2</div>
-              <div className="mt-2 text-xl font-semibold text-white">Développement Agile</div>
+              <div className="inline-flex items-center">
+              <div className="inline-flex items-center justify-center h-10 w-10 rounded-lg bg-gradient-to-br from-cyan-400 to-cyan-600 text-white font-bold text-lg shadow-lg shadow-cyan-500/50">
+                2
+              </div>
+              <div className="mt-4 text-xl font-semibold text-white ml-3 flex items-center">Développement Agile</div>
+              </div>
               <p className="mt-3 text-base text-zinc-300">
-                Je construis, vous validez. On itère rapidement via un lien de prévisualisation live.
+              Je construis, vous validez. On itère rapidement via un lien de prévisualisation live.
               </p>
               <ul className="mt-4 space-y-2 text-base text-zinc-200">
-                <li className="flex gap-3">
-                  <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-cyan-300/80 shrink-0" />
-                  <span>Itérations courtes</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-cyan-300/80 shrink-0" />
-                  <span>Design + contenu</span>
-                </li>
+              <li className="flex gap-3">
+                <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-cyan-300/80 shrink-0" />
+                <span>Itérations courtes</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-cyan-300/80 shrink-0" />
+                <span>Design + contenu</span>
+              </li>
               </ul>
             </Card>
 
             <Card gradient className="p-7 card-hover">
-              <div className="text-sm font-semibold text-zinc-300">Étape 3</div>
-              <div className="mt-2 text-xl font-semibold text-white">Livraison Clés en main</div>
+              <div className="inline-flex items-center">
+
+                <div className="inline-flex items-center justify-center h-10 w-10 rounded-lg bg-gradient-to-br from-amber-300 to-amber-500 text-white font-bold text-lg shadow-lg shadow-amber-500/50">
+                3
+                </div>
+              <div className="mt-4 text-xl font-semibold text-white ml-3 flex items-center">Livraison Clés en main</div>
+              </div>
               <p className="mt-3 text-base text-zinc-300">
-                Déploiement, configuration du domaine, HTTPS. Je ne pars pas tant que tout n'est pas vert.
+              Déploiement, configuration du domaine, HTTPS. Je ne pars pas tant que tout n'est pas vert.
               </p>
               <ul className="mt-4 space-y-2 text-base text-zinc-200">
-                <li className="flex gap-3">
-                  <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-amber-200/80 shrink-0" />
-                  <span>SEO & perf de base</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-amber-200/80 shrink-0" />
-                  <span>Maintenance optionnelle</span>
-                </li>
+              <li className="flex gap-3">
+                <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-amber-200/80 shrink-0" />
+                <span>SEO & perf de base</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-amber-200/80 shrink-0" />
+                <span>Maintenance optionnelle</span>
+              </li>
               </ul>
             </Card>
           </div>
@@ -386,7 +399,7 @@ export default function HomePage() {
                 <span className="text-white"> — résumé</span>
               </h2>
               <p className="section-subtitle">
-                Compétences orientées livraison : web moderne + IA/ML appliquée.
+                Compétences orientées livraison : Web moderne + Science de l'information + IA/ML appliquée.
               </p>
             </div>
 
@@ -399,16 +412,25 @@ export default function HomePage() {
             <Card gradient className="p-7 card-hover">
               <h3 className="text-xl font-semibold text-white">Profil</h3>
 
-              <div className="proseish mt-4">
-                <p className="text-base text-zinc-300">
-                  Informatique de gestion, master ML, et une approche pragmatique : cadrer → produire → mesurer → livrer.
-                </p>
-              </div>
+              <div className="mt-4 space-y-4">
+              <p className="text-base text-zinc-300">
+                Informatique de gestion, master ML, et une approche pragmatique : cadrer → produire → mesurer → livrer.
+              </p>
 
-              <div className="mt-6 flex flex-wrap gap-2">
+              <div className="space-y-3">
+                <div className="text-sm font-medium text-zinc-400">Expertise</div>
+                <div className="grid grid-cols-1 gap-2">
                 {skills.map((s) => (
-                  <Pill key={s} text={s} />
+                  <div
+                  key={s}
+                  className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.03] px-4 py-2.5 transition hover:bg-white/[0.06] hover:border-white/20"
+                  >
+                  <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-cyan-300 to-fuchsia-300" />
+                  <span className="text-sm text-zinc-200">{s}</span>
+                  </div>
                 ))}
+                </div>
+              </div>
               </div>
             </Card>
 
@@ -416,17 +438,49 @@ export default function HomePage() {
               <h3 className="text-xl font-semibold text-white">Liens</h3>
 
               <div className="mt-4 space-y-3 text-base text-zinc-200">
-                <a className="link" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/dorian-t-0b1168150/">
-                  LinkedIn
-                </a>
+                <a 
+                    href="https://www.linkedin.com/in/dorian-t-0b1168150/" 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-4 transition hover:bg-white/[0.05]"
+                  >
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-500/20 text-blue-300">
+                      in
+                    </div>
+                    <div>
+                      <div className="text-xs text-zinc-400">LinkedIn</div>
+                      <div className="font-medium text-white">Dorian Thomé</div>
+                    </div>
+                  </a>
                 <div />
-                <a className="link" target="_blank" rel="noreferrer" href="https://github.com/Dorian4Git">
-                  GitHub
-                </a>
+                <a 
+                    href="https://github.com/Dorian4Git" 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-4 transition hover:bg-white/[0.05]"
+                  >
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gray-200/20 text-gray-300">
+                      <Image src={asset("/media/github-icon.png")} alt="GitHub" width={20} height={20} />
+                      
+                    </div>
+                    <div>
+                      <div className="text-xs text-zinc-400">GitHub</div>
+                      <div className="font-medium text-white">Dorian4Git</div>
+                    </div>
+                  </a>
                 <div />
-                <a className="link" href="mailto:contact@dorianthome.ch">
-                  contact@dorianthome.ch
-                </a>
+                <a 
+                    href="mailto:contact@dorianthome.ch" 
+                    className="flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-4 transition hover:bg-white/[0.05]"
+                  >
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cyan-500/20 text-cyan-300">
+                      @
+                    </div>
+                    <div>
+                      <div className="text-xs text-zinc-400">Email</div>
+                      <div className="font-medium text-white">contact@dorianthome.ch</div>
+                    </div>
+                  </a>
               </div>
 
               <div className="mt-7 flex flex-wrap gap-3">
@@ -481,7 +535,7 @@ export default function HomePage() {
               <div className="space-y-4 text-base text-zinc-200">
                 <div>
                   <div className="text-sm text-zinc-400">Localisation</div>
-                  Genève, Suisse, Suisse romande
+                  Genève, Suisse, Suisse romande, Disponible à distance
                 </div>
                 <div>
                   <div className="text-sm text-zinc-400">Email</div>

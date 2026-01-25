@@ -321,56 +321,69 @@ export default function HomePage() {
 
           <div className="mt-7 grid gap-5 sm:grid-cols-3">
             <Card gradient className="p-7 card-hover">
-              <div className="text-sm font-semibold text-zinc-300">Step 1</div>
-              <div className="mt-2 text-xl font-semibold text-white">Clear Scope</div>
+              <div className="inline-flex items-center">
+              <div className="inline-flex items-center justify-center h-10 w-10 rounded-lg bg-gradient-to-br from-fuchsia-400 to-fuchsia-600 text-white font-bold text-lg shadow-lg shadow-fuchsia-500/50">
+                1
+              </div>
+              <div className="mt-4 text-xl font-semibold text-white ml-3 flex items-center">Clear Scope</div>
+              </div>
               <p className="mt-3 text-base text-zinc-300">
-                We define exact scope. Fixed price, fixed deadline. No surprises.
+              We define exact scope. Fixed price, fixed deadline. No surprises.
               </p>
               <ul className="mt-4 space-y-2 text-base text-zinc-200">
-                <li className="flex gap-3">
-                  <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-fuchsia-300/80 shrink-0" />
-                  <span>Clear scope</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-fuchsia-300/80 shrink-0" />
-                  <span>Page sitemap</span>
-                </li>
+              <li className="flex gap-3">
+                <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-fuchsia-300/80 shrink-0" />
+                <span>Clear scope</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-fuchsia-300/80 shrink-0" />
+                <span>Page sitemap</span>
+              </li>
               </ul>
             </Card>
 
             <Card gradient className="p-7 card-hover">
-              <div className="text-sm font-semibold text-zinc-300">Step 2</div>
-              <div className="mt-2 text-xl font-semibold text-white">Agile Development</div>
+              <div className="inline-flex items-center">
+              <div className="inline-flex items-center justify-center h-10 w-10 rounded-lg bg-gradient-to-br from-cyan-400 to-cyan-600 text-white font-bold text-lg shadow-lg shadow-cyan-500/50">
+                2
+              </div>
+              <div className="mt-4 text-xl font-semibold text-white ml-3 flex items-center">Agile Development</div>
+              </div>
               <p className="mt-3 text-base text-zinc-300">
-                I build, you validate. We iterate fast via a live preview link.
+              I build, you validate. We iterate fast via a live preview link.
               </p>
               <ul className="mt-4 space-y-2 text-base text-zinc-200">
-                <li className="flex gap-3">
-                  <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-cyan-300/80 shrink-0" />
-                  <span>Short iterations</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-cyan-300/80 shrink-0" />
-                  <span>Design + content</span>
-                </li>
+              <li className="flex gap-3">
+                <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-cyan-300/80 shrink-0" />
+                <span>Short iterations</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-cyan-300/80 shrink-0" />
+                <span>Design + content</span>
+              </li>
               </ul>
             </Card>
 
             <Card gradient className="p-7 card-hover">
-              <div className="text-sm font-semibold text-zinc-300">Step 3</div>
-              <div className="mt-2 text-xl font-semibold text-white">Turnkey Delivery</div>
+              <div className="inline-flex items-center">
+
+                <div className="inline-flex items-center justify-center h-10 w-10 rounded-lg bg-gradient-to-br from-amber-300 to-amber-500 text-white font-bold text-lg shadow-lg shadow-amber-500/50">
+                3
+                </div>
+              <div className="mt-4 text-xl font-semibold text-white ml-3 flex items-center">Turnkey Delivery</div>
+              </div>
               <p className="mt-3 text-base text-zinc-300">
-                Deployment, domain setup, HTTPS. I don't leave until everything is green.
+              Deployment, domain setup, HTTPS. I don't leave until everything is green.
               </p>
               <ul className="mt-4 space-y-2 text-base text-zinc-200">
-                <li className="flex gap-3">
-                  <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-amber-200/80 shrink-0" />
-                  <span>Basic SEO & performance</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-amber-200/80 shrink-0" />
-                  <span>Optional maintenance</span>
-                </li>
+              <li className="flex gap-3">
+                <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-amber-200/80 shrink-0" />
+                <span>Basic SEO & performance</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-amber-200/80 shrink-0" />
+                <span>Optional maintenance</span>
+              </li>
               </ul>
             </Card>
           </div>
@@ -400,16 +413,25 @@ export default function HomePage() {
             <Card gradient className="p-7 card-hover">
               <h3 className="text-xl font-semibold text-white">Profile</h3>
 
-              <div className="proseish mt-4">
-                <p className="text-base text-zinc-300">
-                  Business IT degree, ML master's, and pragmatic approach: scope → build → measure → ship.
-                </p>
-              </div>
+              <div className="mt-4 space-y-4">
+              <p className="text-base text-zinc-300">
+                Business IT degree, ML master's, and pragmatic approach: scope → build → measure → ship.
+              </p>
 
-              <div className="mt-6 flex flex-wrap gap-2">
+              <div className="space-y-3">
+                <div className="text-sm font-medium text-zinc-400">Expertise</div>
+                <div className="grid grid-cols-1 gap-2">
                 {skills.map((s) => (
-                  <Pill key={s} text={s} />
+                  <div
+                  key={s}
+                  className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.03] px-4 py-2.5 transition hover:bg-white/[0.06] hover:border-white/20"
+                  >
+                  <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-cyan-300 to-fuchsia-300" />
+                  <span className="text-sm text-zinc-200">{s}</span>
+                  </div>
                 ))}
+                </div>
+              </div>
               </div>
             </Card>
 
@@ -417,17 +439,49 @@ export default function HomePage() {
               <h3 className="text-xl font-semibold text-white">Links</h3>
 
               <div className="mt-4 space-y-3 text-base text-zinc-200">
-                <a className="link" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/dorian-t-0b1168150/">
-                  LinkedIn
-                </a>
+                <a 
+                    href="https://www.linkedin.com/in/dorian-t-0b1168150/" 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-4 transition hover:bg-white/[0.05]"
+                  >
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-500/20 text-blue-300">
+                      in
+                    </div>
+                    <div>
+                      <div className="text-xs text-zinc-400">LinkedIn</div>
+                      <div className="font-medium text-white">Dorian Thomé</div>
+                    </div>
+                  </a>
                 <div />
-                <a className="link" target="_blank" rel="noreferrer" href="https://github.com/Dorian4Git">
-                  GitHub
-                </a>
+                <a 
+                    href="https://github.com/Dorian4Git" 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-4 transition hover:bg-white/[0.05]"
+                  >
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gray-200/20 text-gray-300">
+                      <Image src={asset("/media/github-icon.png")} alt="GitHub" width={20} height={20} />
+                      
+                    </div>
+                    <div>
+                      <div className="text-xs text-zinc-400">GitHub</div>
+                      <div className="font-medium text-white">Dorian4Git</div>
+                    </div>
+                  </a>
                 <div />
-                <a className="link" href="mailto:contact@dorianthome.ch">
-                  contact@dorianthome.ch
-                </a>
+                <a 
+                    href="mailto:contact@dorianthome.ch" 
+                    className="flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-4 transition hover:bg-white/[0.05]"
+                  >
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cyan-500/20 text-cyan-300">
+                      @
+                    </div>
+                    <div>
+                      <div className="text-xs text-zinc-400">Email</div>
+                      <div className="font-medium text-white">contact@dorianthome.ch</div>
+                    </div>
+                  </a>
               </div>
 
               <div className="mt-7 flex flex-wrap gap-3">

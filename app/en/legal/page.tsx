@@ -17,7 +17,7 @@ export default function LegalPageEn() {
           <h2 className="text-xl font-semibold text-white mb-4">1. Site Publisher</h2>
           <p>
             <strong>Owner:</strong> Dorian Thomé<br />
-            <strong>Address:</strong> [Your Full Address Here], Geneva, Switzerland<br />
+            <strong>Address:</strong> Chemin Du-Villard 6, Geneva, Switzerland<br />
             <strong>Contact:</strong> contact@dorianthome.ch<br />
             <strong>Hosting:</strong> Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA.
           </p>
