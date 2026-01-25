@@ -306,7 +306,7 @@ export default function HomePage() {
               <h2 className="section-title">
           <span className="bg-gradient-to-r from-cyan-300 via-fuchsia-300 to-amber-200 bg-clip-text text-transparent">
             Process
-          </span>
+          </span> 
               </h2>
               <p className="section-subtitle">
                 Méthode simple : on réduit le flou, on sort une V1 vite, et on itère proprement.
@@ -321,8 +321,8 @@ export default function HomePage() {
           <div className="mt-7 grid gap-5 sm:grid-cols-3">
             <Card gradient className="p-7 card-hover">
               <div className="inline-flex items-center">
-              <div className="inline-flex items-center justify-center h-10 w-10 rounded-lg bg-gradient-to-br from-fuchsia-400 to-fuchsia-600 text-white font-bold text-lg shadow-lg shadow-fuchsia-500/50">
-                1
+              <div className="inline-flex items-center justify-center h-10 w-10 rounded-lg bg-gradient-to-br from-cyan-400 to-cyan-600 text-white font-bold text-lg shadow-lg shadow-cyan-500/50">
+              1
               </div>
               <div className="mt-4 text-xl font-semibold text-white ml-3 flex items-center">Cadrage Clair</div>
               </div>
@@ -331,20 +331,20 @@ export default function HomePage() {
               </p>
               <ul className="mt-4 space-y-2 text-base text-zinc-200">
               <li className="flex gap-3">
-                <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-fuchsia-300/80 shrink-0" />
-                <span>Périmètre clair</span>
+              <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-cyan-300/80 shrink-0" />
+              <span>Périmètre clair</span>
               </li>
               <li className="flex gap-3">
-                <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-fuchsia-300/80 shrink-0" />
-                <span>Plan de pages</span>
+              <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-cyan-300/80 shrink-0" />
+              <span>Plan de pages</span>
               </li>
               </ul>
             </Card>
 
             <Card gradient className="p-7 card-hover">
               <div className="inline-flex items-center">
-              <div className="inline-flex items-center justify-center h-10 w-10 rounded-lg bg-gradient-to-br from-cyan-400 to-cyan-600 text-white font-bold text-lg shadow-lg shadow-cyan-500/50">
-                2
+              <div className="inline-flex items-center justify-center h-10 w-10 rounded-lg bg-gradient-to-br from-fuchsia-400 to-fuchsia-600 text-white font-bold text-lg shadow-lg shadow-fuchsia-500/50">
+              2
               </div>
               <div className="mt-4 text-xl font-semibold text-white ml-3 flex items-center">Développement Agile</div>
               </div>
@@ -353,12 +353,12 @@ export default function HomePage() {
               </p>
               <ul className="mt-4 space-y-2 text-base text-zinc-200">
               <li className="flex gap-3">
-                <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-cyan-300/80 shrink-0" />
-                <span>Itérations courtes</span>
+              <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-fuchsia-300/80 shrink-0" />
+              <span>Itérations courtes</span>
               </li>
               <li className="flex gap-3">
-                <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-cyan-300/80 shrink-0" />
-                <span>Design + contenu</span>
+              <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-fuchsia-300/80 shrink-0" />
+              <span>Design + contenu</span>
               </li>
               </ul>
             </Card>
