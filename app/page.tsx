@@ -7,6 +7,8 @@ import Image from "next/image";
 import Pill from "@/components/Pill";
 import { HeroModern } from "@/components/Hero";
 import { asset } from "@/lib/asset";
+import { LuxuryRealEstateDemo } from "@/components/LuxuryRealEstate";
+import { LuxuryDarkDemo } from "@/components/LuxuryDarkDemo";
 
 const skills = [
   "Expertise Next.js / React",  // Stronger than "Livraison web"
@@ -22,7 +24,7 @@ const services = [
   {
     // Was: "Site WordPress pour entreprise"
     title: "Site Vitrine & Autonomie", 
-    image: "/media/wp.png",
+    image: "/media/services/wp.png",
     // Focus on the benefit: THEY control it.
     who: "Pour les pros qui veulent la main sur leur contenu sans toucher au code.",
     bullets: [
@@ -36,7 +38,7 @@ const services = [
   {
     // Was: "Site moderne sur mesure (Next.js)"
     title: "Expérience Web Premium",
-    image: "/media/next.png",
+    image: "/media/services/next.png",
     // Focus on the result: Speed and branding.
     who: "Pour se démarquer avec une fluidité parfaite et un design unique.",
     bullets: [
@@ -49,7 +51,7 @@ const services = [
   },
   {
     title: "Landing Page de Conversion",
-    image: "/media/landing.png",
+    image: "/media/services/landing.png",
     who: "Un seul but : transformer vos visiteurs en clients.",
     bullets: [
       "Copywriting orienté vente",
@@ -62,7 +64,7 @@ const services = [
   {
     title: "Configuration & Sauvetage Technique",
     // Make sure to add an image named 'rescue.png' or similar to your public/media folder
-    image: "/media/rescue.png", 
+    image: "/media/services/rescue.png", 
     who: "Pour ceux qui ont les pièces du puzzle mais n'arrivent pas à les assembler.",
     bullets: [
       "Connexion Domaine & DNS (Infomaniak, OVH)",
@@ -75,7 +77,7 @@ const services = [
   {
     // Was: "Prototype IA / consultation"
     title: "Intelligence Artificielle Appliquée",
-    image: "/media/ai.png",
+    image: "/media/services/ai.png",
     // Highlight your expertise
     who: "Analysez vos données ou automatisez vos tâches avec le Machine Learning.",
     bullets: [
@@ -149,12 +151,36 @@ function Card({
   return gradient ? <div className="gborder">{inner}</div> : inner;
 }
 
+function BrowserMockup({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900 shadow-2xl">
+      {/* Browser Toolbar */}
+      <div className="flex items-center gap-2 border-b border-zinc-800 bg-zinc-900/50 px-4 py-3 backdrop-blur-md">
+        <div className="flex gap-1.5">
+          <div className="h-3 w-3 rounded-full bg-red-500/80" />
+          <div className="h-3 w-3 rounded-full bg-amber-500/80" />
+          <div className="h-3 w-3 rounded-full bg-green-500/80" />
+        </div>
+        <div className="mx-auto flex w-full max-w-sm items-center justify-center rounded-md bg-zinc-950/50 py-1 text-xs font-medium text-zinc-500 font-mono">
+          lumiere-arch.com
+        </div>
+      </div>
+      {/* Content */}
+      <div className="relative">
+        {children}
+      </div>
+    </div>
+  );
+}
+
 export default function HomePage() {
   // CONFIG: How many cards to show initially? 
   // Recommended: 4 (keeps the 2-column grid symmetrical)
   const INITIAL_LIMIT = 4;
   
   const [showAllServices, setShowAllServices] = useState(false);
+
+  const [demoTheme, setDemoTheme] = useState<'light' | 'dark'>('dark');
 
   // Decide which services to display
   const displayedServices = showAllServices 
@@ -197,20 +223,56 @@ export default function HomePage() {
             {/* CHANGED: We map over 'displayedServices' instead of 'services' */}
             {displayedServices.map((s) => (
               <Card key={s.title} gradient className="relative overflow-hidden p-7 card-hover">
-                <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-56 opacity-20 blur-[1px]">
-                  <Image 
-                    src={asset(s.image)} 
-                    alt={`Illustration service : ${s.title}`} 
-                    width={500} 
-                    height={300} 
-                    className="h-full w-full object-cover" 
-                  />
+                
+                {/* UNIFIED IMAGE HEADER: Applies to ALL cards now */}
+                <div className="mb-6 -mx-7 -mt-7 h-64 relative group overflow-hidden bg-zinc-900">
+                  
+                  {s.title === "Landing Page de Conversion" ? (
+                    /* --- OPTION A: SPECIAL SPLIT VIEW (Landing Page) --- */
+                    <div className="grid grid-cols-2 h-full w-full">
+                      <div className="relative h-full border-r border-zinc-800">
+                        <Image 
+                          src={asset("/media/services/minimalist-landing-page-bright-clair-lumineux-minimaliste.png")} 
+                          alt="Light Style" 
+                          fill 
+                          className="object-cover object-top" 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/20 to-transparent opacity-90" />
+                      </div>
+                      <div className="relative h-full">
+                        <Image 
+                          src={asset("/media/services/minimalist-landing-page-dark-sombre-luxe.png")} 
+                          alt="Dark Style" 
+                          fill 
+                          className="object-cover object-top" 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/20 to-transparent opacity-90" />
+                      </div>
+                      {/* Badge */}
+                      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-white/10 bg-black/50 px-3 py-1 text-[10px] text-white backdrop-blur-sm shadow-lg">
+                        2 Styles Inclus
+                      </div>
+                    </div>
+                  ) : (
+                    /* --- OPTION B: STANDARD FULL IMAGE (Other Services) --- */
+                    <>
+                      <Image 
+                        src={asset(s.image)} 
+                        alt={`Illustration service : ${s.title}`} 
+                        fill 
+                        className="object-cover object-top transition-transform duration-700 group-hover:scale-105" 
+                      />
+                      {/* Dark Gradient Overlay for text readability */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent opacity-90" />
+                    </>
+                  )}
                 </div>
 
-                <h3 className="text-xl font-semibold text-white">{s.title}</h3>
-                <p className="mt-2 text-base text-zinc-300">{s.who}</p>
+                {/* CONTENT (Same for all) */}
+                <h3 className="text-xl font-semibold text-white relative z-10">{s.title}</h3>
+                <p className="mt-2 text-base text-zinc-300 relative z-10">{s.who}</p>
 
-                <ul className="mt-5 space-y-2 text-base text-zinc-200">
+                <ul className="mt-5 space-y-2 text-base text-zinc-200 relative z-10">
                   {s.bullets.map((b) => (
                     <li key={b} className="flex gap-3">
                       <CheckIcon colorClass="text-cyan-300" />
@@ -219,10 +281,12 @@ export default function HomePage() {
                   ))}
                 </ul>
 
-                <p className="mt-5 text-base text-zinc-400">{s.note}</p>
+                <p className="mt-5 text-base text-zinc-400 relative z-10">{s.note}</p>
               </Card>
             ))}
+            
           </div>
+          
 
           {/* NEW: EXPAND BUTTON */}
           {services.length > INITIAL_LIMIT && (
@@ -246,6 +310,45 @@ export default function HomePage() {
               </button>
             </div>
           )}
+          {/* Add white vertical space */}
+          <div className="my-10" />
+          <div className="mt-20">
+            <div className="mb-8 flex flex-col items-center text-center">
+              <h3 className="text-2xl font-semibold text-white">Démonstration Interactive</h3>
+              <p className="mt-2 text-zinc-400">
+                Basculez entre deux univers graphiques pour voir l'impact du design sur la perception.
+              </p>
+              
+              {/* THEME TOGGLE BUTTONS */}
+              <div className="mt-6 flex rounded-full border border-zinc-800 bg-zinc-900/50 p-1 backdrop-blur">
+                <button
+                  onClick={() => setDemoTheme('dark')}
+                  className={`rounded-full px-6 py-2 text-sm font-medium transition-all ${
+                    demoTheme === 'dark' 
+                      ? 'bg-zinc-800 text-white shadow-lg' 
+                      : 'text-zinc-500 hover:text-zinc-300'
+                  }`}
+                >
+                  Luxe Sombre
+                </button>
+                <button
+                  onClick={() => setDemoTheme('light')}
+                  className={`rounded-full px-6 py-2 text-sm font-medium transition-all ${
+                    demoTheme === 'light' 
+                      ? 'bg-zinc-100 text-zinc-900 shadow-lg' 
+                      : 'text-zinc-500 hover:text-zinc-300'
+                  }`}
+                >
+                  Minimalist Bright
+                </button>
+              </div>
+            </div>
+
+            {/* THE BROWSER FRAME */}
+            <BrowserMockup>
+              {demoTheme === 'dark' ? <LuxuryDarkDemo /> : <LuxuryRealEstateDemo />}
+            </BrowserMockup>
+          </div>
         </section>
         {/* WORK */}
         <section id="realisations" className="section">
@@ -296,6 +399,61 @@ export default function HomePage() {
                 </div>
               </Card>
             ))}
+          </div>
+          {/* --- STYLE COMPARISON GALLERY --- */}
+          <div className="mt-12 w-full max-w-5xl mx-auto px-4">
+            <div className="text-center mb-8">
+              <h4 className="text-lg font-medium text-white">Une expertise, deux univers</h4>
+              <p className="text-sm text-zinc-400">Flexibilité totale sur la direction artistique.</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
+              
+              {/* Card 1: Light / Editorial */}
+              <div className="group relative rounded-xl border border-zinc-800 bg-zinc-900/50 p-3 transition-transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-white/5">
+                <div className="relative aspect-[16/10] overflow-hidden rounded-lg bg-zinc-800">
+                  {/* Replace with your actual screenshot path */}
+                  <Image 
+                    src={asset("/media/services/minimalist-landing-page-bright-clair-lumineux-minimaliste.png")} 
+                    alt="Style Minimalist Bright" 
+                    width={800} 
+                    height={500} 
+                    className="h-full w-full object-cover opacity-90 transition-all duration-500 group-hover:scale-105 group-hover:opacity-100" 
+                  />
+                  {/* Label Overlay */}
+                  <div className="absolute bottom-3 left-3 rounded-md bg-white/90 px-3 py-1 text-xs font-bold uppercase tracking-wider text-black backdrop-blur">
+                    Style Éditorial
+                  </div>
+                </div>
+                <div className="mt-4 px-1">
+                  <h5 className="text-white font-medium">L'Approche "Galerie"</h5>
+                  <p className="text-xs text-zinc-400 mt-1">Typographie Serif, fond clair, mise en page asymétrique.</p>
+                </div>
+              </div>
+
+              {/* Card 2: Dark / Luxury */}
+              <div className="group relative rounded-xl border border-zinc-800 bg-zinc-900/50 p-3 transition-transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#D4AF37]/10">
+                <div className="relative aspect-[16/10] overflow-hidden rounded-lg bg-zinc-800">
+                  {/* Replace with your actual screenshot path */}
+                  <Image 
+                    src={asset("/media/services/minimalist-landing-page-dark-sombre-luxe.png")} 
+                    alt="Style Dark Luxury" 
+                    width={800} 
+                    height={500} 
+                    className="h-full w-full object-cover opacity-90 transition-all duration-500 group-hover:scale-105 group-hover:opacity-100" 
+                  />
+                  {/* Label Overlay */}
+                  <div className="absolute bottom-3 left-3 rounded-md bg-[#0f1014]/90 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#D4AF37] border border-[#D4AF37]/30 backdrop-blur">
+                    Style Prestige
+                  </div>
+                </div>
+                <div className="mt-4 px-1">
+                  <h5 className="text-white font-medium">L'Approche "Cinématique"</h5>
+                  <p className="text-xs text-zinc-400 mt-1">Mode sombre, accents dorés, effets de verre (Glassmorphism).</p>
+                </div>
+              </div>
+
+            </div>
           </div>
         </section>
 
