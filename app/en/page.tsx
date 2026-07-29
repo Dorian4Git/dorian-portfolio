@@ -22,7 +22,7 @@ const services = [
   {
     // Was: "WordPress Site for Business"
     title: "Showcase Site & Full Control", 
-    image: "/media/wp.png",
+    image: "/media/services/wp.png",
     // Focus on the benefit: THEY control it.
     who: "For professionals who want control over their content without touching code.",
     bullets: [
@@ -36,7 +36,7 @@ const services = [
   {
     // Was: "Modern custom site (Next.js)"
     title: "Premium Web Experience",
-    image: "/media/next.png",
+    image: "/media/services/next.png",
     // Focus on the result: Speed and branding.
     who: "Stand out with perfect fluidity and unique design.",
     bullets: [
@@ -49,7 +49,7 @@ const services = [
   },
   {
     title: "Conversion Landing Page",
-    image: "/media/landing.png",
+    image: "/media/services/landing.png",
     who: "One goal: turn your visitors into customers.",
     bullets: [
       "Sales-driven copywriting",
@@ -61,8 +61,7 @@ const services = [
   },
   {
     title: "Configuration & Technical Rescue",
-      // Make sure to add an image named 'rescue.png' or similar to your public/media folder
-      image: "/media/rescue.png", 
+      image: "/media/services/rescue.png", 
       who: "For those who have the pieces of the puzzle but can't put them together.",
       bullets: [
         "Domain & DNS connection (Infomaniak, OVH)",
@@ -75,7 +74,7 @@ const services = [
   {
     // Was: "AI Prototype / consultation"
     title: "Applied Artificial Intelligence",
-    image: "/media/ai.png",
+    image: "/media/services/ai.png",
     // Highlight your expertise
     who: "Analyze your data or automate tasks with Machine Learning.",
     bullets: [
@@ -90,28 +89,34 @@ const services = [
 
 const projects = [
   {
-    title: "WordPress Site — Massage Salon",
-    tags: ["Client Delivery", "WordPress", "UX"],
-    description:
-      "Easy-to-manage site, clean design, service pages, simple contact flow. Built for non-technical team updates.",
+    title: "L'Amie Sage — lamiesage.ch",
+    tags: ["WordPress", "Health & Wellness", "Autonomy"],
+    description: "Creation of a complete showcase site for a massage salon. Simplified administration interface allowing the client to manage content autonomously.",
+    image: "/media/projects/lamiesage.png"
   },
   {
-    title: "MISY — Package Delivery via Carpooling",
-    tags: ["Product", "Maps", "Payments", "Mobile UX"],
-    description:
-      "End-to-end app concept: map matching, payment flow, in-app logistics UX.",
+    title: "Héloïse D. — heloised.com",
+    tags: ["Web Design", "Responsive", "Visual Identity"],
+    description: "Design and development of a modern, elegant website highlighting the client's professional expertise with an optimized user journey.",
+    image: "/media/projects/heloised.png"
   },
   {
-    title: "LLM Fine-tuning with qLoRA",
-    tags: ["LLMs", "qLoRA", "PEFT", "Efficiency"],
-    description:
-      "Efficient fine-tuning pipeline: training config, hyperparameters, pragmatic evaluation approach.",
+    title: "Luxury Real Estate",
+    tags: ["Next.js", "React", "High Performance", "Luxury"],
+    description: "Ultra-fast Next.js web application designed specifically to showcase a luxury property. Smooth animations and maximum SEO optimization.",
+    image: "/media/projects/luxury-real-estate.png"
   },
   {
-    title: "Ragweed Detection on Drone Imagery",
-    tags: ["Vision", "ResNet", "Aerial Imaging"],
-    description:
-      "Dataset preparation, augmentation, training and inference workflow to detect ragweed in drone images.",
+    title: "LLM Fine-Tuning via QLoRA (Research)",
+    tags: ["AI", "LLMs", "QLoRA", "Machine Learning"],
+    description: "Master's project exploring state-of-the-art fine-tuning. Local training of an LLM (5h) on a mathematics dataset, drastically reducing the model's perplexity.",
+    image: "/media/projects/llm-qlora-poster.jpg"
+  },
+  {
+    title: "Ragweed Detection via Drone (POC)",
+    tags: ["Computer Vision", "PyTorch", "Drones", "Data Cleaning"],
+    description: "Processed 40,000 field images. Massive data cleaning, training computer vision models, and real-life drone testing to detect this allergenic plant.",
+    image: "/media/projects/ambroisie-detection.jpg"
   },
 ];
 
@@ -197,20 +202,56 @@ export default function HomePage() {
             {/* CHANGED: We map over 'displayedServices' instead of 'services' */}
             {displayedServices.map((s) => (
               <Card key={s.title} gradient className="relative overflow-hidden p-7 card-hover">
-                <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-56 opacity-20 blur-[1px]">
-                  <Image 
-                    src={asset(s.image)} 
-                    alt={`Illustration service : ${s.title}`} 
-                    width={500} 
-                    height={300} 
-                    className="h-full w-full object-cover" 
-                  />
+                
+                {/* UNIFIED IMAGE HEADER: Applies to ALL cards now */}
+                <div className="mb-6 -mx-7 -mt-7 h-64 relative group overflow-hidden bg-zinc-900">
+                  
+                  {s.title === "Conversion Landing Page" ? (
+                    /* --- OPTION A: SPECIAL SPLIT VIEW (Landing Page) --- */
+                    <div className="grid grid-cols-2 h-full w-full">
+                      <div className="relative h-full border-r border-zinc-800">
+                        <Image 
+                          src={asset("/media/services/minimalist-landing-page-bright-clair-lumineux-minimaliste.png")} 
+                          alt="Light Style" 
+                          fill 
+                          className="object-cover object-top" 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/20 to-transparent opacity-90" />
+                      </div>
+                      <div className="relative h-full">
+                        <Image 
+                          src={asset("/media/services/minimalist-landing-page-dark-sombre-luxe.png")} 
+                          alt="Dark Style" 
+                          fill 
+                          className="object-cover object-top" 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/20 to-transparent opacity-90" />
+                      </div>
+                      {/* Badge */}
+                      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-white/10 bg-black/50 px-3 py-1 text-[10px] text-white backdrop-blur-sm shadow-lg">
+                        2 Styles Included
+                      </div>
+                    </div>
+                  ) : (
+                    /* --- OPTION B: STANDARD FULL IMAGE (Other Services) --- */
+                    <>
+                      <Image 
+                        src={asset(s.image)} 
+                        alt={`Service illustration: ${s.title}`} 
+                        fill 
+                        className="object-cover object-top transition-transform duration-700 group-hover:scale-105" 
+                      />
+                      {/* Dark Gradient Overlay for text readability */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent opacity-90" />
+                    </>
+                  )}
                 </div>
 
-                <h3 className="text-xl font-semibold text-white">{s.title}</h3>
-                <p className="mt-2 text-base text-zinc-300">{s.who}</p>
+                {/* CONTENT (Same for all) */}
+                <h3 className="text-xl font-semibold text-white relative z-10">{s.title}</h3>
+                <p className="mt-2 text-base text-zinc-300 relative z-10">{s.who}</p>
 
-                <ul className="mt-5 space-y-2 text-base text-zinc-200">
+                <ul className="mt-5 space-y-2 text-base text-zinc-200 relative z-10">
                   {s.bullets.map((b) => (
                     <li key={b} className="flex gap-3">
                       <CheckIcon colorClass="text-cyan-300" />
@@ -219,7 +260,7 @@ export default function HomePage() {
                   ))}
                 </ul>
 
-                <p className="mt-5 text-base text-zinc-400">{s.note}</p>
+                <p className="mt-5 text-base text-zinc-400 relative z-10">{s.note}</p>
               </Card>
             ))}
           </div>
@@ -269,34 +310,93 @@ export default function HomePage() {
 
           <div className="mt-7 grid gap-5 sm:grid-cols-2">
             {projects.map((p) => (
-              <Card key={p.title} gradient className="p-7 card-hover">
-                <div className="flex items-start justify-between gap-4">
-                  <h3 className="text-xl font-semibold text-white">{p.title}</h3>
-                  <span className="hidden sm:inline-flex rounded-full border border-white/12 bg-white/[0.03] px-3 py-1 text-sm text-zinc-200">
-                    Project
-                  </span>
-                </div>
+              <Card key={p.title} gradient className="relative overflow-hidden p-7 card-hover flex flex-col h-full">
+                {p.image && (
+                  <div className="mb-6 -mx-7 -mt-7 h-48 relative group overflow-hidden bg-zinc-900 border-b border-white/5">
+                    <Image 
+                      src={asset(p.image)} 
+                      alt={`Project illustration : ${p.title}`} 
+                      fill 
+                      className="object-cover object-top transition-transform duration-700 group-hover:scale-105" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent opacity-90" />
+                  </div>
+                )}
+                
+                <div className="flex flex-col flex-grow relative z-10">
+                  <div className="flex items-start justify-between gap-4">
+                    <h3 className="text-xl font-semibold text-white">{p.title}</h3>
+                  </div>
 
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {p.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="rounded-full border border-white/12 bg-white/[0.03] px-3 py-1 text-sm text-zinc-200"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {p.tags.map((t) => (
+                      <span
+                        key={t}
+                        className="rounded-full border border-white/12 bg-white/[0.03] px-3 py-1 text-sm text-zinc-200"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
 
-                <p className="mt-5 text-base text-zinc-300">{p.description}</p>
-
-                <div className="mt-6">
-                  <a href="#contact" className="link text-sm text-zinc-200">
-                    → Request a quote for a similar project
-                  </a>
+                  <p className="mt-5 text-base text-zinc-300 flex-grow">{p.description}</p>
                 </div>
               </Card>
             ))}
+          </div>
+
+          {/* --- STYLE COMPARISON GALLERY --- */}
+          <div className="mt-12 w-full max-w-5xl mx-auto px-4">
+            <div className="text-center mb-8">
+              <h4 className="text-lg font-medium text-white">One Expertise, Two Universes</h4>
+              <p className="text-sm text-zinc-400">Total flexibility on art direction.</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
+              
+              {/* Card 1: Light / Editorial */}
+              <div className="group relative rounded-xl border border-zinc-800 bg-zinc-900/50 p-3 transition-transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-white/5">
+                <div className="relative aspect-[16/10] overflow-hidden rounded-lg bg-zinc-800">
+                  <Image 
+                    src={asset("/media/services/minimalist-landing-page-bright-clair-lumineux-minimaliste.png")} 
+                    alt="Minimalist Bright Style" 
+                    width={800} 
+                    height={500} 
+                    className="h-full w-full object-cover opacity-90 transition-all duration-500 group-hover:scale-105 group-hover:opacity-100" 
+                  />
+                  {/* Label Overlay */}
+                  <div className="absolute bottom-3 left-3 rounded-md bg-white/90 px-3 py-1 text-xs font-bold uppercase tracking-wider text-black backdrop-blur">
+                    Editorial Style
+                  </div>
+                </div>
+                <div className="mt-4 px-1">
+                  <h5 className="text-white font-medium">The "Gallery" Approach</h5>
+                  <p className="text-xs text-zinc-400 mt-1">Serif typography, bright background, asymmetrical layout.</p>
+                </div>
+              </div>
+
+              {/* Card 2: Dark / Luxury */}
+              <div className="group relative rounded-xl border border-zinc-800 bg-zinc-900/50 p-3 transition-transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#D4AF37]/10">
+                <div className="relative aspect-[16/10] overflow-hidden rounded-lg bg-zinc-800">
+                  <Image 
+                    src={asset("/media/services/minimalist-landing-page-dark-sombre-luxe.png")} 
+                    alt="Dark Luxury Style" 
+                    width={800} 
+                    height={500} 
+                    className="h-full w-full object-cover opacity-90 transition-all duration-500 group-hover:scale-105 group-hover:opacity-100" 
+                  />
+                  {/* Label Overlay */}
+                  <div className="absolute bottom-3 left-3 rounded-md bg-[#0f1014]/90 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#D4AF37] border border-[#D4AF37]/30 backdrop-blur">
+                    Prestige Style
+                  </div>
+                </div>
+                <div className="mt-4 px-1">
+                  <h5 className="text-white font-medium">The "Cinematic" Approach</h5>
+                  <p className="text-xs text-zinc-400 mt-1">Dark mode, golden accents, glassmorphism effects.</p>
+                </div>
+              </div>
+
+            </div>
           </div>
         </section>
 

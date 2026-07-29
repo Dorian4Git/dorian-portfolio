@@ -7,8 +7,6 @@ import Image from "next/image";
 import Pill from "@/components/Pill";
 import { HeroModern } from "@/components/Hero";
 import { asset } from "@/lib/asset";
-import { LuxuryRealEstateDemo } from "@/components/LuxuryRealEstate";
-import { LuxuryDarkDemo } from "@/components/LuxuryDarkDemo";
 
 const skills = [
   "Expertise Next.js / React",  // Stronger than "Livraison web"
@@ -92,28 +90,34 @@ const services = [
 
 const projects = [
   {
-    title: "Site WordPress — Salon de massage",
-    tags: ["Livraison client", "WordPress", "UX"],
-    description:
-      "Site facile à gérer, design épuré, pages services, parcours de contact simple. Pensé pour des updates par des profils non techniques.",
+    title: "L'Amie Sage — lamiesage.ch",
+    tags: ["WordPress", "Santé & Bien-être", "Autonomie"],
+    description: "Création d'un site vitrine complet pour un salon de massage. Interface d'administration simplifiée pour permettre à la cliente de gérer ses contenus de manière autonome.",
+    image: "/media/projects/lamiesage.png"
   },
   {
-    title: "MISY — Livraison de colis via covoiturage",
-    tags: ["Produit", "Cartes", "Paiements", "UX mobile"],
-    description:
-      "Concept d’app end-to-end : matching via carte, parcours paiement, UX logistique in-app.",
+    title: "Héloïse D. — heloised.com",
+    tags: ["Web Design", "Responsive", "Identité Visuelle"],
+    description: "Conception et développement d'un site web moderne et élégant mettant en valeur l'expertise professionnelle de la cliente avec un parcours utilisateur optimisé.",
+    image: "/media/projects/heloised.png"
   },
   {
-    title: "Affinage LLM avec qLoRA",
-    tags: ["LLMs", "qLoRA", "PEFT", "Efficacité"],
-    description:
-      "Pipeline d’affinage efficace : config d’entraînement, hyperparamètres, démarche d’évaluation pragmatique.",
+    title: "Vente Immobilière de Prestige",
+    tags: ["Next.js", "React", "Haute Performance", "Luxe"],
+    description: "Application web Next.js ultra-rapide conçue spécifiquement pour la mise en valeur d'une propriété de luxe. Animations fluides et optimisation SEO maximale.",
+    image: "/media/projects/luxury-real-estate.png"
   },
   {
-    title: "Détection d’ambroisie sur imagerie drone",
-    tags: ["Vision", "ResNet", "Imagerie aérienne"],
-    description:
-      "Préparation dataset, augmentation, entraînement et workflow d’inférence pour détecter l’ambroisie sur images drone.",
+    title: "Spécialisation d'un LLM via QLoRA (Recherche)",
+    tags: ["IA", "LLMs", "QLoRA", "Machine Learning"],
+    description: "Projet de Master étudiant l'état de l'art du fine-tuning. Entraînement d'un LLM en local (5h) sur un jeu de données mathématiques, réduisant drastiquement la perplexité du modèle.",
+    image: "/media/projects/llm-qlora-poster.jpg"
+  },
+  {
+    title: "Détection d'Ambroisie par Drone (POC)",
+    tags: ["Computer Vision", "PyTorch", "Drones", "Data Cleaning"],
+    description: "Traitement de 40 000 images de terrain. Nettoyage massif de données, entraînement de modèles de vision par ordinateur et tests réels avec drone pour détecter cette plante allergène.",
+    image: "/media/projects/ambroisie-detection.jpg"
   },
 ];
 
@@ -151,27 +155,7 @@ function Card({
   return gradient ? <div className="gborder">{inner}</div> : inner;
 }
 
-function BrowserMockup({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900 shadow-2xl">
-      {/* Browser Toolbar */}
-      <div className="flex items-center gap-2 border-b border-zinc-800 bg-zinc-900/50 px-4 py-3 backdrop-blur-md">
-        <div className="flex gap-1.5">
-          <div className="h-3 w-3 rounded-full bg-red-500/80" />
-          <div className="h-3 w-3 rounded-full bg-amber-500/80" />
-          <div className="h-3 w-3 rounded-full bg-green-500/80" />
-        </div>
-        <div className="mx-auto flex w-full max-w-sm items-center justify-center rounded-md bg-zinc-950/50 py-1 text-xs font-medium text-zinc-500 font-mono">
-          lumiere-arch.com
-        </div>
-      </div>
-      {/* Content */}
-      <div className="relative">
-        {children}
-      </div>
-    </div>
-  );
-}
+
 
 export default function HomePage() {
   // CONFIG: How many cards to show initially? 
@@ -180,7 +164,7 @@ export default function HomePage() {
   
   const [showAllServices, setShowAllServices] = useState(false);
 
-  const [demoTheme, setDemoTheme] = useState<'light' | 'dark'>('dark');
+
 
   // Decide which services to display
   const displayedServices = showAllServices 
@@ -312,43 +296,6 @@ export default function HomePage() {
           )}
           {/* Add white vertical space */}
           <div className="my-10" />
-          <div className="mt-20">
-            <div className="mb-8 flex flex-col items-center text-center">
-              <h3 className="text-2xl font-semibold text-white">Démonstration Interactive</h3>
-              <p className="mt-2 text-zinc-400">
-                Basculez entre deux univers graphiques pour voir l'impact du design sur la perception.
-              </p>
-              
-              {/* THEME TOGGLE BUTTONS */}
-              <div className="mt-6 flex rounded-full border border-zinc-800 bg-zinc-900/50 p-1 backdrop-blur">
-                <button
-                  onClick={() => setDemoTheme('dark')}
-                  className={`rounded-full px-6 py-2 text-sm font-medium transition-all ${
-                    demoTheme === 'dark' 
-                      ? 'bg-zinc-800 text-white shadow-lg' 
-                      : 'text-zinc-500 hover:text-zinc-300'
-                  }`}
-                >
-                  Luxe Sombre
-                </button>
-                <button
-                  onClick={() => setDemoTheme('light')}
-                  className={`rounded-full px-6 py-2 text-sm font-medium transition-all ${
-                    demoTheme === 'light' 
-                      ? 'bg-zinc-100 text-zinc-900 shadow-lg' 
-                      : 'text-zinc-500 hover:text-zinc-300'
-                  }`}
-                >
-                  Minimalist Bright
-                </button>
-              </div>
-            </div>
-
-            {/* THE BROWSER FRAME */}
-            <BrowserMockup>
-              {demoTheme === 'dark' ? <LuxuryDarkDemo /> : <LuxuryRealEstateDemo />}
-            </BrowserMockup>
-          </div>
         </section>
         {/* WORK */}
         <section id="realisations" className="section">
@@ -371,31 +318,36 @@ export default function HomePage() {
 
           <div className="mt-7 grid gap-5 sm:grid-cols-2">
             {projects.map((p) => (
-              <Card key={p.title} gradient className="p-7 card-hover">
-                <div className="flex items-start justify-between gap-4">
-                  <h3 className="text-xl font-semibold text-white">{p.title}</h3>
-                  <span className="hidden sm:inline-flex rounded-full border border-white/12 bg-white/[0.03] px-3 py-1 text-sm text-zinc-200">
-                    Projet
-                  </span>
-                </div>
+              <Card key={p.title} gradient className="relative overflow-hidden p-7 card-hover flex flex-col h-full">
+                {p.image && (
+                  <div className="mb-6 -mx-7 -mt-7 h-48 relative group overflow-hidden bg-zinc-900 border-b border-white/5">
+                    <Image 
+                      src={asset(p.image)} 
+                      alt={`Illustration projet : ${p.title}`} 
+                      fill 
+                      className="object-cover object-top transition-transform duration-700 group-hover:scale-105" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent opacity-90" />
+                  </div>
+                )}
+                
+                <div className="flex flex-col flex-grow relative z-10">
+                  <div className="flex items-start justify-between gap-4">
+                    <h3 className="text-xl font-semibold text-white">{p.title}</h3>
+                  </div>
 
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {p.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="rounded-full border border-white/12 bg-white/[0.03] px-3 py-1 text-sm text-zinc-200"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {p.tags.map((t) => (
+                      <span
+                        key={t}
+                        className="rounded-full border border-white/12 bg-white/[0.03] px-3 py-1 text-sm text-zinc-200"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
 
-                <p className="mt-5 text-base text-zinc-300">{p.description}</p>
-
-                <div className="mt-6">
-                  <a href="#contact" className="link text-sm text-zinc-200">
-                    → Demander un devis sur un projet similaire
-                  </a>
+                  <p className="mt-5 text-base text-zinc-300 flex-grow">{p.description}</p>
                 </div>
               </Card>
             ))}

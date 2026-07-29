@@ -156,25 +156,8 @@ export function HeroModern({ lang = "fr" }: { lang?: "fr" | "en" }) {
               />
             </div>
 
-            {/* NEW: Floating Tech Badge (Compact Version) */}
-            <div className="absolute -bottom-2 -right-0 z-10 hidden sm:flex items-center gap-2 rounded-2xl border border-white/10 bg-zinc-950/80 backdrop-blur-md p-3 shadow-2xl transition hover:scale-105">
-              {/* Icon Wrapper - Smaller now (h-8 w-8) */}
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-                </svg>
-              </div>
-              
-              {/* Text Info - Tighter leading */}
-              <div className="flex flex-col">
-                <span className="text-[9px] uppercase tracking-wider text-zinc-400 leading-none mb-0.5">
-                  Performance
-                </span>
-                <span className="text-xs font-bold text-white leading-none">
-                  100% Score
-                </span>
-              </div>
-            </div>
+            {/* Floating Tech Badge Removed as requested */}
+
             <div className="mt-4 flex items-center justify-between gap-3">
               <div className="text-sm text-zinc-200">
                 <span className="font-semibold text-white">{t.card.main}</span> {t.card.sub}<br />
