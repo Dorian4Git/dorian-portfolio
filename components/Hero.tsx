@@ -1,169 +1,194 @@
-import { asset } from "@/lib/asset";
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { asset } from "@/lib/asset";
 
-// 1. Define your translations here
 const translations = {
   fr: {
-    quoteBtn: "Devis",
-    // CHANGE: Removed "Expert" and "IA" from the hook. Focused on the role + location.
-    tagline: "Développeur Web Freelance • Genève / Remote", 
-    h1Main: "Votre vision, en ligne.",
-    h1Gradient: "Rapide, propre, efficace.",
-    // CHANGE: Softened the intro. "Expertise IA" is mentioned as a secondary asset.
-    description: "Spécialisé en sites Next.js et WordPress. Je transforme vos idées en produits performants. Une rigueur technique suisse, enrichie par des compétences en IA.",
-    btnContact: "Me contacter",
-    btnOffers: "Voir les offres",
-    btnPortfolio: "Voir le portfolio",
-    credibility: {
-      delivery: { title: "Livraison", value: "V1 rapide" },
-      stack: { title: "Stack", value: "WP / Next.js" },
-      local: { title: "Mode", value: "Remote / Genève" }, 
+    status: "Disponible pour nouveaux projets • Genève & Remote",
+    h1Line1: "Sites web performants &",
+    h1Line2: "expériences sur-mesure.",
+    h1Accent: "Conçus pour convertir.",
+    description:
+      "Je suis Dorian Thomé, développeur basé à Genève. J'accompagne les indépendants, PME et créateurs dans la conception de sites web modernes, ultra-rapides et faciles à administrer. Une approche humaine, une rigueur suisse, zéro jargon inutile.",
+    btnContact: "Discuter de votre projet",
+    btnServices: "Découvrir mes services",
+    btnResearch: "Mémoires & Recherche",
+    quoteBtn: "Devis rapide",
+    pillars: [
+      {
+        title: "Livraison agile",
+        desc: "Première version livrée en 7 à 14 jours, avec ajustements continus.",
+      },
+      {
+        title: "Stack adaptée",
+        desc: "WordPress pour l'autonomie, Next.js pour l'expérience sur-mesure.",
+      },
+      {
+        title: "Suivi personnalisé",
+        desc: "Basé à Genève. Échanges directs, clairs et réactifs.",
+      },
+    ],
+    photoCaption: {
+      role: "Dorian Thomé",
+      detail: "Développeur Web & Ingénieur Information",
     },
-    card: {
-      alt: "Création de site web moderne et performant",
-      main: "Design moderne",
-      sub: "• performant • SEO"
-    }
   },
   en: {
+    status: "Available for new projects • Geneva & Remote",
+    h1Line1: "High-performance websites &",
+    h1Line2: "custom digital experiences.",
+    h1Accent: "Built to engage & convert.",
+    description:
+      "I'm Dorian Thomé, a web developer based in Geneva. I partner with founders, businesses, and creators to build fast, beautiful, and easy-to-manage web experiences. Swiss precision, human collaboration, zero unnecessary buzzwords.",
+    btnContact: "Discuss a Project",
+    btnServices: "Explore Services",
+    btnResearch: "Research & Theses",
     quoteBtn: "Get a Quote",
-    // CHANGE: Clear, direct role.
-    tagline: "Freelance Web Developer • Geneva / Remote",
-    h1Main: "Your vision, online.",
-    h1Gradient: "Fast, clean, efficient.",
-    description: "Specialized in Next.js and WordPress sites. I turn your ideas into high-performance products. Swiss technical precision, boosted by AI skills.",
-    btnContact: "Contact Me",
-    btnOffers: "See Services",
-    btnPortfolio: "View Portfolio",
-    credibility: {
-      delivery: { title: "Delivery", value: "Fast V1" },
-      stack: { title: "Stack", value: "WP / Next.js" },
-      local: { title: "Mode", value: "Remote / Global" },
+    pillars: [
+      {
+        title: "Fast Delivery",
+        desc: "Working V1 ready in 7 to 14 days with seamless feedback loops.",
+      },
+      {
+        title: "Tailored Stack",
+        desc: "WordPress for total autonomy, Next.js for custom performance.",
+      },
+      {
+        title: "Direct Collaboration",
+        desc: "Based in Geneva. Clear communication and proactive support.",
+      },
+    ],
+    photoCaption: {
+      role: "Dorian Thomé",
+      detail: "Web Developer & Information Engineer",
     },
-    card: {
-      alt: "Modern and high-performance website creation",
-      main: "Modern Design",
-      sub: "• fast • SEO"
-    }
-  }
+  },
 };
 
-// 2. Add the 'lang' prop to the component signature
 export function HeroModern({ lang = "fr" }: { lang?: "fr" | "en" }) {
-  // 3. Select the right text based on the prop
   const t = translations[lang];
-
-  // Optional: Adjust links if you have separate English pages (e.g., /en/contact)
-  const contactLink = lang === 'en' ? '/en/contact' : '/contact';
+  const contactLink = lang === "en" ? "/en/contact" : "/contact";
+  const researchAnchor = lang === "en" ? "#research" : "#recherche";
 
   return (
-    <section className="relative overflow-hidden rounded-[2.5rem] p-6 sm:p-10">
-      {/* Background shapes (Unchanged) */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-24 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-fuchsia-500/20 blur-3xl" />
-        <div className="absolute top-24 -left-24 h-[420px] w-[420px] rounded-full bg-cyan-400/15 blur-3xl" />
-        <div className="absolute -bottom-32 right-0 h-[520px] w-[520px] rounded-full bg-amber-400/10 blur-3xl" />
-        <div className="absolute right-6 top-6 h-24 w-24 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl" />
-        <div className="absolute left-6 bottom-6 h-16 w-40 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl" />
+    <section className="relative overflow-hidden rounded-[2.5rem] border border-white/[0.08] bg-[#0c0d12] p-6 sm:p-10 lg:p-14 shadow-2xl">
+      {/* Background Atmosphere (Subtle warm glow, no harsh neon) */}
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute -top-32 right-1/4 h-[420px] w-[500px] rounded-full bg-white/[0.03] blur-3xl" />
+        <div className="absolute top-1/2 -left-20 h-[380px] w-[400px] rounded-full bg-amber-200/[0.02] blur-3xl" />
       </div>
 
-      {/* Top mini-nav */}
-      <div className="relative z-10 flex items-center justify-between gap-4">
-        <div className="text-4xl font-semibold bg-gradient-to-r from-cyan-300 via-fuchsia-300 to-amber-200 bg-clip-text text-transparent">
-            Dorian Thomé
+      {/* Atmospheric Portrait Layer (extending under the left text) */}
+      <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-full lg:w-[60%] select-none overflow-hidden -z-0">
+        <div className="relative h-full w-full">
+          <Image
+            src={asset("/media/dorian-hero-portrait.jpg")}
+            alt={t.photoCaption.role}
+            fill
+            priority
+            className="object-cover object-[72%_25%] sm:object-[70%_20%] opacity-85 sm:opacity-90"
+          />
+
+          {/* Left-to-right fade so image blends seamlessly under text */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0c0d12] via-[#0c0d12]/80 sm:via-[#0c0d12]/70 via-35% to-transparent" />
+
+          {/* Top and Bottom soft vignetting */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0c0d12] via-transparent to-[#0c0d12]" />
         </div>
+      </div>
+
+      {/* Top Header Bar inside Hero */}
+      <div className="relative z-10 flex items-center justify-between gap-4 pb-6 sm:pb-8 border-b border-white/[0.06]">
+        <div className="flex items-center gap-3">
+          <div className="text-xl sm:text-2xl font-bold tracking-tight text-white">
+            Dorian Thomé
+          </div>
+          <span className="hidden sm:inline-block text-xs uppercase tracking-widest text-zinc-400 font-medium border-l border-white/10 pl-3">
+            Portfolio & Services
+          </span>
+        </div>
+
         <Link
           href={contactLink}
-          className="rounded-3xl border border-white/15 bg-white/5 px-4 py-2.5 text-xl font-semibold text-white hover:bg-white/10 transition no-underline"
+          className="rounded-full border border-white/15 bg-white/[0.05] px-4 py-2 text-xs sm:text-sm font-medium text-white hover:bg-white/10 hover:border-white/30 transition no-underline backdrop-blur-sm"
         >
           {t.quoteBtn}
         </Link>
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 mt-8 grid gap-10 lg:grid-cols-2 lg:items-center">
-        {/* Left: text */}
-        <div>
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-zinc-200">
-            <span className="h-2 w-2 rounded-full bg-cyan-300" />
-            {t.tagline}
+      {/* Main Content Area */}
+      <div className="relative z-10 pt-8 sm:pt-12 grid lg:grid-cols-12 gap-8 items-center">
+        {/* Left Column: Typography & CTAs */}
+        <div className="lg:col-span-8 xl:col-span-7">
+          {/* Status Badge */}
+          <div className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-black/40 px-3.5 py-1.5 text-xs text-zinc-300 backdrop-blur-md">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+            </span>
+            <span>{t.status}</span>
           </div>
 
-          <h1 className="mt-5 text-4xl sm:text-6xl font-semibold tracking-tight text-white">
-            {t.h1Main}
-            <span className="block">
-              <span className="bg-gradient-to-r from-cyan-300 via-fuchsia-300 to-amber-200 bg-clip-text text-transparent">
-                {t.h1Gradient}
-              </span>
+          {/* Main Title */}
+          <h1 className="mt-6 text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-white leading-[1.12]">
+            {t.h1Line1} <br className="hidden sm:inline" />
+            <span>{t.h1Line2}</span>
+            <span className="block mt-1 text-gradient-warm font-medium">
+              {t.h1Accent}
             </span>
           </h1>
 
-          <p className="mt-5 max-w-xl text-base sm:text-lg text-zinc-200">
+          {/* Subtitle / Human Intro */}
+          <p className="mt-6 text-base sm:text-lg text-zinc-300 leading-relaxed max-w-xl">
             {t.description}
           </p>
 
-          <div className="mt-7 flex flex-wrap gap-3">
-            <a
-              href="#contact"
-              className="rounded-3xl bg-white px-5 py-3 text-xl font-semibold text-zinc-950 hover:bg-zinc-200 transition no-underline"
-            >
+          {/* CTAs */}
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <a href="#contact" className="btn-primary no-underline">
               {t.btnContact}
             </a>
-            <a
-              href="#services"
-              className="rounded-3xl border border-white/15 bg-white/5 px-5 py-3 text-xl font-semibold text-white hover:bg-white/10 transition no-underline"
-            >
-              {t.btnOffers}
+            <a href="#services" className="btn-secondary no-underline">
+              {t.btnServices}
             </a>
             <a
-              href="#realisations"
-              className="rounded-3xl border border-white/15 bg-white/5 px-5 py-3 text-xl font-semibold text-white hover:bg-white/10 transition no-underline"
+              href={researchAnchor}
+              className="rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-sm font-medium text-zinc-300 hover:text-white hover:bg-white/5 transition no-underline backdrop-blur-sm"
             >
-              {t.btnPortfolio}
+              {t.btnResearch}
             </a>
           </div>
 
-          {/* quick credibility row */}
-          <div className="mt-8 grid grid-cols-3 gap-3 text-sm text-zinc-300 max-w-xl">
-            <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
-              <div className="text-white font-semibold">{t.credibility.delivery.title}</div>
-              <div className="mt-1">{t.credibility.delivery.value}</div>
-            </div>
-            <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
-              <div className="text-white font-semibold">{t.credibility.stack.title}</div>
-              <div className="mt-1">{t.credibility.stack.value}</div>
-            </div>
-            <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
-              <div className="text-white font-semibold">{t.credibility.local.title}</div>
-              <div className="mt-1">{t.credibility.local.value}</div>
-            </div>
+          {/* Trust Pillars */}
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl">
+            {t.pillars.map((p) => (
+              <div
+                key={p.title}
+                className="rounded-2xl border border-white/[0.07] bg-black/40 p-3.5 backdrop-blur-md hover:border-white/15 transition"
+              >
+                <div className="text-xs font-semibold text-white tracking-wide">
+                  {p.title}
+                </div>
+                <div className="mt-1 text-xs text-zinc-400 leading-snug">
+                  {p.desc}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Right: framed image */}
-        <div className="relative">
-          <div className="absolute -inset-4 sm:-inset-6 rounded-[2rem] bg-gradient-to-br from-cyan-400/60 via-fuchsia-500/30 to-amber-300/30 blur-[1px]" />
-
-          <div className="relative rounded-[1.6rem] p-3 animate-float">
-            {/* The Image Container */}
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[1.2rem]">
-              <Image
-                src={asset("/media/illustration_start.png")}
-                alt={t.card.alt}
-                fill // Use 'fill' boolean instead of layout="fill" for newer Next.js
-                className="object-cover" // Class-based object-fit is cleaner
-              />
-            </div>
-
-            {/* Floating Tech Badge Removed as requested */}
-
-            <div className="mt-4 flex items-center justify-between gap-3">
-              <div className="text-sm text-zinc-200">
-                <span className="font-semibold text-white">{t.card.main}</span> {t.card.sub}<br />
-                <div className="text-xs text-zinc-400">Next.js / WP</div>
+        {/* Right Column / Space on Desktop (Letting the portrait shine) */}
+        <div className="lg:col-span-4 xl:col-span-5 flex flex-col justify-end lg:h-[460px] relative pointer-events-none">
+          <div className="mt-auto hidden lg:flex justify-end">
+            <div className="rounded-2xl border border-white/10 bg-black/50 p-3 backdrop-blur-md text-right max-w-xs pointer-events-auto">
+              <div className="text-xs font-semibold text-white">
+                {t.photoCaption.role}
               </div>
-              
+              <div className="text-[11px] text-zinc-400 mt-0.5">
+                {t.photoCaption.detail}
+              </div>
             </div>
           </div>
         </div>

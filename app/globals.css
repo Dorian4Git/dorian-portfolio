@@ -3,72 +3,61 @@
 @tailwind utilities;
 
 /* =========================================================
-   GLOBALS — Dark modern, vibrant, accessible
-   - Base: zinc-950 background
-   - Accent: cyan/fuchsia/amber helpers (via utility classes)
-   - Smooth anchors + proper focus ring
+   GLOBALS — Minimalist Swiss Perfection
+   - Palette: Deep charcoal / Obsidian base (#090a0d)
+   - Accent: Warm champagne / platinum sheen (clean, peaceful, human)
+   - Typography: Crisp, high-contrast, comfortable line-heights
+   - No rainbow / neon overload
    ========================================================= */
 
 :root {
   color-scheme: dark;
 
-  /* Brand / accent (cyan-ish) */
-  --accent: 34 211 238; /* cyan-400 */
-  --accent-2: 217 70 239; /* fuchsia-500 */
-  --accent-3: 251 191 36; /* amber-400 */
+  /* Refined, quiet-luxury accents */
+  --accent-gold: 245 208 115;      /* Warm champagne #f5d073 */
+  --accent-slate: 148 163 184;     /* Slate-400 */
 
-  /* Foreground / background (RGB triples for easy rgba usage) */
-  --bg: 9 9 11; /* zinc-950 */
-  --fg: 244 244 245; /* zinc-100 */
+  /* Foreground / background */
+  --bg: 9 10 13;                   /* Obsidian #090a0d */
+  --fg: 248 250 252;               /* Crisp white */
+  --muted: 161 161 170;            /* Zinc-400 */
 
-  /* Subtle borders */
+  /* Borders */
   --border: 255 255 255;
 }
 
 html,
 body {
-  @apply bg-zinc-950 text-zinc-100 antialiased;
+  @apply bg-[#090a0d] text-zinc-100 antialiased;
   text-rendering: optimizeLegibility;
-  font-size: 18px; /* <- au lieu de 17 */
+  font-size: 17px;
   line-height: 1.65;
 }
 
 html {
-  /* Anchors feel premium */
   scroll-behavior: smooth;
 }
 
-body {
-  /* Tailwind base look */
-  @apply bg-zinc-950 text-zinc-100 antialiased;
-  /* Slightly nicer text rendering */
-  text-rendering: optimizeLegibility;
-}
-
-/* Keep headings crisp */
+/* Crisp Headings */
 h1, h2, h3, h4 {
-  @apply text-white;
+  @apply text-white font-semibold;
 }
-h1 { letter-spacing: -0.02em; }
-h2 { letter-spacing: -0.01em; }
+h1 { letter-spacing: -0.025em; }
+h2 { letter-spacing: -0.02em; }
+h3 { letter-spacing: -0.015em; }
 
-/* Paragraphs: readable but not screaming */
+/* Readable, warm body text */
 p {
-  @apply text-zinc-200;
+  @apply text-zinc-300;
 }
 
-/* Better default text rhythm */
-.proseish p { @apply text-zinc-200; }
-.proseish p + p { @apply mt-3; }
-
-/* Links (default) */
+/* Links */
 a {
-  @apply transition;
+  @apply transition-colors duration-200;
 }
 
-/* utilitaire pour liens "texte" */
 .link {
-  @apply underline underline-offset-4 decoration-white/20 hover:decoration-white/40;
+  @apply underline underline-offset-4 decoration-white/25 hover:decoration-white/60 hover:text-white;
 }
 
 /* Selection */
@@ -76,69 +65,100 @@ a {
   @apply bg-white text-zinc-950;
 }
 
-/* Focus ring (keyboard navigation) */
+/* Focus ring */
 :focus-visible {
-  outline: 2px solid rgba(var(--accent), 0.6);
+  outline: 2px solid rgba(255, 255, 255, 0.5);
   outline-offset: 3px;
 }
 
 /* =========================================================
-   Helpers / utilities you can reuse across components
+   Layout Containers & Utilities
    ========================================================= */
 
-/* A clean container utility */
 .container-padded {
   @apply mx-auto w-full max-w-6xl px-4 sm:px-6;
 }
 
 .container-wide {
   @apply mx-auto w-full px-4 sm:px-6;
-  max-width: 1400px; /* plus large que 6xl */
+  max-width: 1400px;
 }
 
 .container-fluid {
-  @apply mx-auto w-full px-4 sm:px-6;
-  max-width: 1700px; /* quasi full sur gros écrans */
+  @apply mx-auto w-full px-4 sm:px-8;
+  max-width: 1600px;
 }
 
-/* Glass card system */
+/* Minimalist Frosted Card System */
 .card {
-  @apply rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-md;
-  box-shadow: 0 0 0 1px rgba(255,255,255,0.03) inset;
+  @apply rounded-3xl border border-white/[0.08] bg-zinc-900/35 backdrop-blur-xl;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.03) inset, 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
 .card-hover {
-  @apply transition hover:bg-white/[0.06] hover:border-white/20;
+  @apply transition-all duration-300 ease-out;
+  @apply hover:bg-zinc-900/60 hover:border-white/20 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/60;
 }
 
-/* Find this section and update it */
-.card-hover {
-  @apply transition-all duration-300 ease-out; /* Smoother timing */
-  @apply hover:bg-white/[0.06] hover:border-white/20;
-  @apply hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/10; /* The "Lift" effect */
+/* Refined Subtle Border Accent */
+.gborder {
+  position: relative;
+  border-radius: 1.6rem;
+}
+.gborder::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(145deg,
+    rgba(255, 255, 255, 0.16),
+    rgba(255, 255, 255, 0.03) 40%,
+    rgba(245, 208, 115, 0.15) 100%
+  );
+  z-index: 0;
+  opacity: 0.9;
+  pointer-events: none;
+}
+.gborder > * {
+  position: relative;
+  z-index: 1;
 }
 
-/* Pills / badges */
+/* Badges / Status Pills */
 .pill {
-  @apply inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-zinc-200;
+  @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs text-zinc-300 backdrop-blur-sm;
 }
 
-/* Buttons (optional, reusable) */
+/* Buttons */
 .btn-primary {
-  @apply inline-flex items-center justify-center rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-zinc-950 hover:bg-zinc-200 transition;
+  @apply inline-flex items-center justify-center rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-zinc-950 transition duration-200 hover:bg-zinc-200 hover:shadow-lg hover:shadow-white/10 active:scale-[0.98];
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10 transition;
+  @apply inline-flex items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-3 text-sm font-semibold text-zinc-200 transition duration-200 hover:bg-white/[0.08] hover:text-white hover:border-white/20 active:scale-[0.98];
 }
 
-/* Subtle grid background (dark) */
+/* Atmospheric Gradients & Masks */
+.mask-hero-fade {
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 15%, rgba(0,0,0,1) 50%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 15%, rgba(0,0,0,1) 50%);
+}
+
+.text-gradient-subtle {
+  @apply bg-gradient-to-r from-white via-zinc-200 to-zinc-400 bg-clip-text text-transparent;
+}
+
+.text-gradient-warm {
+  @apply bg-gradient-to-r from-white via-zinc-100 to-amber-200/90 bg-clip-text text-transparent;
+}
+
+/* Subtle Grid Background (Warm Dark) */
 .bg-grid {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
-  background-size: 22px 22px;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
-/* Noise overlay (optional). Add class "bg-noise" to a wrapper */
+/* Noise texture */
 .bg-noise {
   position: relative;
 }
@@ -147,30 +167,30 @@ a {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.05;
+  opacity: 0.035;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
 }
 
-/* Nice thin scrollbar (WebKit) */
+/* Scrollbar */
 *::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
 }
 *::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.12);
   border-radius: 999px;
-  border: 2px solid rgba(9, 9, 11, 1);
+  border: 2px solid #090a0d;
 }
 *::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.2);
 }
 *::-webkit-scrollbar-track {
-  background: rgba(9, 9, 11, 1);
+  background: #090a0d;
 }
 
-/* ========= SECTION LAYOUT ========= */
+/* Section Rhythm */
 .section {
-  @apply mt-12 sm:mt-16 scroll-mt-28;
+  @apply mt-16 sm:mt-24 scroll-mt-24;
 }
 
 .section-head {
@@ -182,38 +202,5 @@ a {
 }
 
 .section-subtitle {
-  @apply mt-2 text-base sm:text-lg text-zinc-300 max-w-3xl;
-}
-/* Gradient border wrapper: gives “premium” edge without heavy fills */
-.gborder {
-  position: relative;
-  border-radius: 1.6rem;
-}
-.gborder::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: linear-gradient(135deg,
-    rgba(var(--accent), 0.45),
-    rgba(var(--accent-2), 0.25),
-    rgba(var(--accent-3), 0.18)
-  );
-  filter: blur(0px);
-  z-index: 0;
-  opacity: 0.9;
-}
-.gborder > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* Floating Animation */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
+  @apply mt-3 text-base sm:text-lg text-zinc-400 max-w-3xl;
 }

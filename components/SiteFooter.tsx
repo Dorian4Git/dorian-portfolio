@@ -36,7 +36,7 @@ export default function SiteFooter({ lang = "fr" }: { lang?: "fr" | "en" }) {
           
           {/* Logo + Identity */}
           <div>
-            <div className="inline-block bg-gradient-to-r from-cyan-300 via-fuchsia-300 to-amber-200 bg-clip-text text-transparent">
+            <div className="inline-block text-white">
               <LogoDT variant="gradient" className="h-9 w-auto" />
             </div>
 
@@ -50,14 +50,16 @@ export default function SiteFooter({ lang = "fr" }: { lang?: "fr" | "en" }) {
             <Link href="#services" className="hover:text-white transition">
               {t.links.services}
             </Link>
-            <Link href="#realisations" className="hover:text-white transition">
+            <Link href={lang === "en" ? "#projects" : "#realisations"} className="hover:text-white transition">
               {t.links.portfolio}
             </Link>
-            <Link href="/contact" className="hover:text-white transition">
+            <Link href={lang === "en" ? "#research" : "#recherche"} className="hover:text-white transition">
+              {lang === "en" ? "Research & Theses" : "Recherche & Thèses"}
+            </Link>
+            <Link href={lang === "en" ? "/en/contact" : "/contact"} className="hover:text-white transition">
               {t.links.contact}
             </Link>
-            {/* Updates the link based on language if you created the english page */}
-            <Link href={lang === 'en' ? "/en/legal" : "/legal"} className="hover:text-white transition">
+            <Link href={lang === "en" ? "/en/legal" : "/legal"} className="hover:text-white transition">
               {t.links.legal}
             </Link>
           </div>

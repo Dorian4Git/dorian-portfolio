@@ -1,135 +1,143 @@
 "use client";
 
 import { useState } from "react";
-
 import Link from "next/link";
 import Image from "next/image";
-import Pill from "@/components/Pill";
 import { HeroModern } from "@/components/Hero";
+import ThesisSection from "@/components/ThesisSection";
 import { asset } from "@/lib/asset";
 
 const skills = [
-  "Expertise Next.js / React",  // Stronger than "Livraison web"
-  "Architecture WordPress",
-  "LLM Fine-tuning & RAG",      // More buzzword-friendly but accurate
-  "Computer Vision (PyTorch)",
-  "Déploiement Cloud & CI/CD",
-  "Optimisation SEO Technique", // Businesses love SEO
-  "Approche pragmatique",
+  "Conception de Landing Pages de Conversion",
+  "Création de Sites Vitrines (WordPress & Next.js)",
+  "Ergonomie & Parcours Utilisateur (UX/UI)",
+  "Référencement Naturel & Optimisation Locale (SEO)",
+  "Développement Frontend & Fullstack (React, Next.js, Node)",
+  "Traitement de Données & Machine Learning (Python, PyTorch)",
+  "Accompagnement, Maintenance & Déploiement Cloud",
 ];
 
 const services = [
   {
-    // Was: "Site WordPress pour entreprise"
-    title: "Site Vitrine & Autonomie", 
-    image: "/media/services/wp.png",
-    // Focus on the benefit: THEY control it.
-    who: "Pour les pros qui veulent la main sur leur contenu sans toucher au code.",
-    bullets: [
-      "Design sur-mesure (pas de template générique)",
-      "Interface d'admin simplifiée",
-      "Optimisé pour le référencement local",
-      "Formation vidéo incluse",
-    ],
-    note: "Idéal pour : PME, artisans, professions libérales.",
-  },
-  {
-    // Was: "Site moderne sur mesure (Next.js)"
-    title: "Expérience Web Premium",
-    image: "/media/services/next.png",
-    // Focus on the result: Speed and branding.
-    who: "Pour se démarquer avec une fluidité parfaite et un design unique.",
-    bullets: [
-      "Architecture Next.js (la tech d'Airbnb/Netflix)",
-      "Score Google Lighthouse 100%",
-      "Animations fluides & interactives",
-      "Sécurité maximale (site statique)",
-    ],
-    note: "Idéal pour : Startups, SaaS, portfolios créatifs.",
-  },
-  {
-    title: "Landing Page de Conversion",
+    badge: "Acquisition & Vente",
+    title: "Landing Page Haute Conversion",
     image: "/media/services/landing.png",
-    who: "Un seul but : transformer vos visiteurs en clients.",
+    who: "Pour les entrepreneurs, créateurs et entreprises qui lancent une offre et souhaitent transformer chaque clic en prospect qualifié.",
     bullets: [
-      "Copywriting orienté vente",
-      "Chargement instantané (< 1s)",
-      "Intégration CRM / Emailing",
-      "A/B Testing possible",
+      "Structure narrative et copywriting orienté vers l'action",
+      "Design épuré et chargement quasi instantané (< 1 seconde)",
+      "Formulaire optimisé ou connexion directe à votre agenda (Calendly)",
+      "Intégration de vos outils de suivi (Analytics, CRM, Emailing)",
     ],
-    note: "Idéal pour : Lancement de produit, campagnes pubs.",
+    note: "Idéal pour : Lancement de produit, campagne publicitaire, réservation de rendez-vous.",
   },
   {
-    title: "Configuration & Sauvetage Technique",
-    // Make sure to add an image named 'rescue.png' or similar to your public/media folder
-    image: "/media/services/rescue.png", 
-    who: "Pour ceux qui ont les pièces du puzzle mais n'arrivent pas à les assembler.",
+    badge: "Visibilité & Image de Marque",
+    title: "Site Vitrine Élégant & Autonome",
+    image: "/media/services/wp.png",
+    who: "Pour les professionnels et PME qui veulent une présence en ligne crédible, rassurante et facile à mettre à jour sans toucher au code.",
     bullets: [
-      "Connexion Domaine & DNS (Infomaniak, OVH)",
-      "Configuration Hébergement & Emails",
-      "Reprise de site WordPress abandonné",
-      "Mise en ligne express (< 24h)",
+      "Design sur-mesure aligné avec votre identité graphique",
+      "Interface d'administration claire pour modifier textes et photos facilement",
+      "Optimisation technique pour le référencement naturel local (SEO)",
+      "Formation vidéo personnalisée incluse pour une totale indépendance",
     ],
-    note: "Idéal pour : Indépendants bloqués, domaines orphelins.",
+    note: "Idéal pour : Artisans, cabinets médicaux ou juridiques, consultants, PME.",
   },
   {
-    // Was: "Prototype IA / consultation"
-    title: "Intelligence Artificielle Appliquée",
-    image: "/media/services/ai.png",
-    // Highlight your expertise
-    who: "Analysez vos données ou automatisez vos tâches avec le Machine Learning.",
+    badge: "IA Locale & Systèmes",
+    title: "Pipelines LLM & IA Appliquée",
+    image: "/media/services/llm-pipeline.jpg",
+    who: "Pour les entreprises et créateurs souhaitant intégrer des modèles de langage (LLMs) locaux, fiables et connectés à leurs données privées.",
     bullets: [
-      "Audit de faisabilité IA (honnête)",
-      "Affinage de LLM (vos données privées)",
-      "Vision par ordinateur (drone/industrie)",
-      "Déploiement sur serveur sécurisé",
+      "Architecture de pipelines RAG (Retrieval-Augmented Generation) & bases vectorielles",
+      "Exécution locale de modèles open-source (Llama, Mistral) sans fuite de données",
+      "Confidentialité totale : vos documents restent hébergés sur vos serveurs",
+      "Interfaces web interactives et connexion sécurisée à vos outils internes",
     ],
-    note: "Pas de hype : on résout de vrais problèmes business.",
+    note: "Idéal pour : Assistants documentaires privés, automatisation de synthèses, outils métier.",
+  },
+  {
+    badge: "Dépannage & Sérénité",
+    title: "Sauvetage Technique & Maintenance",
+    image: "/media/services/rescue.png",
+    who: "Pour ceux qui font face à un blocage technique, un site en panne, des lenteurs ou un transfert de domaine complexe.",
+    bullets: [
+      "Configuration des noms de domaine, DNS et boîtes emails (Infomaniak, OVH)",
+      "Reprise en main et sécurisation de sites WordPress abandonnés",
+      "Correction de bugs d'affichage et optimisation de la vitesse",
+      "Intervention réactive avec explications claires et transparentes",
+    ],
+    note: "Idéal pour : Urgences techniques, maintenance préventive, migrations.",
   },
 ];
 
 const projects = [
   {
     title: "L'Amie Sage — lamiesage.ch",
-    tags: ["WordPress", "Santé & Bien-être", "Autonomie"],
-    description: "Création d'un site vitrine complet pour un salon de massage. Interface d'administration simplifiée pour permettre à la cliente de gérer ses contenus de manière autonome.",
-    image: "/media/projects/lamiesage.png"
+    tags: ["WordPress", "Santé & Bien-être", "Autonomie Client"],
+    description:
+      "Conception et mise en ligne du site vitrine d'un salon de massage à Genève. Interface sur-mesure simplifiée permettant à la gérante de modifier ses tarifs et horaires en toute autonomie.",
+    image: "/media/projects/lamiesage.png",
   },
   {
     title: "Héloïse D. — heloised.com",
-    tags: ["Web Design", "Responsive", "Identité Visuelle"],
-    description: "Conception et développement d'un site web moderne et élégant mettant en valeur l'expertise professionnelle de la cliente avec un parcours utilisateur optimisé.",
-    image: "/media/projects/heloised.png"
+    tags: ["Identité Visuelle", "Design Responsive", "Image de Marque"],
+    description:
+      "Création d'un site vitrine soigné valorisant l'expertise professionnelle de la cliente avec une navigation fluide, épurée et adaptée aux supports mobiles.",
+    image: "/media/projects/heloised.png",
   },
   {
     title: "Vente Immobilière de Prestige",
-    tags: ["Next.js", "React", "Haute Performance", "Luxe"],
-    description: "Application web Next.js ultra-rapide conçue spécifiquement pour la mise en valeur d'une propriété de luxe. Animations fluides et optimisation SEO maximale.",
-    image: "/media/projects/luxury-real-estate.png"
+    tags: ["Next.js", "Haute Performance", "Luxe & Minimalisme"],
+    description:
+      "Vitrine interactive ultra-rapide dédiée à la présentation exclusive d'un bien d'exception. Fluidité des transitions, galeries d'images optimisées et ambiance sobre.",
+    image: "/media/projects/luxury-real-estate.png",
   },
   {
-    title: "Spécialisation d'un LLM via QLoRA (Recherche)",
-    tags: ["IA", "LLMs", "QLoRA", "Machine Learning"],
-    description: "Projet de Master étudiant l'état de l'art du fine-tuning. Entraînement d'un LLM en local (5h) sur un jeu de données mathématiques, réduisant drastiquement la perplexité du modèle.",
-    image: "/media/projects/llm-qlora-poster.jpg"
+    title: "Spécialisation de LLM via QLoRA (Recherche)",
+    tags: ["Intelligence Artificielle", "NLP", "Machine Learning", "Recherche"],
+    description:
+      "Mémoire de Master étudiant l'état de l'art du fine-tuning de modèles de langage. Entraînement local avec quantification QLoRA, améliorant significativement la précision sur un jeu de données ciblé.",
+    image: "/media/projects/llm-qlora-poster.jpg",
   },
   {
     title: "Détection d'Ambroisie par Drone (POC)",
-    tags: ["Computer Vision", "PyTorch", "Drones", "Data Cleaning"],
-    description: "Traitement de 40 000 images de terrain. Nettoyage massif de données, entraînement de modèles de vision par ordinateur et tests réels avec drone pour détecter cette plante allergène.",
-    image: "/media/projects/ambroisie-detection.jpg"
+    tags: ["Computer Vision", "PyTorch", "Drones", "Traitement de Données"],
+    description:
+      "Traitement et nettoyage de plus de 40 000 clichés aériens pour l'entraînement d'algorithmes de vision par ordinateur destinés au repérage précoce de plantes allergènes.",
+    image: "/media/projects/ambroisie-detection.jpg",
   },
 ];
 
-function CheckIcon({ colorClass }: { colorClass: string }) {
+const faqs = [
+  {
+    q: "Quelle est la différence entre une Landing Page et un Site Vitrine ?",
+    a: "Une Landing Page est une page unique conçue pour atteindre un seul objectif précis (prise de contact, vente d'une prestation, inscription). Elle est idéale si vous lancez une offre ou une campagne. Un Site Vitrine comporte plusieurs pages (Accueil, Présentation, Services détaillés, Contact) et vise à établir votre notoriété globale sur le long terme.",
+  },
+  {
+    q: "Combien de temps faut-il pour concevoir et mettre en ligne mon site ?",
+    a: "En moyenne, une première version fonctionnelle (V1) d'une landing page ou d'un site vitrine est prête en 7 à 14 jours ouvrés dès réception de vos éléments (textes, photos, objectifs). Nous validons ensuite ensemble les ajustements finaux.",
+  },
+  {
+    q: "Pourrai-je modifier moi-même les textes et images par la suite ?",
+    a: "Absolument. Si vous optez pour une solution avec gestion de contenu (WordPress ou CMS dédié), vous bénéficiez d'une interface d'administration claire. Une courte vidéo de formation personnalisée vous est fournie pour que vous soyez totalement autonome.",
+  },
+  {
+    q: "Comment démarrer et quel est le processus de travail ?",
+    a: "C'est très simple : nous commençons par un échange direct (téléphone, visio ou café à Genève) pour cadrer votre besoin. Je vous transmets ensuite une proposition claire avec périmètre et tarif fixes, sans surprise.",
+  },
+];
+
+function CheckIcon() {
   return (
-    <svg 
-      className={`mt-1 h-5 w-5 shrink-0 ${colorClass}`} 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      stroke="currentColor" 
-      strokeWidth="2.5" 
-      strokeLinecap="round" 
+    <svg
+      className="mt-1 h-4 w-4 shrink-0 text-amber-200"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
       strokeLinejoin="round"
     >
       <polyline points="20 6 9 17 4 12" />
@@ -137,177 +145,151 @@ function CheckIcon({ colorClass }: { colorClass: string }) {
   );
 }
 
-function Card({
-  children,
-  className = "",
-  gradient = false,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  gradient?: boolean;
-}) {
-  const inner = (
-    <div className={["card", className].join(" ")}>
-      {children}
-    </div>
-  );
-
-  return gradient ? <div className="gborder">{inner}</div> : inner;
-}
-
-
-
 export default function HomePage() {
-  // CONFIG: How many cards to show initially? 
-  // Recommended: 4 (keeps the 2-column grid symmetrical)
-  const INITIAL_LIMIT = 4;
-  
-  const [showAllServices, setShowAllServices] = useState(false);
-
-
-
-  // Decide which services to display
-  const displayedServices = showAllServices 
-    ? services 
-    : services.slice(0, INITIAL_LIMIT);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <div className="bg-zinc-950 text-white bg-noise">
-      {/* Background vibes */}
-      <div className="pointer-events-none fixed inset-0 -z-10">
-        <div className="absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-fuchsia-500/20 blur-3xl" />
-        <div className="absolute top-40 -left-40 h-[520px] w-[520px] rounded-full bg-cyan-400/15 blur-3xl" />
-        <div className="absolute bottom-0 right-0 h-[520px] w-[520px] rounded-full bg-amber-400/10 blur-3xl" />
+    <div className="bg-[#090a0d] text-white bg-noise min-h-screen">
+      {/* Subtle Warm Ambiance (No Rainbow Glow) */}
+      <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+        <div className="absolute -top-40 right-1/4 h-[550px] w-[550px] rounded-full bg-white/[0.02] blur-3xl" />
+        <div className="absolute top-1/3 -left-32 h-[450px] w-[450px] rounded-full bg-amber-200/[0.015] blur-3xl" />
+        <div className="absolute bottom-10 right-10 h-[400px] w-[400px] rounded-full bg-white/[0.015] blur-3xl" />
       </div>
 
-      <div className="container-fluid py-10 sm:py-14">
-        {/* HERO */}
-        <HeroModern />
+      <div className="container-fluid py-8 sm:py-12">
+        {/* HERO SECTION */}
+        <HeroModern lang="fr" />
 
         {/* SERVICES SECTION */}
         <section id="services" className="section">
           <div className="section-head">
             <div>
+              <div className="pill mb-3">
+                <span className="h-1.5 w-1.5 rounded-full bg-amber-200" />
+                <span>Offres & Prestations</span>
+              </div>
               <h2 className="section-title">
-                <span className="bg-gradient-to-r from-cyan-300 via-fuchsia-300 to-amber-200 bg-clip-text text-transparent">
-                  Services
-                </span>
+                <span>Services pensés pour </span>
+                <span className="text-gradient-warm">votre croissance.</span>
               </h2>
               <p className="section-subtitle">
-                WordPress pour une autonomie totale, Next.js pour une performance sans compromis.
+                De la page de conversion ciblée au site vitrine complet, chaque solution est conçue avec une rigueur technique suisse et un souci constant de simplicité pour vous.
               </p>
             </div>
 
             <Link href="/contact" className="btn-secondary no-underline hidden sm:inline-block">
-              Contact direct
+              Demander un devis
             </Link>
           </div>
 
-          <div className="mt-7 grid gap-5 sm:grid-cols-2">
-            {/* CHANGED: We map over 'displayedServices' instead of 'services' */}
-            {displayedServices.map((s) => (
-              <Card key={s.title} gradient className="relative overflow-hidden p-7 card-hover">
-                
-                {/* UNIFIED IMAGE HEADER: Applies to ALL cards now */}
-                <div className="mb-6 -mx-7 -mt-7 h-64 relative group overflow-hidden bg-zinc-900">
-                  
-                  {s.title === "Landing Page de Conversion" ? (
-                    /* --- OPTION A: SPECIAL SPLIT VIEW (Landing Page) --- */
-                    <div className="grid grid-cols-2 h-full w-full">
-                      <div className="relative h-full border-r border-zinc-800">
-                        <Image 
-                          src={asset("/media/services/minimalist-landing-page-bright-clair-lumineux-minimaliste.png")} 
-                          alt="Light Style" 
-                          fill 
-                          className="object-cover object-top" 
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/20 to-transparent opacity-90" />
-                      </div>
-                      <div className="relative h-full">
-                        <Image 
-                          src={asset("/media/services/minimalist-landing-page-dark-sombre-luxe.png")} 
-                          alt="Dark Style" 
-                          fill 
-                          className="object-cover object-top" 
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/20 to-transparent opacity-90" />
-                      </div>
-                      {/* Badge */}
-                      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-white/10 bg-black/50 px-3 py-1 text-[10px] text-white backdrop-blur-sm shadow-lg">
-                        2 Styles Inclus
-                      </div>
+          {/* Service Cards Grid */}
+          <div className="mt-8 grid gap-6 sm:grid-cols-2">
+            {services.map((s) => (
+              <div
+                key={s.title}
+                className="card relative flex flex-col justify-between overflow-hidden p-7 sm:p-8 card-hover"
+              >
+                <div>
+                  {/* Top image preview */}
+                  <div className="mb-6 -mx-7 -mt-7 sm:-mx-8 sm:-mt-8 h-56 relative overflow-hidden bg-zinc-900/80 border-b border-white/[0.06]">
+                    <Image
+                      src={asset(s.image)}
+                      alt={`Illustration ${s.title}`}
+                      fill
+                      className="object-cover object-top opacity-90 transition-transform duration-700 hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0d0e14] via-[#0d0e14]/40 to-transparent" />
+                    <div className="absolute top-4 left-4">
+                      <span className="rounded-full border border-white/10 bg-black/60 px-3 py-1 text-xs font-medium text-zinc-200 backdrop-blur-md">
+                        {s.badge}
+                      </span>
                     </div>
-                  ) : (
-                    /* --- OPTION B: STANDARD FULL IMAGE (Other Services) --- */
-                    <>
-                      <Image 
-                        src={asset(s.image)} 
-                        alt={`Illustration service : ${s.title}`} 
-                        fill 
-                        className="object-cover object-top transition-transform duration-700 group-hover:scale-105" 
-                      />
-                      {/* Dark Gradient Overlay for text readability */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent opacity-90" />
-                    </>
-                  )}
+                  </div>
+
+                  <h3 className="text-xl sm:text-2xl font-semibold text-white">
+                    {s.title}
+                  </h3>
+                  <p className="mt-2.5 text-sm sm:text-base text-zinc-300 leading-relaxed">
+                    {s.who}
+                  </p>
+
+                  <ul className="mt-5 space-y-2 text-sm text-zinc-300">
+                    {s.bullets.map((b) => (
+                      <li key={b} className="flex items-start gap-2.5">
+                        <CheckIcon />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                {/* CONTENT (Same for all) */}
-                <h3 className="text-xl font-semibold text-white relative z-10">{s.title}</h3>
-                <p className="mt-2 text-base text-zinc-300 relative z-10">{s.who}</p>
-
-                <ul className="mt-5 space-y-2 text-base text-zinc-200 relative z-10">
-                  {s.bullets.map((b) => (
-                    <li key={b} className="flex gap-3">
-                      <CheckIcon colorClass="text-cyan-300" />
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <p className="mt-5 text-base text-zinc-400 relative z-10">{s.note}</p>
-              </Card>
+                <div className="mt-6 pt-5 border-t border-white/[0.06] flex items-center justify-between">
+                  <span className="text-xs text-zinc-400 font-medium">{s.note}</span>
+                  <a
+                    href="#contact"
+                    className="text-xs font-medium text-white hover:text-amber-200 transition"
+                  >
+                    En savoir plus →
+                  </a>
+                </div>
+              </div>
             ))}
-            
           </div>
-          
 
-          {/* NEW: EXPAND BUTTON */}
-          {services.length > INITIAL_LIMIT && (
-            <div className="mt-8 flex justify-center">
-              <button
-                onClick={() => setShowAllServices(!showAllServices)}
-                className="group flex items-center gap-2 rounded-full border border-zinc-700 bg-zinc-900/50 px-6 py-3 text-sm font-medium text-zinc-200 transition hover:bg-zinc-800 hover:text-white"
-              >
-                {showAllServices ? "Voir moins" : "Voir les autres services"}
-                <svg
-                  className={`h-4 w-4 transition-transform duration-300 ${
-                    showAllServices ? "rotate-180" : ""
-                  }`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
+          {/* Quick Explainer: Landing Page vs Site Vitrine */}
+          <div className="mt-10 rounded-3xl border border-white/[0.08] bg-zinc-900/30 p-6 sm:p-8 backdrop-blur-md">
+            <div className="text-center max-w-2xl mx-auto">
+              <h3 className="text-lg sm:text-xl font-semibold text-white">
+                Landing Page ou Site Vitrine : que choisir ?
+              </h3>
+              <p className="mt-2 text-sm text-zinc-400">
+                Deux formats complémentaires selon votre priorité du moment :
+              </p>
             </div>
-          )}
-          {/* Add white vertical space */}
-          <div className="my-10" />
+
+            <div className="mt-6 grid gap-6 sm:grid-cols-2">
+              <div className="rounded-2xl border border-white/[0.06] bg-black/30 p-5">
+                <div className="inline-block rounded-lg bg-amber-200/10 px-2.5 py-1 text-xs font-semibold text-amber-200">
+                  Option 1 : La Landing Page
+                </div>
+                <h4 className="mt-3 text-base font-semibold text-white">
+                  Idéale pour convertir vite
+                </h4>
+                <p className="mt-2 text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                  Une seule page dédiée à une offre précise. Pas de menu dispersif. Conçue pour maximiser le taux de retour sur vos campagnes de communication ou démarrer rapidement sur le web.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-white/[0.06] bg-black/30 p-5">
+                <div className="inline-block rounded-lg bg-white/10 px-2.5 py-1 text-xs font-semibold text-zinc-200">
+                  Option 2 : Le Site Vitrine
+                </div>
+                <h4 className="mt-3 text-base font-semibold text-white">
+                  Idéal pour asseoir votre notoriété
+                </h4>
+                <p className="mt-2 text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                  Plusieurs pages structurées (Accueil, Prestations, À propos, Contact). Permet d'expliquer en détail qui vous êtes, de rassurer vos futurs partenaires et d'être bien référencé sur Google.
+                </p>
+              </div>
+            </div>
+          </div>
         </section>
-        {/* WORK */}
+
+        {/* WORK / REALISATIONS */}
         <section id="realisations" className="section">
           <div className="section-head">
             <div>
+              <div className="pill mb-3">
+                <span className="h-1.5 w-1.5 rounded-full bg-zinc-300" />
+                <span>Portfolio</span>
+              </div>
               <h2 className="section-title">
-                <span className="bg-gradient-to-r from-cyan-300 via-fuchsia-300 to-amber-200 bg-clip-text text-transparent">
-                  Réalisations
-                </span>
+                <span>Réalisations & </span>
+                <span className="text-gradient-subtle">projets concrets.</span>
               </h2>
               <p className="section-subtitle">
-                Des projets concrets déployés en production, allant du site vitrine optimisé aux solutions d'IA complexes.
+                Du site vitrine d'artisan à des architectures web applicatives complexes, découvrez quelques projets menés avec soin.
               </p>
             </div>
 
@@ -316,355 +298,374 @@ export default function HomePage() {
             </a>
           </div>
 
-          <div className="mt-7 grid gap-5 sm:grid-cols-2">
+          <div className="mt-8 grid gap-6 sm:grid-cols-2">
             {projects.map((p) => (
-              <Card key={p.title} gradient className="relative overflow-hidden p-7 card-hover flex flex-col h-full">
-                {p.image && (
-                  <div className="mb-6 -mx-7 -mt-7 h-48 relative group overflow-hidden bg-zinc-900 border-b border-white/5">
-                    <Image 
-                      src={asset(p.image)} 
-                      alt={`Illustration projet : ${p.title}`} 
-                      fill 
-                      className="object-cover object-top transition-transform duration-700 group-hover:scale-105" 
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent opacity-90" />
-                  </div>
-                )}
-                
-                <div className="flex flex-col flex-grow relative z-10">
-                  <div className="flex items-start justify-between gap-4">
-                    <h3 className="text-xl font-semibold text-white">{p.title}</h3>
-                  </div>
+              <div
+                key={p.title}
+                className="card relative flex flex-col justify-between overflow-hidden p-7 card-hover"
+              >
+                <div>
+                  {p.image && (
+                    <div className="mb-6 -mx-7 -mt-7 h-52 relative overflow-hidden bg-zinc-900 border-b border-white/[0.06]">
+                      <Image
+                        src={asset(p.image)}
+                        alt={`Illustration projet : ${p.title}`}
+                        fill
+                        className="object-cover object-top transition-transform duration-700 hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0d0e14] via-[#0d0e14]/30 to-transparent" />
+                    </div>
+                  )}
 
-                  <div className="mt-4 flex flex-wrap gap-2">
+                  <h3 className="text-xl font-semibold text-white">{p.title}</h3>
+
+                  <div className="mt-3 flex flex-wrap gap-1.5">
                     {p.tags.map((t) => (
                       <span
                         key={t}
-                        className="rounded-full border border-white/12 bg-white/[0.03] px-3 py-1 text-sm text-zinc-200"
+                        className="rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-0.5 text-xs text-zinc-300"
                       >
                         {t}
                       </span>
                     ))}
                   </div>
 
-                  <p className="mt-5 text-base text-zinc-300 flex-grow">{p.description}</p>
+                  <p className="mt-4 text-sm text-zinc-300 leading-relaxed">
+                    {p.description}
+                  </p>
                 </div>
-              </Card>
+              </div>
             ))}
           </div>
-          {/* --- STYLE COMPARISON GALLERY --- */}
-          <div className="mt-12 w-full max-w-5xl mx-auto px-4">
+
+          {/* Visual direction demo */}
+          <div className="mt-12 rounded-3xl border border-white/[0.08] bg-zinc-900/20 p-6 sm:p-10 backdrop-blur-md">
             <div className="text-center mb-8">
-              <h4 className="text-lg font-medium text-white">Une expertise, deux univers</h4>
-              <p className="text-sm text-zinc-400">Flexibilité totale sur la direction artistique.</p>
+              <h4 className="text-lg sm:text-xl font-medium text-white">
+                Direction artistique : Deux ambiances selon votre positionnement
+              </h4>
+              <p className="text-xs sm:text-sm text-zinc-400 mt-1">
+                Design clair ou mode sombre feutré, adapté à vos préférences esthétiques.
+              </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
-              
-              {/* Card 1: Light / Editorial */}
-              <div className="group relative rounded-xl border border-zinc-800 bg-zinc-900/50 p-3 transition-transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-white/5">
-                <div className="relative aspect-[16/10] overflow-hidden rounded-lg bg-zinc-800">
-                  {/* Replace with your actual screenshot path */}
-                  <Image 
-                    src={asset("/media/services/minimalist-landing-page-bright-clair-lumineux-minimaliste.png")} 
-                    alt="Style Minimalist Bright" 
-                    width={800} 
-                    height={500} 
-                    className="h-full w-full object-cover opacity-90 transition-all duration-500 group-hover:scale-105 group-hover:opacity-100" 
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Card 1: Light */}
+              <div className="rounded-2xl border border-white/10 bg-black/40 p-4 transition hover:border-white/20">
+                <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-zinc-800">
+                  <Image
+                    src={asset("/media/services/minimalist-landing-page-bright-clair-lumineux-minimaliste.png")}
+                    alt="Style Editorial Minimalist"
+                    width={800}
+                    height={500}
+                    className="h-full w-full object-cover"
                   />
-                  {/* Label Overlay */}
-                  <div className="absolute bottom-3 left-3 rounded-md bg-white/90 px-3 py-1 text-xs font-bold uppercase tracking-wider text-black backdrop-blur">
-                    Style Éditorial
+                  <div className="absolute bottom-3 left-3 rounded-md bg-white/90 px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-black backdrop-blur">
+                    Approche Lumineuse
                   </div>
                 </div>
-                <div className="mt-4 px-1">
-                  <h5 className="text-white font-medium">L'Approche "Galerie"</h5>
-                  <p className="text-xs text-zinc-400 mt-1">Typographie Serif, fond clair, mise en page asymétrique.</p>
+                <div className="mt-3">
+                  <h5 className="text-white text-sm font-medium">Style Éditorial & Épuré</h5>
+                  <p className="text-xs text-zinc-400 mt-0.5">Fond clair, typographie contrastée, respiration maximale.</p>
                 </div>
               </div>
 
-              {/* Card 2: Dark / Luxury */}
-              <div className="group relative rounded-xl border border-zinc-800 bg-zinc-900/50 p-3 transition-transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#D4AF37]/10">
-                <div className="relative aspect-[16/10] overflow-hidden rounded-lg bg-zinc-800">
-                  {/* Replace with your actual screenshot path */}
-                  <Image 
-                    src={asset("/media/services/minimalist-landing-page-dark-sombre-luxe.png")} 
-                    alt="Style Dark Luxury" 
-                    width={800} 
-                    height={500} 
-                    className="h-full w-full object-cover opacity-90 transition-all duration-500 group-hover:scale-105 group-hover:opacity-100" 
+              {/* Card 2: Dark */}
+              <div className="rounded-2xl border border-white/10 bg-black/40 p-4 transition hover:border-white/20">
+                <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-zinc-800">
+                  <Image
+                    src={asset("/media/services/minimalist-landing-page-dark-sombre-luxe.png")}
+                    alt="Style Dark Prestige"
+                    width={800}
+                    height={500}
+                    className="h-full w-full object-cover"
                   />
-                  {/* Label Overlay */}
-                  <div className="absolute bottom-3 left-3 rounded-md bg-[#0f1014]/90 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#D4AF37] border border-[#D4AF37]/30 backdrop-blur">
-                    Style Prestige
+                  <div className="absolute bottom-3 left-3 rounded-md bg-[#0f1014]/90 px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-amber-200 border border-amber-200/30 backdrop-blur">
+                    Approche Feutrée
                   </div>
                 </div>
-                <div className="mt-4 px-1">
-                  <h5 className="text-white font-medium">L'Approche "Cinématique"</h5>
-                  <p className="text-xs text-zinc-400 mt-1">Mode sombre, accents dorés, effets de verre (Glassmorphism).</p>
+                <div className="mt-3">
+                  <h5 className="text-white text-sm font-medium">Style Prestige & Immersion</h5>
+                  <p className="text-xs text-zinc-400 mt-0.5">Mode sombre, finitions soignées, ambiance exclusive.</p>
                 </div>
               </div>
-
             </div>
           </div>
         </section>
 
-        {/* PROCESS */}
+        {/* ACADEMIC RESEARCH & THESES SECTION */}
+        <ThesisSection lang="fr" />
+
+        {/* PROCESS SECTION */}
         <section id="process" className="section">
           <div className="section-head">
             <div>
+              <div className="pill mb-3">
+                <span className="h-1.5 w-1.5 rounded-full bg-zinc-300" />
+                <span>Méthodologie</span>
+              </div>
               <h2 className="section-title">
-          <span className="bg-gradient-to-r from-cyan-300 via-fuchsia-300 to-amber-200 bg-clip-text text-transparent">
-            Process
-          </span> 
+                <span>Collaboration </span>
+                <span className="text-gradient-subtle">fluide et sereine.</span>
               </h2>
               <p className="section-subtitle">
-                Méthode simple : on réduit le flou, on sort une V1 vite, et on itère proprement.
+                Pas de réunions interminables ni de tunnel opaque : une méthode simple, transparente et orientée résultats.
               </p>
             </div>
 
-            <a href="#services" className="btn-secondary no-underline">
-              Voir les offres
+            <a href="#contact" className="btn-secondary no-underline">
+              Lancer votre projet
             </a>
           </div>
 
-          <div className="mt-7 grid gap-5 sm:grid-cols-3">
-            <Card gradient className="p-7 card-hover">
-              <div className="inline-flex items-center">
-              <div className="inline-flex items-center justify-center h-10 w-10 rounded-lg bg-gradient-to-br from-cyan-400 to-cyan-600 text-white font-bold text-lg shadow-lg shadow-cyan-500/50">
-              1
-              </div>
-              <div className="mt-4 text-xl font-semibold text-white ml-3 flex items-center">Cadrage Clair</div>
-              </div>
-              <p className="mt-3 text-base text-zinc-300">
-              On définit le périmètre exact. Prix fixe, deadline fixe. Pas de surprise.
-              </p>
-              <ul className="mt-4 space-y-2 text-base text-zinc-200">
-              <li className="flex gap-3">
-              <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-cyan-300/80 shrink-0" />
-              <span>Périmètre clair</span>
-              </li>
-              <li className="flex gap-3">
-              <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-cyan-300/80 shrink-0" />
-              <span>Plan de pages</span>
-              </li>
-              </ul>
-            </Card>
-
-            <Card gradient className="p-7 card-hover">
-              <div className="inline-flex items-center">
-              <div className="inline-flex items-center justify-center h-10 w-10 rounded-lg bg-gradient-to-br from-fuchsia-400 to-fuchsia-600 text-white font-bold text-lg shadow-lg shadow-fuchsia-500/50">
-              2
-              </div>
-              <div className="mt-4 text-xl font-semibold text-white ml-3 flex items-center">Développement Agile</div>
-              </div>
-              <p className="mt-3 text-base text-zinc-300">
-              Je construis, vous validez. On itère rapidement via un lien de prévisualisation live.
-              </p>
-              <ul className="mt-4 space-y-2 text-base text-zinc-200">
-              <li className="flex gap-3">
-              <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-fuchsia-300/80 shrink-0" />
-              <span>Itérations courtes</span>
-              </li>
-              <li className="flex gap-3">
-              <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-fuchsia-300/80 shrink-0" />
-              <span>Design + contenu</span>
-              </li>
-              </ul>
-            </Card>
-
-            <Card gradient className="p-7 card-hover">
-              <div className="inline-flex items-center">
-
-                <div className="inline-flex items-center justify-center h-10 w-10 rounded-lg bg-gradient-to-br from-amber-300 to-amber-500 text-white font-bold text-lg shadow-lg shadow-amber-500/50">
-                3
+          <div className="mt-8 grid gap-5 sm:grid-cols-3">
+            <div className="card p-7 card-hover">
+              <div className="flex items-center gap-3">
+                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 text-white font-bold text-sm">
+                  1
                 </div>
-              <div className="mt-4 text-xl font-semibold text-white ml-3 flex items-center">Livraison Clés en main</div>
+                <div className="text-lg font-semibold text-white">Échange & Cadrage</div>
               </div>
-              <p className="mt-3 text-base text-zinc-300">
-              Déploiement, configuration du domaine, HTTPS. Je ne pars pas tant que tout n'est pas vert.
+              <p className="mt-3 text-sm text-zinc-300 leading-relaxed">
+                On clarifie votre objectif, vos délais et votre budget. Périmètre précis, devis transparent : zéro surprise.
               </p>
-              <ul className="mt-4 space-y-2 text-base text-zinc-200">
-              <li className="flex gap-3">
-                <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-amber-200/80 shrink-0" />
-                <span>SEO & perf de base</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-[0.55rem] h-2 w-2 rounded-full bg-amber-200/80 shrink-0" />
-                <span>Maintenance optionnelle</span>
-              </li>
-              </ul>
-            </Card>
+            </div>
+
+            <div className="card p-7 card-hover">
+              <div className="flex items-center gap-3">
+                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 text-white font-bold text-sm">
+                  2
+                </div>
+                <div className="text-lg font-semibold text-white">Conception & V1</div>
+              </div>
+              <p className="mt-3 text-sm text-zinc-300 leading-relaxed">
+                Je développe votre site et vous partage un lien privé interactif. Vous testez, nous affinons ensemble en direct.
+              </p>
+            </div>
+
+            <div className="card p-7 card-hover">
+              <div className="flex items-center gap-3">
+                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 text-white font-bold text-sm">
+                  3
+                </div>
+                <div className="text-lg font-semibold text-white">Mise en Ligne & Suivi</div>
+              </div>
+              <p className="mt-3 text-sm text-zinc-300 leading-relaxed">
+                Configuration de votre domaine, sécurisation HTTPS et formation vidéo. Tout est opérationnel et vous appartient.
+              </p>
+            </div>
           </div>
         </section>
 
-        {/* CV */}
+        {/* FAQ SECTION */}
+        <section id="faq" className="section">
+          <div className="section-head">
+            <div>
+              <div className="pill mb-3">
+                <span className="h-1.5 w-1.5 rounded-full bg-amber-200" />
+                <span>Questions Fréquentes</span>
+              </div>
+              <h2 className="section-title">
+                <span>Tout ce que vous devez </span>
+                <span className="text-gradient-warm">savoir.</span>
+              </h2>
+              <p className="section-subtitle">
+                Des réponses transparentes pour avancer l'esprit tranquille.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-8 grid gap-4 max-w-4xl mx-auto">
+            {faqs.map((faq, idx) => {
+              const isOpen = openFaq === idx;
+              return (
+                <div
+                  key={faq.q}
+                  className="rounded-2xl border border-white/[0.08] bg-zinc-900/30 overflow-hidden transition"
+                >
+                  <button
+                    type="button"
+                    onClick={() => setOpenFaq(isOpen ? null : idx)}
+                    className="flex w-full items-center justify-between p-5 text-left text-base font-medium text-white hover:bg-white/[0.02]"
+                  >
+                    <span>{faq.q}</span>
+                    <span className="ml-4 text-zinc-400 text-lg">
+                      {isOpen ? "−" : "+"}
+                    </span>
+                  </button>
+                  {isOpen && (
+                    <div className="p-5 pt-0 text-sm text-zinc-300 leading-relaxed border-t border-white/[0.04]">
+                      {faq.a}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* CV / PROFILE SUMMARY */}
         <section id="cv" className="section">
           <div className="section-head">
             <div>
+              <div className="pill mb-3">
+                <span className="h-1.5 w-1.5 rounded-full bg-zinc-300" />
+                <span>Parcours & Compétences</span>
+              </div>
               <h2 className="section-title">
-                <span className="bg-gradient-to-r from-cyan-300 via-fuchsia-300 to-amber-200 bg-clip-text text-transparent">
-                  CV
-                </span>
-                <span className="text-white"> — résumé</span>
+                <span>Profil & </span>
+                <span className="text-gradient-subtle">Savoir-faire.</span>
               </h2>
               <p className="section-subtitle">
-                Compétences orientées livraison : Web moderne + Science de l'information + IA/ML appliquée.
+                Une double culture : sens du business hérité de l'informatique de gestion et maîtrise technique avancée.
               </p>
             </div>
 
             <Link href="/cv" className="btn-secondary no-underline">
-              CV complet
+              Voir le CV complet
             </Link>
           </div>
 
-          <div className="mt-7 grid gap-5 sm:grid-cols-2">
-            <Card gradient className="p-7 card-hover">
-              <h3 className="text-xl font-semibold text-white">Profil</h3>
-
-              <div className="mt-4 space-y-4">
-              <p className="text-base text-zinc-300">
-                Informatique de gestion, master ML, et une approche pragmatique : cadrer → produire → mesurer → livrer.
+          <div className="mt-8 grid gap-6 sm:grid-cols-2">
+            <div className="card p-7 sm:p-8 card-hover">
+              <h3 className="text-xl font-semibold text-white">Expertises clés</h3>
+              <p className="mt-3 text-sm text-zinc-300 leading-relaxed">
+                J'interviens sur l'ensemble de la chaîne : du cadrage initial de votre projet à sa livraison et son optimisation continue.
               </p>
 
-              <div className="space-y-3">
-                <div className="text-sm font-medium text-zinc-400">Expertise</div>
-                <div className="grid grid-cols-1 gap-2">
+              <div className="mt-6 space-y-2">
                 {skills.map((s) => (
                   <div
-                  key={s}
-                  className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.03] px-4 py-2.5 transition hover:bg-white/[0.06] hover:border-white/20"
+                    key={s}
+                    className="flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] px-3.5 py-2 text-xs sm:text-sm text-zinc-300"
                   >
-                  <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-cyan-300 to-fuchsia-300" />
-                  <span className="text-sm text-zinc-200">{s}</span>
+                    <span className="h-1.5 w-1.5 rounded-full bg-amber-200 shrink-0" />
+                    <span>{s}</span>
                   </div>
                 ))}
-                </div>
               </div>
-              </div>
-            </Card>
+            </div>
 
-            <Card gradient className="p-7 card-hover">
-              <h3 className="text-xl font-semibold text-white">Liens</h3>
+            <div className="card p-7 sm:p-8 card-hover flex flex-col justify-between">
+              <div>
+                <h3 className="text-xl font-semibold text-white">Contact & Réseaux</h3>
+                <p className="mt-3 text-sm text-zinc-300 leading-relaxed">
+                  Disponible pour des projets freelance en Suisse romande (Genève, Vaud, Valais) ou à distance à l'international.
+                </p>
 
-              <div className="mt-4 space-y-3 text-base text-zinc-200">
-                <a 
-                    href="https://www.linkedin.com/in/dorian-t-0b1168150/" 
-                    target="_blank" 
+                <div className="mt-6 space-y-3">
+                  <a
+                    href="https://www.linkedin.com/in/dorian-t-0b1168150/"
+                    target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-4 transition hover:bg-white/[0.05]"
+                    className="flex items-center gap-3.5 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-3.5 transition hover:bg-white/[0.05] no-underline"
                   >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-500/20 text-blue-300">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-500/15 text-blue-300 text-xs font-bold">
                       in
                     </div>
                     <div>
                       <div className="text-xs text-zinc-400">LinkedIn</div>
-                      <div className="font-medium text-white">Dorian Thomé</div>
+                      <div className="text-sm font-medium text-white">Dorian Thomé</div>
                     </div>
                   </a>
-                <div />
-                <a 
-                    href="https://github.com/Dorian4Git" 
-                    target="_blank" 
+
+                  <a
+                    href="https://github.com/Dorian4Git"
+                    target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-4 transition hover:bg-white/[0.05]"
+                    className="flex items-center gap-3.5 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-3.5 transition hover:bg-white/[0.05] no-underline"
                   >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gray-200/20 text-gray-300">
-                      <Image src={asset("/media/github-icon.png")} alt="GitHub" width={20} height={20} />
-                      
+                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 text-white text-xs font-bold">
+                      GH
                     </div>
                     <div>
                       <div className="text-xs text-zinc-400">GitHub</div>
-                      <div className="font-medium text-white">Dorian4Git</div>
+                      <div className="text-sm font-medium text-white">Dorian4Git</div>
                     </div>
                   </a>
-                <div />
-                <a 
-                    href="mailto:contact@dorianthome.ch" 
-                    className="flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-4 transition hover:bg-white/[0.05]"
+
+                  <a
+                    href="mailto:contact@dorianthome.ch"
+                    className="flex items-center gap-3.5 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-3.5 transition hover:bg-white/[0.05] no-underline"
                   >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cyan-500/20 text-cyan-300">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-200/15 text-amber-200 text-xs font-bold">
                       @
                     </div>
                     <div>
-                      <div className="text-xs text-zinc-400">Email</div>
-                      <div className="font-medium text-white">contact@dorianthome.ch</div>
+                      <div className="text-xs text-zinc-400">Email direct</div>
+                      <div className="text-sm font-medium text-white">contact@dorianthome.ch</div>
                     </div>
                   </a>
+                </div>
               </div>
 
-              <div className="mt-7 flex flex-wrap gap-3">
-                <Link href="/cv" className="btn-secondary no-underline">
-                  Voir le CV complet
+              <div className="mt-8 pt-6 border-t border-white/[0.06] flex items-center gap-3">
+                <Link href="/cv" className="btn-secondary text-xs sm:text-sm py-2.5 px-4 no-underline">
+                  Voir mon parcours détaillé
                 </Link>
-                <a href="#contact" className="btn-primary no-underline">
+                <a href="#contact" className="btn-primary text-xs sm:text-sm py-2.5 px-4 no-underline">
                   Me contacter
                 </a>
               </div>
-            </Card>
+            </div>
           </div>
         </section>
 
-        {/* CONTACT */}
+        {/* CONTACT SECTION */}
         <section id="contact" className="section">
           <div className="section-head">
             <div>
+              <div className="pill mb-3">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                <span>Premier Contact</span>
+              </div>
               <h2 className="section-title">
-                <span className="bg-gradient-to-r from-cyan-300 via-fuchsia-300 to-amber-200 bg-clip-text text-transparent">
-                  Contact
-                </span>
+                <span>Parlons de votre </span>
+                <span className="text-gradient-warm">projet.</span>
               </h2>
               <p className="section-subtitle">
-                Parlez-moi de votre objectif, vos délais et montrez-moi ce que vous aimez. Je réponds avec un plan clair.
+                Présentez-moi votre idée, votre calendrier et vos attentes. Je vous réponds sous 24h avec une vision claire et sans engagement.
               </p>
             </div>
-
-            <a href="mailto:contact@dorianthome.ch" className="btn-secondary no-underline">
-              Email direct
-            </a>
           </div>
 
-          <Card gradient className="mt-7 p-7 sm:p-8 card-hover">
-            <div className="grid gap-8 sm:grid-cols-3">
+          <div className="card mt-8 p-7 sm:p-10 card-hover">
+            <div className="grid gap-8 sm:grid-cols-3 items-center">
               <div className="sm:col-span-2">
-                <div className="text-xl font-semibold text-white">Message rapide</div>
-                <p className="mt-3 text-base text-zinc-300">
-                  Objectif • pages • contenu dispo • deadline • budget (optionnel) • exemples
+                <div className="text-xl sm:text-2xl font-semibold text-white">
+                  Prêt à donner vie à votre site web ?
+                </div>
+                <p className="mt-3 text-sm sm:text-base text-zinc-300 leading-relaxed">
+                  Que vous partiez d'une feuille blanche ou que vous souhaitiez moderniser un site existant, discutons de la meilleure approche pour votre activité.
                 </p>
 
                 <div className="mt-6 flex flex-wrap gap-3">
                   <Link href="/contact" className="btn-primary no-underline">
-                    Ouvrir le formulaire
+                    Ouvrir le formulaire de contact
                   </Link>
                   <a href="mailto:contact@dorianthome.ch" className="btn-secondary no-underline">
-                    Email direct
+                    Écrire directement par email
                   </a>
                 </div>
               </div>
 
-              <div className="space-y-4 text-base text-zinc-200">
+              <div className="rounded-2xl border border-white/[0.08] bg-black/40 p-6 space-y-4 text-xs sm:text-sm">
                 <div>
-                  <div className="text-sm text-zinc-400">Localisation</div>
-                  Genève, Suisse, Suisse romande, Disponible à distance
+                  <div className="text-zinc-400 text-xs">Localisation</div>
+                  <div className="text-white font-medium mt-0.5">Genève, Suisse</div>
                 </div>
                 <div>
-                  <div className="text-sm text-zinc-400">Email</div>
-                  <a className="link" href="mailto:contact@dorianthome.ch">
-                    contact@dorianthome.ch
-                  </a>
+                  <div className="text-zinc-400 text-xs">Zone d'intervention</div>
+                  <div className="text-white font-medium mt-0.5">Genève, Suisse romande & Remote</div>
                 </div>
                 <div>
-                  <div className="text-sm text-zinc-400">GitHub</div>
-                  <a className="link" target="_blank" rel="noreferrer" href="https://github.com/Dorian4Git">
-                    Dorian4Git
-                  </a>
+                  <div className="text-zinc-400 text-xs">Temps de réponse</div>
+                  <div className="text-emerald-400 font-medium mt-0.5">Généralement sous 24 heures</div>
                 </div>
               </div>
             </div>
-          </Card>
+          </div>
         </section>
-
-
       </div>
     </div>
   );

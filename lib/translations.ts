@@ -1,5 +1,3 @@
-import { title } from "process";
-
 export const translations = {
   en: {
     description: "Data Scientist | Full-Stack Developer | Tech Enthusiast",

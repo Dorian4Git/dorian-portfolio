@@ -1,6 +1,5 @@
 "use client"; // <--- Important: This enables the interactivity
 
-import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 import { useState } from "react";
 
@@ -34,9 +33,9 @@ export default function ContactPage() {
     <div className="relative min-h-screen overflow-hidden pt-24 pb-20">
       
       {/* Background Ambiance */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute top-0 right-1/4 h-[500px] w-[500px] rounded-full bg-cyan-500/10 blur-[100px]" />
-        <div className="absolute bottom-0 left-1/4 h-[500px] w-[500px] rounded-full bg-fuchsia-500/10 blur-[100px]" />
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute top-0 right-1/4 h-[500px] w-[500px] rounded-full bg-white/[0.02] blur-[100px]" />
+        <div className="absolute bottom-0 left-1/4 h-[450px] w-[450px] rounded-full bg-amber-200/[0.015] blur-[100px]" />
       </div>
 
       <div className="container-padded">
@@ -66,7 +65,7 @@ export default function ContactPage() {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:border-cyan-300/50 focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-cyan-300/50 transition"
+                    className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:border-white/30 focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-white/20 transition"
                     placeholder="Jean Dupont"
                   />
                 </div>
@@ -81,7 +80,7 @@ export default function ContactPage() {
                     required
                     value={formData.subject}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:border-cyan-300/50 focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-cyan-300/50 transition"
+                    className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:border-white/30 focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-white/20 transition"
                     placeholder="Site Vitrine, Application Next.js..."
                   />
                 </div>
@@ -97,7 +96,7 @@ export default function ContactPage() {
                     rows={6}
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:border-cyan-300/50 focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-cyan-300/50 transition"
+                    className="w-full resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:border-white/30 focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-white/20 transition"
                     placeholder="Bonjour, je souhaite créer un site vitrine pour mon agence..."
                   />
                 </div>

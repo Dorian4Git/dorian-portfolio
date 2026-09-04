@@ -27,9 +27,9 @@ export default function LogoDT({ variant = "mono", ...props }: LogoDTProps) {
             y2="64" /* Changed to diagonal gradient for more dynamism */
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0" stopColor="#06b6d4" />   {/* cyan-500: Electric Blue */}
-            <stop offset="0.5" stopColor="#d946ef" /> {/* fuchsia-500: Neon Purple */}
-            <stop offset="1" stopColor="#f59e0b" />   {/* amber-500: Sharp Gold */}
+            <stop offset="0%" stopColor="#ffffff" />
+            <stop offset="60%" stopColor="#e2e8f0" />
+            <stop offset="100%" stopColor="#f5d073" />
           </linearGradient>
         </defs>
       )}

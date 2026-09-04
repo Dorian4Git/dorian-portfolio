@@ -59,6 +59,7 @@ export default function SiteHeader({ lang = "fr" }: { lang?: "fr" | "en" }) {
   const navAnchorsFR = [
     { label: "Services", href: "#services" },
     { label: "Réalisations", href: "#realisations" },
+    { label: "Recherche & Thèses", href: "#recherche" },
     { label: "Process", href: "#process" },
     { label: "CV", href: "#cv" },
     { label: "Contact", href: "#contact" },
@@ -66,7 +67,8 @@ export default function SiteHeader({ lang = "fr" }: { lang?: "fr" | "en" }) {
 
   const navAnchorsEN = [
     { label: "Services", href: "#services" },
-    { label: "Work", href: "#work" },
+    { label: "Projects", href: "#projects" },
+    { label: "Research & Theses", href: "#research" },
     { label: "Process", href: "#process" },
     { label: "Resume", href: "#resume" },
     { label: "Contact", href: "#contact" },

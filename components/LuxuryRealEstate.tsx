@@ -1,10 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
-
 export function LuxuryRealEstateDemo() {
-  const [isHovered, setIsHovered] = useState(false);
 
   return (
     // CONTAINER: Acts as the "Body" of the mini-site
