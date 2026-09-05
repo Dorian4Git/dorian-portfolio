@@ -88,7 +88,7 @@ export function HeroModern({ lang = "fr" }: { lang?: "fr" | "en" }) {
             alt={t.photoCaption.role}
             fill
             priority
-            className="object-cover object-[72%_25%] sm:object-[70%_20%] opacity-85 sm:opacity-90"
+            className="object-cover object-[82%_42%] sm:object-[80%_45%] opacity-85 sm:opacity-90"
           />
 
           {/* Left-to-right fade so image blends seamlessly under text */}
