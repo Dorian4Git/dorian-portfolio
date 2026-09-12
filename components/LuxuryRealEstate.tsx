@@ -5,7 +5,7 @@ export function LuxuryRealEstateDemo() {
   return (
     // CONTAINER: Acts as the "Body" of the mini-site
     <div className="relative flex h-[600px] w-full overflow-hidden bg-[#FAFAFA] text-[#1A1A1A] font-sans antialiased">
-      
+
       {/* --- LEFT PANEL --- */}
       <div className="z-10 flex w-[45%] flex-col justify-between bg-white px-8 py-10 md:px-12">
         {/* Nav */}
@@ -58,24 +58,24 @@ export function LuxuryRealEstateDemo() {
 
       {/* --- RIGHT PANEL (Image Background) --- */}
       <div className="relative w-[55%] bg-zinc-200">
-         {/* Using a standard Next/Image would be ideal, but for the demo we use a div background or img tag */}
-        <img 
-            src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2574&auto=format&fit=crop"
-            alt="Luxury Interior"
-            className="h-full w-full object-cover"
+        {/* Using a standard Next/Image would be ideal, but for the demo we use a div background or img tag */}
+        <img
+          src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2574&auto=format&fit=crop"
+          alt="Luxury Interior"
+          className="h-full w-full object-cover"
         />
 
         {/* Floating Card - The "Pop out" effect */}
-        <div 
-            className={`absolute bottom-16 -left-12 flex w-64 items-center gap-4 bg-white p-5 shadow-2xl transition-all duration-700 ease-out ${isHovered ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
-            // Trigger animation on load (or use an IntersectionObserver)
-            style={{ animation: 'slideUp 1s forwards 0.5s' }}
+        <div
+          className={`absolute bottom-16 -left-12 flex w-64 items-center gap-4 bg-white p-5 shadow-2xl transition-all duration-700 ease-out ${isHovered ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+          // Trigger animation on load (or use an IntersectionObserver)
+          style={{ animation: 'slideUp 1s forwards 0.5s' }}
         >
           <div className="h-16 w-16 shrink-0 overflow-hidden bg-gray-100">
-            <img 
-                src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2653&auto=format&fit=crop" 
-                className="h-full w-full object-cover"
-                alt="Thumbnail"
+            <img
+              src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2653&auto=format&fit=crop"
+              className="h-full w-full object-cover"
+              alt="Thumbnail"
             />
           </div>
           <div>
@@ -84,7 +84,7 @@ export function LuxuryRealEstateDemo() {
           </div>
         </div>
       </div>
-      
+
       <style jsx>{`
         @keyframes slideUp {
           from { opacity: 0; transform: translateY(20px); }

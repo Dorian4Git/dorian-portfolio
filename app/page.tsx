@@ -8,7 +8,7 @@ import ThesisSection from "@/components/ThesisSection";
 import { asset } from "@/lib/asset";
 
 const skills = [
-  "Conception de Landing Pages de Conversion",
+  "Conception de Landing Pages & Pages Dédiées",
   "Création de Sites Vitrines (WordPress & Next.js)",
   "Ergonomie & Parcours Utilisateur (UX/UI)",
   "Référencement Naturel & Optimisation Locale (SEO)",
@@ -19,17 +19,17 @@ const skills = [
 
 const services = [
   {
-    badge: "Acquisition & Vente",
-    title: "Landing Page Haute Conversion",
+    badge: "Lancement & Présentation",
+    title: "Landing Page & Page Dédiée",
     image: "/media/services/landing.png",
-    who: "Pour les entrepreneurs, créateurs et entreprises qui lancent une offre et souhaitent transformer chaque clic en prospect qualifié.",
+    who: "Pour les entrepreneurs, créateurs et entreprises qui lancent une offre et souhaitent présenter leur activité avec clarté et impact.",
     bullets: [
-      "Structure narrative et copywriting orienté vers l'action",
+      "Structure claire et présentation soignée orientée vers l'action",
       "Design épuré et chargement quasi instantané (< 1 seconde)",
       "Formulaire optimisé ou connexion directe à votre agenda (Calendly)",
       "Intégration de vos outils de suivi (Analytics, CRM, Emailing)",
     ],
-    note: "Idéal pour : Lancement de produit, campagne publicitaire, réservation de rendez-vous.",
+    note: "Idéal pour : Lancement d'offre, présentation de produit, prise de rendez-vous.",
   },
   {
     badge: "Visibilité & Image de Marque",
@@ -170,11 +170,11 @@ export default function HomePage() {
                 <span>Offres & Prestations</span>
               </div>
               <h2 className="section-title">
-                <span>Services pensés pour </span>
-                <span className="text-gradient-warm">votre croissance.</span>
+                <span>Des solutions adaptées à </span>
+                <span className="text-gradient-warm">vos besoins.</span>
               </h2>
               <p className="section-subtitle">
-                De la page de conversion ciblée au site vitrine complet, chaque solution est conçue avec une rigueur technique suisse et un souci constant de simplicité pour vous.
+                De la page de présentation ciblée au site vitrine complet, chaque solution est conçue avec une rigueur technique suisse et un souci constant de clarté.
               </p>
             </div>
 
@@ -254,10 +254,10 @@ export default function HomePage() {
                   Option 1 : La Landing Page
                 </div>
                 <h4 className="mt-3 text-base font-semibold text-white">
-                  Idéale pour convertir vite
+                  Idéale pour présenter une offre ciblée
                 </h4>
                 <p className="mt-2 text-xs sm:text-sm text-zinc-300 leading-relaxed">
-                  Une seule page dédiée à une offre précise. Pas de menu dispersif. Conçue pour maximiser le taux de retour sur vos campagnes de communication ou démarrer rapidement sur le web.
+                  Une seule page dédiée à un objectif précis, sans distraction. Conçue pour aller à l'essentiel, valoriser clairement votre proposition et faciliter la prise de contact.
                 </p>
               </div>
 
@@ -409,7 +409,7 @@ export default function HomePage() {
                 <span className="text-gradient-subtle">fluide et sereine.</span>
               </h2>
               <p className="section-subtitle">
-                Pas de réunions interminables ni de tunnel opaque : une méthode simple, transparente et orientée résultats.
+                Pas de réunions interminables ni d'intermédiaires superflus : une méthode simple, transparente et efficace.
               </p>
             </div>
 

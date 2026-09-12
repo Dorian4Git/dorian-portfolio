@@ -9,9 +9,8 @@ const translations = {
     status: "Disponible pour nouveaux projets • Genève & Remote",
     h1Line1: "Sites web performants &",
     h1Line2: "expériences sur-mesure.",
-    h1Accent: "Conçus pour convertir.",
     description:
-      "Je suis Dorian Thomé, développeur basé à Genève. J'accompagne les indépendants, PME et créateurs dans la conception de sites web modernes, ultra-rapides et faciles à administrer. Une approche humaine, une rigueur suisse, zéro jargon inutile.",
+      "Je suis Dorian Thomé, développeur basé à Genève. J'accompagne les indépendants, PME et créateurs dans la conception de sites web modernes, ultra-rapides et faciles à administrer. Une approche humaine, et zéro jargon inutile.",
     btnContact: "Discuter de votre projet",
     btnServices: "Découvrir mes services",
     btnResearch: "Mémoires & Recherche",
@@ -39,9 +38,8 @@ const translations = {
     status: "Available for new projects • Geneva & Remote",
     h1Line1: "High-performance websites &",
     h1Line2: "custom digital experiences.",
-    h1Accent: "Built to engage & convert.",
     description:
-      "I'm Dorian Thomé, a web developer based in Geneva. I partner with founders, businesses, and creators to build fast, beautiful, and easy-to-manage web experiences. Swiss precision, human collaboration, zero unnecessary buzzwords.",
+      "I'm Dorian Thomé, a web developer based in Geneva. I partner with founders, businesses, and creators to build fast, beautiful, and easy-to-manage web experiences. Human collaboration, and zero unnecessary buzzwords.",
     btnContact: "Discuss a Project",
     btnServices: "Explore Services",
     btnResearch: "Research & Theses",
@@ -134,10 +132,7 @@ export function HeroModern({ lang = "fr" }: { lang?: "fr" | "en" }) {
           {/* Main Title */}
           <h1 className="mt-6 text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-white leading-[1.12]">
             {t.h1Line1} <br className="hidden sm:inline" />
-            <span>{t.h1Line2}</span>
-            <span className="block mt-1 text-gradient-warm font-medium">
-              {t.h1Accent}
-            </span>
+            <span className="text-gradient-warm">{t.h1Line2}</span>
           </h1>
 
           {/* Subtitle / Human Intro */}

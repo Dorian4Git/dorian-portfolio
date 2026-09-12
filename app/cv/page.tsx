@@ -13,7 +13,7 @@ const experiences = [
     role: "Développeur Web Freelance & Créateur Digital",
     company: "Indépendant • Genève & Remote",
     description:
-      "Conception et livraison de sites web modernes (WordPress & Next.js), landing pages de conversion et prototypes IA pour indépendants et PME suisses. Cadrage du besoin, design, développement, déploiement et formation client.",
+      "Conception et livraison de sites web modernes (WordPress & Next.js), landing pages dédiées et prototypes IA pour indépendants et PME suisses. Cadrage du besoin, design, développement, déploiement et formation client.",
   },
   {
     period: "2022 — 2024",

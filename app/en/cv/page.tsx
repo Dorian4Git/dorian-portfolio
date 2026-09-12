@@ -13,7 +13,7 @@ const experiences = [
     role: "Freelance Web Developer & Digital Creator",
     company: "Independent • Geneva & Remote",
     description:
-      "Design and delivery of modern websites (WordPress & Next.js), high-converting landing pages, and practical AI prototypes for founders and Swiss SMBs. Scope definition, UI design, fullstack development, deployment, and client training.",
+      "Design and delivery of modern websites (WordPress & Next.js), focused landing pages, and practical AI prototypes for founders and Swiss SMBs. Scope definition, UI design, fullstack development, deployment, and client training.",
   },
   {
     period: "2022 — 2024",

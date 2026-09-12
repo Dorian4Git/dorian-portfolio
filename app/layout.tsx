@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: "%s | Dorian Thomé",
   },
   description:
-    "Développeur web basé à Genève. Création de landing pages haute conversion, sites vitrines WordPress & Next.js sur-mesure et solutions IA pratiques. Rigueur suisse et code performant.",
+    "Développeur web basé à Genève. Conception de sites vitrines WordPress & Next.js sur-mesure, landing pages soignées et solutions IA pratiques. Rigueur suisse et code performant.",
 
   alternates: {
     canonical: siteUrl,
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     siteName: "Dorian Thomé — Développeur Web",
     title: "Dorian Thomé | Développeur Web Freelance & IA • Genève",
     description:
-      "Création de landing pages de conversion, sites vitrines sur-mesure et intégrations IA pour indépendants et PME.",
+      "Conception de sites vitrines sur-mesure, landing pages soignées et intégrations IA pour indépendants et PME.",
     images: [
       {
         url: "/og-image.png",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Dorian Thomé | Développeur Web Freelance • Genève",
     description:
-      "Landing pages de conversion, sites vitrines sur-mesure et solutions IA pratiques.",
+      "Sites vitrines sur-mesure, landing pages soignées et solutions IA pratiques.",
     images: ["/og-image.png"],
   },
 
@@ -113,8 +113,8 @@ export default function RootLayout({
               "@type": "Offer",
               itemOffered: {
                 "@type": "Service",
-                name: "Landing Page Haute Conversion",
-                description: "Conception de page de vente et de capture pour convertir les visiteurs en clients.",
+                name: "Landing Page & Page Dédiée",
+                description: "Conception de page de présentation ciblée et optimisée pour engager vos visiteurs et faciliter la prise de contact.",
               },
             },
             {

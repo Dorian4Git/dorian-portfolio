@@ -4,7 +4,7 @@ import Link from "next/link";
 // 1. Define translations
 const translations = {
   fr: {
-    description: "Développeur web moderne. Sites rapides, clairs et orientés résultats.",
+    description: "Développeur web basé à Genève. Sites rapides, soignés et faciles à administrer.",
     links: {
       services: "Services",
       portfolio: "Réalisations",
@@ -14,7 +14,7 @@ const translations = {
     location: "Genève"
   },
   en: {
-    description: "Modern web developer. Fast, clear, and results-oriented websites.",
+    description: "Web developer based in Geneva. Fast, refined, and easy-to-manage websites.",
     links: {
       services: "Services",
       portfolio: "Portfolio",

@@ -8,7 +8,7 @@ import ThesisSection from "@/components/ThesisSection";
 import { asset } from "@/lib/asset";
 
 const skills = [
-  "High-Converting Landing Pages",
+  "Dedicated Landing Pages & Focus Sites",
   "Custom Showcase Websites (WordPress & Next.js)",
   "User Experience & Interface Design (UX/UI)",
   "Technical SEO & Local Search Optimization",
@@ -19,17 +19,17 @@ const skills = [
 
 const services = [
   {
-    badge: "Acquisition & Sales",
-    title: "High-Converting Landing Page",
+    badge: "Launches & Focus",
+    title: "Dedicated Landing Page",
     image: "/media/services/landing.png",
-    who: "For founders, creators, and businesses launching an offer and looking to turn traffic into qualified leads or paying customers.",
+    who: "For founders, creators, and businesses launching an offer and seeking a clear, convincing presentation for their audience.",
     bullets: [
-      "Persuasive narrative structure and action-oriented copywriting",
+      "Clear structure and focused content designed to engage visitors",
       "Clean, distraction-free design with sub-second loading speeds",
       "Optimized contact form or direct booking integration (Calendly)",
       "Tracking setup (Google Analytics, Meta Pixel, CRM integration)",
     ],
-    note: "Ideal for: Product launches, ad campaigns, webinar registrations, consultancies.",
+    note: "Ideal for: Product launches, focused campaigns, direct booking, consultancies.",
   },
   {
     badge: "Branding & Authority",
@@ -171,10 +171,10 @@ export default function EnglishHomePage() {
               </div>
               <h2 className="section-title">
                 <span>Web solutions built for </span>
-                <span className="text-gradient-warm">real growth.</span>
+                <span className="text-gradient-warm">your needs.</span>
               </h2>
               <p className="section-subtitle">
-                From high-converting landing pages to comprehensive company websites, every solution is built with Swiss technical discipline and a focus on clarity.
+                From dedicated landing pages to comprehensive company websites, every solution is built with Swiss technical discipline and a focus on clarity.
               </p>
             </div>
 
@@ -254,10 +254,10 @@ export default function EnglishHomePage() {
                   Option 1: The Landing Page
                 </div>
                 <h4 className="mt-3 text-base font-semibold text-white">
-                  Ideal to convert quickly
+                  Ideal for a focused offer
                 </h4>
                 <p className="mt-2 text-xs sm:text-sm text-zinc-300 leading-relaxed">
-                  A single page dedicated to a specific offer with zero distracting navigation. Built to maximize return on advertising campaigns or validate a new product rapidly.
+                  A single page dedicated to a specific objective with zero distracting navigation. Designed to get straight to the point, present your value clearly, and make contacting you effortless.
                 </p>
               </div>
 
